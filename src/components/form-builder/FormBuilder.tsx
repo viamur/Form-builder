@@ -6,6 +6,7 @@ import SaveFormBtn from '@/components/form-builder/buttons/SaveFormBtn';
 import PreviewDialogBtn from '@/components/form-builder/buttons/PreviewDialogBtn';
 import Designer from '@/components/form-builder/designer/Designer';
 import { DndContext } from '@dnd-kit/core';
+import DragOverlayWrapper from '@/components/form-builder/designer/DragOverlayWrapper';
 
 type FormBuilderProps = {
     form: Form;
@@ -36,6 +37,7 @@ function FormBuilder({form}: FormBuilderProps) {
                     <Designer />
                 </div>
             </main>
+            <DragOverlayWrapper />
         </DndContext>
     )
 }
