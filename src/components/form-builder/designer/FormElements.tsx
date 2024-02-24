@@ -1,4 +1,4 @@
-import { TextFieldFormElement } from '@/components/form-builder/fields/TextField';
+import { TextFieldFormElement } from '@/components/form-builder/fields/text-field/TextField';
 
 export type ElementsType =
     | "TextField"
