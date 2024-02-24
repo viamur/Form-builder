@@ -1,8 +1,8 @@
-"use server";
+'use server';
 
-import prisma from "@/lib/prisma";
-import { formSchema, formSchemaType } from "@/schemas/form";
-import { currentUser } from "@clerk/nextjs";
+import prisma from '@/lib/prisma';
+import { formSchema, formSchemaType } from '@/schemas/form';
+import { currentUser } from '@clerk/nextjs';
 
 class UserNotFoundErr extends Error {}
 
@@ -14,12 +14,12 @@ export async function GetFormStats() {
 
     const stats = await prisma.form.aggregate({
         where: {
-            userId: user.id,
+            userId: user.id
         },
         _sum: {
             visits: true,
-            submissions: true,
-        },
+            submissions: true
+        }
     });
 
     const visits = stats._sum.visits || 0;
@@ -37,14 +37,14 @@ export async function GetFormStats() {
         visits,
         submissions,
         submissionRate,
-        bounceRate,
+        bounceRate
     };
 }
 
 export async function CreateForm(data: formSchemaType) {
     const validation = formSchema.safeParse(data);
     if (!validation.success) {
-        throw new Error("form not valid");
+        throw new Error('form not valid');
     }
 
     const user = await currentUser();
@@ -58,12 +58,12 @@ export async function CreateForm(data: formSchemaType) {
         data: {
             userId: user.id,
             name,
-            description,
-        },
+            description
+        }
     });
 
     if (!form) {
-        throw new Error("something went wrong");
+        throw new Error('something went wrong');
     }
 
     return form.id;
@@ -77,11 +77,11 @@ export async function GetForms() {
 
     return await prisma.form.findMany({
         where: {
-            userId: user.id,
+            userId: user.id
         },
         orderBy: {
-            createdAt: "desc",
-        },
+            createdAt: 'desc'
+        }
     });
 }
 
@@ -94,8 +94,8 @@ export async function GetFormById(id: number) {
     return await prisma.form.findUnique({
         where: {
             userId: user.id,
-            id,
-        },
+            id
+        }
     });
 }
 
@@ -108,11 +108,11 @@ export async function UpdateFormContent(id: number, jsonContent: string) {
     return await prisma.form.update({
         where: {
             userId: user.id,
-            id,
+            id
         },
         data: {
-            content: jsonContent,
-        },
+            content: jsonContent
+        }
     });
 }
 
@@ -124,28 +124,28 @@ export async function PublishForm(id: number) {
 
     return await prisma.form.update({
         data: {
-            published: true,
+            published: true
         },
         where: {
             userId: user.id,
-            id,
-        },
+            id
+        }
     });
 }
 
 export async function GetFormContentByUrl(formUrl: string) {
     return await prisma.form.update({
         select: {
-            content: true,
+            content: true
         },
         data: {
             visits: {
-                increment: 1,
-            },
+                increment: 1
+            }
         },
         where: {
-            shareURL: formUrl,
-        },
+            shareURL: formUrl
+        }
     });
 }
 
@@ -153,18 +153,18 @@ export async function SubmitForm(formUrl: string, content: string) {
     return await prisma.form.update({
         data: {
             submissions: {
-                increment: 1,
+                increment: 1
             },
             FormSubmissions: {
                 create: {
-                    content,
-                },
-            },
+                    content
+                }
+            }
         },
         where: {
             shareURL: formUrl,
-            published: true,
-        },
+            published: true
+        }
     });
 }
 
@@ -177,10 +177,10 @@ export async function GetFormWithSubmissions(id: number) {
     return await prisma.form.findUnique({
         where: {
             userId: user.id,
-            id,
+            id
         },
         include: {
-            FormSubmissions: true,
-        },
+            FormSubmissions: true
+        }
     });
 }
