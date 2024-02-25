@@ -1,6 +1,12 @@
-import { FormElement } from '@/components/form-builder/designer/FormElements';
+import { FormElement, FormElementInstance } from '@/components/form-builder/designer/FormElements';
 import { MdTextFields } from 'react-icons/md';
 import DesignerComponent from '@/components/form-builder/fields/text-field/DesignerComponent';
+import PropertiesComponent from '@/components/form-builder/fields/text-field/PropertiesComponent';
+import { z } from 'zod';
+
+export type CustomInstance = {
+    extraAttributes: typeof extraAttributes
+} & FormElementInstance;
 
 export const extraAttributes = {
     label: 'Text Field',
@@ -22,6 +28,6 @@ export const TextFieldFormElement: FormElement = {
     },
     designerComponent: DesignerComponent,
     formComponent: () => <div>Form component</div>,
-    propertiesComponent: () => <div>Properties component</div>,
+    propertiesComponent: PropertiesComponent,
     validate: () => true,
 }

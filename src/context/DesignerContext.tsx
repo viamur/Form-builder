@@ -10,6 +10,7 @@ type DesignerContextType = {
 
     selectedElement: FormElementInstance | null;
     setSelectedElement:  Dispatch<SetStateAction<FormElementInstance | null>>;
+    updateElement: (id: string, element: FormElementInstance) => void;
 }
 
 export const DesignerContext = createContext<DesignerContextType | null>(null);
@@ -31,6 +32,15 @@ export default function DesignerContextProvider({children}: PropsWithChildren) {
             prevElements.filter((element) => element.id !== id));
     }
 
+    const updateElement = (id: string, element: FormElementInstance) => {
+        setElements((prevElements) => {
+            const index = prevElements.findIndex((element) => element.id === id);
+            const newElements = [...prevElements];
+            newElements[index] = element;
+            return newElements;
+        })
+    }
+
     const value = {
         elements,
         addElement,
@@ -38,6 +48,7 @@ export default function DesignerContextProvider({children}: PropsWithChildren) {
 
         selectedElement,
         setSelectedElement,
+        updateElement,
     }
 
     return (

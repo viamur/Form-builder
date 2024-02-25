@@ -13,7 +13,7 @@ type Props = {
 export default function DesignerElementWrapper({ element }: Props) {
     const [mouseIsOver, setMouseIsOver] = useState(false);
 
-    const {removeElement} = useDesigner();
+    const {removeElement, setSelectedElement} = useDesigner();
 
     const DesignerElement = FormElements[element.type].designerComponent;
     const topHalf = useDroppable({
@@ -51,6 +51,10 @@ export default function DesignerElementWrapper({ element }: Props) {
             {...draggable.listeners}
             onMouseEnter={() => setMouseIsOver(true)}
             onMouseLeave={() => setMouseIsOver(false)}
+            onClick={(e) => {
+                e.stopPropagation();
+                setSelectedElement(element);
+            }}
             className="relative h-[120px] flex flex-col text-foreground hover:cursor-pointer rounded-md ring-1 ring-accent ring-inset">
             <div
                 ref={topHalf.setNodeRef}
@@ -65,7 +69,8 @@ export default function DesignerElementWrapper({ element }: Props) {
                     <div className="absolute right-0 h-full">
                         <Button
                             variant='outline'
-                            onClick={() => {
+                            onClick={(e) => {
+                                e.stopPropagation();
                                 removeElement(element.id);
                             }}
                             className="flex justify-center h-full border rounded-md rounded-l-none bg-red-500">

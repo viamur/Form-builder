@@ -1,11 +1,7 @@
 import { FormElementInstance } from '@/components/form-builder/designer/FormElements';
-import { extraAttributes } from '@/components/form-builder/fields/text-field/TextField';
+import { CustomInstance } from '@/components/form-builder/fields/text-field/TextField';
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
-
-type CustomInstance = {
-    extraAttributes: typeof extraAttributes
-} & FormElementInstance;
 
 type Props = {
     elementInstance: FormElementInstance
