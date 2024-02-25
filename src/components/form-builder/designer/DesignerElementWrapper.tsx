@@ -42,6 +42,8 @@ export default function DesignerElementWrapper({ element }: Props) {
         }
     })
 
+    if (draggable.isDragging) return null;
+
     return (
         <div
             ref={draggable.setNodeRef}
@@ -52,11 +54,11 @@ export default function DesignerElementWrapper({ element }: Props) {
             className="relative h-[120px] flex flex-col text-foreground hover:cursor-pointer rounded-md ring-1 ring-accent ring-inset">
             <div
                 ref={topHalf.setNodeRef}
-                className={cn('absolute top-0 w-full h-1/2 rounded-t-md', topHalf.isOver && 'bg-primary/20')}
+                className='absolute top-0 w-full h-1/2 rounded-t-md'
             />
             <div
                 ref={bottomHalf.setNodeRef}
-                className={cn('absolute bottom-0 w-full h-1/2 rounded-b-md', bottomHalf.isOver && 'bg-primary/20')}
+                className='absolute bottom-0 w-full h-1/2 rounded-b-md'
             />
             {mouseIsOver && (
                 <>
@@ -77,9 +79,15 @@ export default function DesignerElementWrapper({ element }: Props) {
                     </div>
                 </>
             )}
+            {topHalf.isOver && (
+                <div className="absolute top-0 w-full rounded-md h-[7px] bg-primary rounded-b-none" />
+            )}
             <div className={cn('flex w-full h-[120px] items-center rounded-md bg-accent/40 px-4 py-2 pointer-events-none opacity-100', mouseIsOver && 'opacity-30')}>
                 <DesignerElement elementInstance={element} />
             </div>
+            {bottomHalf.isOver && (
+                <div className="absolute bottom-0 w-full rounded-md h-[7px] bg-primary rounded-b-none" />
+            )}
         </div>
     )
 }
