@@ -10,6 +10,13 @@ import DragOverlayWrapper from '@/components/form-builder/designer/DragOverlayWr
 import React, { useEffect, useState } from 'react';
 import useDesigner from '@/hooks/useDesigner';
 import Loading from '@/app/(dashboard)/builder/[id]/loading';
+import { Input } from '@/components/ui/input';
+import { Button } from '@/components/ui/button';
+import { toast } from '@/components/ui/use-toast';
+import Link from 'next/link';
+import { BsArrowLeft, BsArrowRight } from 'react-icons/bs';
+import Confetti from "react-confetti";
+import FormBuilderPublished from '@/components/form-builder/FormBuilderPublished';
 
 type FormBuilderProps = {
     form: Form;
@@ -42,6 +49,10 @@ function FormBuilder({form}: FormBuilderProps) {
 
     if (!isReady) {
         return <Loading />
+    }
+
+    if (form.published) {
+        return <FormBuilderPublished formId={form.id} shareURL={form.shareURL} />
     }
 
     return (
