@@ -7,12 +7,18 @@ import PreviewDialogBtn from '@/components/form-builder/buttons/PreviewDialogBtn
 import Designer from '@/components/form-builder/designer/Designer';
 import { DndContext, MouseSensor, TouchSensor, useSensor, useSensors } from '@dnd-kit/core';
 import DragOverlayWrapper from '@/components/form-builder/designer/DragOverlayWrapper';
+import React, { useEffect, useState } from 'react';
+import useDesigner from '@/hooks/useDesigner';
+import Loading from '@/app/(dashboard)/builder/[id]/loading';
 
 type FormBuilderProps = {
     form: Form;
 }
 
 function FormBuilder({form}: FormBuilderProps) {
+    const [isReady, setIsReady] = useState(false);
+    const {setElements} = useDesigner();
+
     const mouseSensor = useSensor(MouseSensor, {
         activationConstraint: {
             distance: 10,
@@ -25,6 +31,19 @@ function FormBuilder({form}: FormBuilderProps) {
         }
     })
     const sensors = useSensors(mouseSensor, touchSensor)
+
+    useEffect(() => {
+        if (isReady) return;
+        const elements = JSON.parse(form.content);
+        setElements(elements);
+        const readyTimeout = setTimeout(() => setIsReady(true), 500);
+        return () => clearTimeout(readyTimeout)
+    }, [form, setElements, isReady, setIsReady])
+
+    if (!isReady) {
+        return <Loading />
+    }
+
     return (
         <DndContext sensors={sensors}>
             <main className="flex flex-col w-full">
