@@ -1,9 +1,9 @@
-import { FormElementInstance } from '@/components/form-builder/designer/FormElements';
+import { FormElement, FormElementInstance } from '@/components/form-builder/designer/FormElements';
 import { CustomInstance } from '@/components/form-builder/fields/text-field/TextField';
 import { z } from 'zod';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useEffect } from 'react';
+import { ComponentProps, useEffect } from 'react';
 import useDesigner from '@/hooks/useDesigner';
 import * as FormComponents from '../../../ui/form';
 import { Input } from '@/components/ui/input';
@@ -18,9 +18,8 @@ export const propertiesSchema = z.object({
 
 type PropertiesType = z.infer<typeof propertiesSchema>;
 
-type Props = {
-    elementInstance: FormElementInstance
-}
+type Props = ComponentProps<FormElement['propertiesComponent']>
+
 
 export default function PropertiesComponent({ elementInstance }: Props) {
     const {updateElement} = useDesigner();

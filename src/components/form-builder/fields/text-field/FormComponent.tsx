@@ -1,12 +1,12 @@
-import { FormElement, FormElementInstance } from '@/components/form-builder/designer/FormElements';
+import { FormElement } from '@/components/form-builder/designer/FormElements';
+import { ComponentProps } from 'react';
 import { CustomInstance } from '@/components/form-builder/fields/text-field/TextField';
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
-import { ComponentProps } from 'react';
 
-type Props = ComponentProps<FormElement['designerComponent']>
+type Props = ComponentProps<FormElement['formComponent']>
 
-export default function DesignerComponent({ elementInstance }: Props) {
+export default function FormComponent({ elementInstance }: Props) {
     const element = elementInstance as CustomInstance;
     const {label, required, placeholder, helperText} = element.extraAttributes;
     return (
@@ -15,7 +15,7 @@ export default function DesignerComponent({ elementInstance }: Props) {
                 {label}
                 {required && <span className="text-red-500">*</span>}
             </Label>
-            <Input readOnly disabled placeholder={placeholder} />
+            <Input placeholder={placeholder} />
             {helperText && <p className="text-muted-foreground text-[0.8rem]">{helperText}</p>}
         </div>
     )
