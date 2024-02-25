@@ -13,34 +13,33 @@ export const propertiesSchema = z.object({
     label: z.string().min(2).max(50),
     helperText: z.string().max(200),
     required: z.boolean().default(false),
-    placeholder: z.string().max(50),
-})
+    placeholder: z.string().max(50)
+});
 
 type PropertiesType = z.infer<typeof propertiesSchema>;
 
-type Props = ComponentProps<FormElement['propertiesComponent']>
-
+type Props = ComponentProps<FormElement['propertiesComponent']>;
 
 export default function PropertiesComponent({ elementInstance }: Props) {
-    const {updateElement} = useDesigner();
+    const { updateElement } = useDesigner();
 
     const element = elementInstance as CustomInstance;
     const form = useForm<PropertiesType>({
         defaultValues: element.extraAttributes,
         resolver: zodResolver(propertiesSchema),
-        mode: 'onBlur',
-    })
+        mode: 'onBlur'
+    });
 
     useEffect(() => {
-        form.reset(element.extraAttributes)
-    }, [form, element])
+        form.reset(element.extraAttributes);
+    }, [form, element]);
 
     function submit(data: PropertiesType) {
-        const {label, placeholder, required, helperText} = data;
+        const { label, placeholder, required, helperText } = data;
         updateElement(element.id, {
             ...element,
             extraAttributes: { label, helperText, required, placeholder }
-        })
+        });
     }
 
     return (
@@ -55,7 +54,7 @@ export default function PropertiesComponent({ elementInstance }: Props) {
                 <FormComponents.FormField
                     control={form.control}
                     name="label"
-                    render={({field}) => (
+                    render={({ field }) => (
                         <FormComponents.FormItem>
                             <FormComponents.FormLabel>Label</FormComponents.FormLabel>
                             <FormComponents.FormControl>
@@ -79,7 +78,7 @@ export default function PropertiesComponent({ elementInstance }: Props) {
                 <FormComponents.FormField
                     control={form.control}
                     name="placeholder"
-                    render={({field}) => (
+                    render={({ field }) => (
                         <FormComponents.FormItem>
                             <FormComponents.FormLabel>Placeholder</FormComponents.FormLabel>
                             <FormComponents.FormControl>
@@ -103,7 +102,7 @@ export default function PropertiesComponent({ elementInstance }: Props) {
                 <FormComponents.FormField
                     control={form.control}
                     name="helperText"
-                    render={({field}) => (
+                    render={({ field }) => (
                         <FormComponents.FormItem>
                             <FormComponents.FormLabel>Helper text</FormComponents.FormLabel>
                             <FormComponents.FormControl>
@@ -128,7 +127,7 @@ export default function PropertiesComponent({ elementInstance }: Props) {
                 <FormComponents.FormField
                     control={form.control}
                     name="required"
-                    render={({field}) => (
+                    render={({ field }) => (
                         <FormComponents.FormItem className="flex items-center justify-between">
                             <div className="space-y-0.5">
                                 <FormComponents.FormLabel>Required</FormComponents.FormLabel>
@@ -145,5 +144,5 @@ export default function PropertiesComponent({ elementInstance }: Props) {
                 />
             </form>
         </FormComponents.Form>
-    )
+    );
 }

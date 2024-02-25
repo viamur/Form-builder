@@ -6,15 +6,15 @@ import { z } from 'zod';
 import FormComponent from '@/components/form-builder/fields/text-field/FormComponent';
 
 export type CustomInstance = {
-    extraAttributes: typeof extraAttributes
+    extraAttributes: typeof extraAttributes;
 } & FormElementInstance;
 
 export const extraAttributes = {
     label: 'Text Field',
     helperText: 'Helper text',
     placeholder: 'Enter your text here',
-    required: false,
-}
+    required: false
+};
 
 export const TextFieldFormElement: FormElement = {
     type: 'TextField',
@@ -25,10 +25,10 @@ export const TextFieldFormElement: FormElement = {
     }),
     designerBtnElement: {
         icon: MdTextFields,
-        label: 'Text Field',
+        label: 'Text Field'
     },
     designerComponent: DesignerComponent,
     formComponent: FormComponent,
     propertiesComponent: PropertiesComponent,
-    validate: () => true,
-}
+    validate: () => true
+};

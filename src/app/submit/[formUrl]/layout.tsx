@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode } from 'react';
 import ThemeSwitcher from '../../../components/header/ThemeSwitcher';
 import Logo from '../../../components/header/Logo';
 

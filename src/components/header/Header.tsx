@@ -12,5 +12,5 @@ export default function Header() {
                 <UserButton afterSignOutUrl="/sign-in" />
             </div>
         </nav>
-    )
+    );
 }

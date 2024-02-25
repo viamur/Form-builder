@@ -9,13 +9,18 @@ import React from 'react';
 type Props = {
     formId: string | number;
     shareURL: string;
-}
+};
 
 export default function FormBuilderPublished({ shareURL, formId }: Props) {
     const shareUrl = `${window.location.origin}/submit/${shareURL}`;
     return (
         <>
-            <Confetti width={window.innerWidth} height={window.innerHeight} recycle={false} numberOfPieces={1000} />
+            <Confetti
+                width={window.innerWidth}
+                height={window.innerHeight}
+                recycle={false}
+                numberOfPieces={1000}
+            />
             <div className="flex flex-col items-center justify-center w-full">
                 <div className="max-w-md">
                     <h1 className="text-center text-4xl font-bold text-primary border-b pb-2 mb-10">
@@ -32,8 +37,8 @@ export default function FormBuilderPublished({ shareURL, formId }: Props) {
                             onClick={() => {
                                 navigator.clipboard.writeText(shareUrl);
                                 toast({
-                                    title: "Copied!",
-                                    description: "Link copied to clipboard",
+                                    title: 'Copied!',
+                                    description: 'Link copied to clipboard'
                                 });
                             }}
                         >
@@ -41,13 +46,13 @@ export default function FormBuilderPublished({ shareURL, formId }: Props) {
                         </Button>
                     </div>
                     <div className="flex justify-between">
-                        <Button variant={"link"} asChild>
-                            <Link href={"/"} className="gap-2">
+                        <Button variant={'link'} asChild>
+                            <Link href={'/'} className="gap-2">
                                 <BsArrowLeft />
                                 Go back home
                             </Link>
                         </Button>
-                        <Button variant={"link"} asChild>
+                        <Button variant={'link'} asChild>
                             <Link href={`/forms/${formId}`} className="gap-2">
                                 Form details
                                 <BsArrowRight />
@@ -57,5 +62,5 @@ export default function FormBuilderPublished({ shareURL, formId }: Props) {
                 </div>
             </div>
         </>
-    )
+    );
 }

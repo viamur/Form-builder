@@ -7,5 +7,5 @@ export default function FormElementsSidebar() {
             Elements
             <SideBarBtnElement formElement={FormElements.TextField} />
         </div>
-    )
+    );
 }

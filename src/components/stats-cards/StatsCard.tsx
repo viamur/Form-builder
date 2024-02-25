@@ -10,13 +10,7 @@ type StatsCardProps = {
     loading: boolean;
 };
 
-function StatsCard({
-                              title,
-                              value,
-                              icon,
-                              helperText,
-                              loading,
-                          }: StatsCardProps) {
+function StatsCard({ title, value, icon, helperText, loading }: StatsCardProps) {
     return (
         <Card>
             <CardHeader className="flex flex-row items-center justify-between pb-2">

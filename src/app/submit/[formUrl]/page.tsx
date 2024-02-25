@@ -4,10 +4,10 @@ import { FormElementInstance } from '../../../components/form-builder/designer/F
 type SubmitPageProps = {
     params: {
         formUrl: string;
-    }
+    };
 };
 
-async function SubmitPage({params}: SubmitPageProps) {
+async function SubmitPage({ params }: SubmitPageProps) {
     const form = await GetFormContentByUrl(params.formUrl);
     if (!form) {
         throw new Error('Form not found');

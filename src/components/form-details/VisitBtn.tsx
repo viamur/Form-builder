@@ -1,16 +1,16 @@
-'use client'
+'use client';
 import { Button } from '@/components/ui/button';
 import { useEffect, useState } from 'react';
 
 type VisitBtnProps = {
     shareURL: string;
-}
+};
 export default function VisitBtn({ shareURL }: VisitBtnProps) {
     const [mounted, setMounted] = useState(false);
 
     useEffect(() => {
-        setMounted(true)
-    }, [])
+        setMounted(true);
+    }, []);
 
     if (!mounted) return null;
 
@@ -24,5 +24,5 @@ export default function VisitBtn({ shareURL }: VisitBtnProps) {
         >
             Visit
         </Button>
-    )
+    );
 }

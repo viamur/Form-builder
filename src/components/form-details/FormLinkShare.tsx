@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import { Button } from '@/components/ui/button';
 import { useEffect, useState } from 'react';
 import { Input } from '@/components/ui/input';
@@ -7,13 +7,13 @@ import { ImShare } from 'react-icons/im';
 
 type FormLinkShareProps = {
     shareURL: string;
-}
+};
 export default function FormLinkShare({ shareURL }: FormLinkShareProps) {
     const [mounted, setMounted] = useState(false);
 
     useEffect(() => {
-        setMounted(true)
-    }, [])
+        setMounted(true);
+    }, []);
 
     if (!mounted) return null;
 
@@ -27,14 +27,14 @@ export default function FormLinkShare({ shareURL }: FormLinkShareProps) {
                     navigator.clipboard.writeText(shareLink).then(() => {
                         toast({
                             title: 'Copied!',
-                            description: 'Link copied to clipboard',
-                        })
-                    })
+                            description: 'Link copied to clipboard'
+                        });
+                    });
                 }}
             >
                 <ImShare className="mr-2 h-4 w-4" />
                 Share link
             </Button>
         </div>
-    )
+    );
 }

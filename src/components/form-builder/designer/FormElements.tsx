@@ -1,7 +1,6 @@
 import { TextFieldFormElement } from '@/components/form-builder/fields/text-field/TextField';
 
-export type ElementsType =
-    | "TextField"
+export type ElementsType = 'TextField';
 
 export type SubmitFunction = (key: string, value: string) => void;
 
@@ -42,5 +41,5 @@ type FormElementsType = {
 };
 
 export const FormElements: FormElementsType = {
-    TextField: TextFieldFormElement,
+    TextField: TextFieldFormElement
 };

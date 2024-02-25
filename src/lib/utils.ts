@@ -6,5 +6,5 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export function idGenerator() {
-    return Math.floor(Math.random() * 1001).toString()
+    return Math.floor(Math.random() * 1001).toString();
 }

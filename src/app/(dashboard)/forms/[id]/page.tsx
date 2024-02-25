@@ -1,5 +1,5 @@
-import { GetFormById } from "@/actions/form";
-import React from "react";
+import { GetFormById } from '@/actions/form';
+import React from 'react';
 import VisitBtn from '@/components/form-details/VisitBtn';
 import StatsCard from '@/components/stats-cards/StatsCard';
 import { FaEye, FaWpforms } from 'react-icons/fa';
@@ -11,14 +11,12 @@ type BuilderPageProps = {
     params: {
         id: string;
     };
-}
+};
 
-async function FormDetailsPage({
-    params,
-}: BuilderPageProps) {
+async function FormDetailsPage({ params }: BuilderPageProps) {
     const form = await GetFormById(Number(params.id));
     if (!form) {
-        throw new Error("form not found");
+        throw new Error('form not found');
     }
 
     const { visits, submissions } = form;
@@ -47,33 +45,33 @@ async function FormDetailsPage({
             <div className="w-full pt-8 gap-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 container">
                 <StatsCard
                     title="Total visits"
-                    icon={<FaEye className="text-blue-600" style={{margin: 0}} />}
+                    icon={<FaEye className="text-blue-600" style={{ margin: 0 }} />}
                     helperText="All time form visits"
-                    value={visits.toLocaleString() || ""}
+                    value={visits.toLocaleString() || ''}
                     loading={false}
                 />
 
                 <StatsCard
                     title="Total submissions"
-                    icon={<FaWpforms className="text-yellow-600" style={{margin: 0}} />}
+                    icon={<FaWpforms className="text-yellow-600" style={{ margin: 0 }} />}
                     helperText="All time form submissions"
-                    value={submissions.toLocaleString() || ""}
+                    value={submissions.toLocaleString() || ''}
                     loading={false}
                 />
 
                 <StatsCard
                     title="Submission rate"
-                    icon={<HiCursorClick className="text-green-600" style={{margin: 0}} />}
+                    icon={<HiCursorClick className="text-green-600" style={{ margin: 0 }} />}
                     helperText="Visits that result in form submission"
-                    value={submissionRate.toLocaleString() + "%" || ""}
+                    value={submissionRate.toLocaleString() + '%' || ''}
                     loading={false}
                 />
 
                 <StatsCard
                     title="Bounce rate"
-                    icon={<MdCancelScheduleSend className="text-red-600" style={{margin: 0}} />}
+                    icon={<MdCancelScheduleSend className="text-red-600" style={{ margin: 0 }} />}
                     helperText="Visits that leaves without interacting"
-                    value={bounceRate.toLocaleString() + "%" || ""}
+                    value={bounceRate.toLocaleString() + '%' || ''}
                     loading={false}
                 />
             </div>

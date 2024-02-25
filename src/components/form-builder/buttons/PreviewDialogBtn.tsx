@@ -1,25 +1,23 @@
-import React from "react";
-import { Button } from "../../ui/button";
-import { MdPreview } from "react-icons/md";
+import React from 'react';
+import { Button } from '../../ui/button';
+import { MdPreview } from 'react-icons/md';
 import * as DialogComponents from '../../ui/dialog';
 import useDesigner from '@/hooks/useDesigner';
 import { FormElements } from '@/components/form-builder/designer/FormElements';
 
 function PreviewDialogBtn() {
-    const {elements} = useDesigner();
+    const { elements } = useDesigner();
     return (
         <DialogComponents.Dialog>
             <DialogComponents.DialogTrigger asChild>
-                <Button variant={"outline"} className="gap-2">
+                <Button variant={'outline'} className="gap-2">
                     <MdPreview className="h-6 w-6" />
                     Preview
                 </Button>
             </DialogComponents.DialogTrigger>
             <DialogComponents.DialogContent className="w-screen h-screen max-h-screen max-w-full flex flex-col flex-grow p-0 gap-0">
                 <div className="px-4 py-2 border-b">
-                    <p className="text-lg font-bold text-muted-foreground">
-                        Form preview
-                    </p>
+                    <p className="text-lg font-bold text-muted-foreground">Form preview</p>
                     <p className="text-sm text-muted-foreground">
                         This is how your form will look like to your users.
                     </p>

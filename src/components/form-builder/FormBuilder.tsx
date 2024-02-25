@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import { Form } from '@prisma/client';
 import PublishFormBtn from '@/components/form-builder/buttons/PublishFormBtn';
@@ -15,44 +15,44 @@ import { Button } from '@/components/ui/button';
 import { toast } from '@/components/ui/use-toast';
 import Link from 'next/link';
 import { BsArrowLeft, BsArrowRight } from 'react-icons/bs';
-import Confetti from "react-confetti";
+import Confetti from 'react-confetti';
 import FormBuilderPublished from '@/components/form-builder/FormBuilderPublished';
 
 type FormBuilderProps = {
     form: Form;
-}
+};
 
-function FormBuilder({form}: FormBuilderProps) {
+function FormBuilder({ form }: FormBuilderProps) {
     const [isReady, setIsReady] = useState(false);
-    const {setElements} = useDesigner();
+    const { setElements } = useDesigner();
 
     const mouseSensor = useSensor(MouseSensor, {
         activationConstraint: {
-            distance: 10,
+            distance: 10
         }
-    })
+    });
     const touchSensor = useSensor(TouchSensor, {
         activationConstraint: {
             delay: 300,
-            tolerance: 5,
+            tolerance: 5
         }
-    })
-    const sensors = useSensors(mouseSensor, touchSensor)
+    });
+    const sensors = useSensors(mouseSensor, touchSensor);
 
     useEffect(() => {
         if (isReady) return;
         const elements = JSON.parse(form.content);
         setElements(elements);
         const readyTimeout = setTimeout(() => setIsReady(true), 500);
-        return () => clearTimeout(readyTimeout)
-    }, [form, setElements, isReady, setIsReady])
+        return () => clearTimeout(readyTimeout);
+    }, [form, setElements, isReady, setIsReady]);
 
     if (!isReady) {
-        return <Loading />
+        return <Loading />;
     }
 
     if (form.published) {
-        return <FormBuilderPublished formId={form.id} shareURL={form.shareURL} />
+        return <FormBuilderPublished formId={form.id} shareURL={form.shareURL} />;
     }
 
     return (
@@ -60,9 +60,7 @@ function FormBuilder({form}: FormBuilderProps) {
             <main className="flex flex-col w-full">
                 <nav className="flex justify-between border-b-2 p-4 gap-3 items-center">
                     <h2 className="truncate font-medium">
-                        <span className="text-muted-foreground mr-2">
-                            Form:
-                        </span>
+                        <span className="text-muted-foreground mr-2">Form:</span>
                         {form.name}
                     </h2>
                     <div className="flex items-center gap-2">
@@ -81,7 +79,7 @@ function FormBuilder({form}: FormBuilderProps) {
             </main>
             <DragOverlayWrapper />
         </DndContext>
-    )
+    );
 }
 
 export default FormBuilder;

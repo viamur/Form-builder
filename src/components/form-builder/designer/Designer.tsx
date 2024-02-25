@@ -8,33 +8,38 @@ import { ElementsType, FormElements } from '@/components/form-builder/designer/F
 import DesignerElementWrapper from '@/components/form-builder/designer/DesignerElementWrapper';
 
 function Designer() {
-    const {elements, addElement, setSelectedElement, removeElement, selectedElement} = useDesigner();
+    const { elements, addElement, setSelectedElement, removeElement, selectedElement } =
+        useDesigner();
     const droppable = useDroppable({
         id: 'designer-drop-area',
         data: {
-            isDesignerDropArea: true,
+            isDesignerDropArea: true
         }
-    })
+    });
 
     useDndMonitor({
         onDragEnd(event: DragEndEvent) {
-            const {active, over} = event;
+            const { active, over } = event;
             if (!active || !over) return;
 
-            const isDesignerBtnElement = active.data?.current?.isDesignerBtnElement as boolean | undefined;
-            const isDroppingOverDesignerDropArea = over.data?.current?.isDesignerDropArea as boolean | undefined;
+            const isDesignerBtnElement = active.data?.current?.isDesignerBtnElement as
+                | boolean
+                | undefined;
+            const isDroppingOverDesignerDropArea = over.data?.current?.isDesignerDropArea as
+                | boolean
+                | undefined;
 
             // #1
             if (isDesignerBtnElement && isDroppingOverDesignerDropArea) {
                 const type = active.data?.current?.type as ElementsType;
-                const newElement = FormElements[type].construct(idGenerator())
-                addElement(elements.length, newElement)
+                const newElement = FormElements[type].construct(idGenerator());
+                addElement(elements.length, newElement);
             }
 
-            const isDroppingOverDesignerElementTopHalf =
-                over.data?.current?.isTopHalfDesignerElement as boolean | undefined;
-            const isDroppingOverDesignerElementBottomHalf =
-                over.data?.current?.isBottomHalfDesignerElement as boolean | undefined;
+            const isDroppingOverDesignerElementTopHalf = over.data?.current
+                ?.isTopHalfDesignerElement as boolean | undefined;
+            const isDroppingOverDesignerElementBottomHalf = over.data?.current
+                ?.isBottomHalfDesignerElement as boolean | undefined;
 
             const isDroppingOverDesignerElement =
                 isDroppingOverDesignerElementTopHalf || isDroppingOverDesignerElementBottomHalf;
@@ -45,7 +50,7 @@ function Designer() {
             // #2
             if (droppingSidebarBtnOverDesignerElement) {
                 const type = active.data?.current?.type as ElementsType;
-                const newElement = FormElements[type].construct(idGenerator())
+                const newElement = FormElements[type].construct(idGenerator());
 
                 const overId = over.data?.current?.elementId as string;
 
@@ -58,11 +63,12 @@ function Designer() {
                     overElementIndex += 1;
                 }
 
-                addElement(overElementIndex, newElement)
+                addElement(overElementIndex, newElement);
             }
 
-            const isDraggingDesignerElement =
-                active.data?.current?.isDesignerElement as boolean | undefined;
+            const isDraggingDesignerElement = active.data?.current?.isDesignerElement as
+                | boolean
+                | undefined;
 
             const draggingDesignerElementOverAnotherDesignerElement =
                 isDroppingOverDesignerElement && isDraggingDesignerElement;
@@ -82,27 +88,30 @@ function Designer() {
                 const activeEl = { ...elements[activeElIndex] };
                 removeElement(activeId);
 
-                const indexForNewElement = isDroppingOverDesignerElementBottomHalf ? overElIndex + 1 : overElIndex;
+                const indexForNewElement = isDroppingOverDesignerElementBottomHalf
+                    ? overElIndex + 1
+                    : overElIndex;
                 addElement(indexForNewElement, activeEl);
             }
-
         }
-    })
+    });
     return (
         <div className="flex w-full h-full">
             <div
                 onClick={() => {
                     if (selectedElement) {
-                        setSelectedElement(null)
+                        setSelectedElement(null);
                     }
                 }}
                 className="p-4 w-full"
             >
                 <div
                     ref={droppable.setNodeRef}
-                    className={cn("bg-background max-w-[920px] h-full m-auto rounded-xl flex flex-col flex-grow items-center justify-self-auto flex-1 overflow-y-auto",
-                            droppable.isOver && 'ring-4 ring-primary ring-inset'
-                        )}>
+                    className={cn(
+                        'bg-background max-w-[920px] h-full m-auto rounded-xl flex flex-col flex-grow items-center justify-self-auto flex-1 overflow-y-auto',
+                        droppable.isOver && 'ring-4 ring-primary ring-inset'
+                    )}
+                >
                     {!droppable.isOver && elements.length === 0 && (
                         <p className="text-3xl text-muted-foreground flex flex-grow items-center font-bold">
                             Drop here
@@ -124,7 +133,7 @@ function Designer() {
             </div>
             <DesignerSideBar />
         </div>
-    )
+    );
 }
 
 export default Designer;

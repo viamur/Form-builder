@@ -5,7 +5,7 @@ import { AiOutlineClose } from 'react-icons/ai';
 import { Separator } from '@/components/ui/separator';
 
 export default function PropertiesFormSidebar() {
-    const {selectedElement, setSelectedElement } = useDesigner();
+    const { selectedElement, setSelectedElement } = useDesigner();
     if (!selectedElement) return null;
 
     const PropertiesForm = FormElements[selectedElement.type].propertiesComponent;
@@ -26,5 +26,5 @@ export default function PropertiesFormSidebar() {
             <Separator className="mb-4" />
             <PropertiesForm elementInstance={selectedElement} />
         </div>
-    )
+    );
 }
