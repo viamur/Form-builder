@@ -1,5 +1,5 @@
-import { GetFormContentByUrl } from '../../../actions/form';
-import { FormElementInstance } from '../../../components/form-builder/designer/FormElements';
+import { GetFormContentByUrl } from '@/actions/form';
+import { FormElementInstance } from '@/components/form-builder/designer/FormElements';
 
 type SubmitPageProps = {
     params: {
