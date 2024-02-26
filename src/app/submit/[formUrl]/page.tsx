@@ -1,5 +1,6 @@
 import { GetFormContentByUrl } from '@/actions/form';
 import { FormElementInstance } from '@/components/form-builder/designer/FormElements';
+import FormSubmitComponent from '@/components/form-submit/FormSubmitComponent';
 
 type SubmitPageProps = {
     params: {
@@ -15,7 +16,7 @@ async function SubmitPage({ params }: SubmitPageProps) {
 
     const formContent = JSON.parse(form.content) as FormElementInstance[];
 
-    return <div>{formContent.map((f) => f.type)}</div>;
+    return <FormSubmitComponent formUrl={params.formUrl} content={formContent} />
 }
 
 export default SubmitPage;
