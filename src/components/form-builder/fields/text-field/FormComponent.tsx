@@ -25,7 +25,7 @@ export default function FormComponent({ elementInstance, submitValue, isInvalid,
                 onBlur={() => {
                     if (submitValue) {
                         const valid = TextFieldFormElement.validate(element, value);
-                        setError((prev) => ({ ...prev, [element.id]: !valid }));
+                        setError?.((prev) => ({ ...prev, [element.id]: !valid }));
                         submitValue(element.id, value);
                     }
                 }}

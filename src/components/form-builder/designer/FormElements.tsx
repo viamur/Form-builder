@@ -1,7 +1,8 @@
 import { TextFieldFormElement } from '@/components/form-builder/fields/text-field/TextField';
 import { Dispatch, SetStateAction } from 'react';
+import { TitleFieldFormElement } from '@/components/form-builder/fields/title-field/TitleField';
 
-export type ElementsType = 'TextField';
+export type ElementsType = 'TextField' | 'TitleField';
 
 export type SubmitFunction = (key: string, value: string) => void;
 
@@ -23,7 +24,7 @@ export type FormElement = {
         submitValue?: SubmitFunction;
         isInvalid?: boolean;
         defaultValue?: string;
-        setError: Dispatch<SetStateAction<Record<string, boolean>>>
+        setError?: Dispatch<SetStateAction<Record<string, boolean>>>
     }>;
     propertiesComponent: React.FC<{
         elementInstance: FormElementInstance;
@@ -43,5 +44,6 @@ type FormElementsType = {
 };
 
 export const FormElements: FormElementsType = {
-    TextField: TextFieldFormElement
+    TextField: TextFieldFormElement,
+    TitleField: TitleFieldFormElement
 };
