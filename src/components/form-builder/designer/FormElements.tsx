@@ -1,4 +1,5 @@
 import { TextFieldFormElement } from '@/components/form-builder/fields/text-field/TextField';
+import { Dispatch, SetStateAction } from 'react';
 
 export type ElementsType = 'TextField';
 
@@ -22,6 +23,7 @@ export type FormElement = {
         submitValue?: SubmitFunction;
         isInvalid?: boolean;
         defaultValue?: string;
+        setError: Dispatch<SetStateAction<Record<string, boolean>>>
     }>;
     propertiesComponent: React.FC<{
         elementInstance: FormElementInstance;

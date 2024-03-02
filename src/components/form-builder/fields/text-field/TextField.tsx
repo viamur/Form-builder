@@ -16,6 +16,14 @@ export const extraAttributes = {
     required: false
 };
 
+function validateExtraAttributes(formElement: FormElementInstance, currentValue: string) {
+    const element = formElement as CustomInstance;
+    if (element.extraAttributes.required) {
+        return currentValue.length > 0;
+    }
+    return true;
+}
+
 export const TextFieldFormElement: FormElement = {
     type: 'TextField',
     construct: (id: string) => ({
@@ -30,5 +38,5 @@ export const TextFieldFormElement: FormElement = {
     designerComponent: DesignerComponent,
     formComponent: FormComponent,
     propertiesComponent: PropertiesComponent,
-    validate: () => true
+    validate: validateExtraAttributes
 };
