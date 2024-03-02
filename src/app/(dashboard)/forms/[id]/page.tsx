@@ -6,6 +6,7 @@ import { FaEye, FaWpforms } from 'react-icons/fa';
 import { HiCursorClick } from 'react-icons/hi';
 import { MdCancelScheduleSend } from 'react-icons/md';
 import FormLinkShare from '@/components/form-details/FormLinkShare';
+import SubmissionsTable from '@/components/form-submit/SubmissionsTable';
 
 type BuilderPageProps = {
     params: {
@@ -74,6 +75,9 @@ async function FormDetailsPage({ params }: BuilderPageProps) {
                     value={bounceRate.toLocaleString() + '%' || ''}
                     loading={false}
                 />
+            </div>
+            <div className="container pt-10">
+                <SubmissionsTable id={form.id} />
             </div>
         </>
     );
