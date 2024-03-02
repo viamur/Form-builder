@@ -41,6 +41,7 @@ export default function FormSubmitComponent({ formUrl, content }: Props) {
                 description: 'Please check the form for errors',
                 variant: 'destructive'
             });
+            return;
         }
 
         try {

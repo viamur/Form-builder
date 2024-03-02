@@ -28,6 +28,11 @@ export default async function SubmissionsTable({ id }: Props) {
     formElements.forEach((element) => {
         switch (element.type) {
             case 'TextField':
+            case 'NumberField':
+            case 'DateField':
+            case 'ParagraphField':
+            case 'SelectField':
+            case 'TextAreaField':
                 columns.push({
                     id: element.id,
                     label: element.type,

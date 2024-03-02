@@ -59,7 +59,6 @@ export default function PropertiesComponent({ elementInstance }: Props) {
             <form
                 className="space-y-3"
                 onSubmit={form.handleSubmit(submit)}
-                onBlur={form.handleSubmit(submit)}
             >
                 <FormComponents.FormField
                     control={form.control}
