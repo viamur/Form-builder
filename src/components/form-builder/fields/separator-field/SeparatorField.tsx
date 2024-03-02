@@ -8,7 +8,7 @@ export const SeparatorFieldFormElement: FormElement = {
     type: 'SeparatorField',
     construct: (id: string) => ({
         id,
-        type: 'SeparatorField',
+        type: 'SeparatorField'
     }),
     designerBtnElement: {
         icon: RiSeparator,

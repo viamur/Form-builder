@@ -9,7 +9,7 @@ export type CustomInstance = {
 } & FormElementInstance;
 
 export const extraAttributes = {
-    title: 'SubTitle Field',
+    title: 'SubTitle Field'
 };
 
 export const SubTitleFieldFormElement: FormElement = {

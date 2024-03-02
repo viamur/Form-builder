@@ -8,5 +8,5 @@ export default function FormComponent({ elementInstance }: Props) {
     const element = elementInstance as CustomInstance;
     const { height } = element.extraAttributes;
 
-    return <div style={{ height, width: '100%'}} />;
+    return <div style={{ height, width: '100%' }} />;
 }

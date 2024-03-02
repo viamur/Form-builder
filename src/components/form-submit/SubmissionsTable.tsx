@@ -9,7 +9,7 @@ type Row = Record<string, string> & {
 
 type Props = {
     id: number;
-}
+};
 
 export default async function SubmissionsTable({ id }: Props) {
     const form = await GetFormWithSubmissions(id);
@@ -28,15 +28,15 @@ export default async function SubmissionsTable({ id }: Props) {
     formElements.forEach((element) => {
         switch (element.type) {
             case 'TextField':
-            columns.push({
-                id: element.id,
-                label: element.type,
-                required: element.extraAttributes?.required || false,
-                type: element.type
-            });
-            break;
+                columns.push({
+                    id: element.id,
+                    label: element.type,
+                    required: element.extraAttributes?.required || false,
+                    type: element.type
+                });
+                break;
             default:
-            break;
+                break;
         }
     });
 
@@ -46,7 +46,7 @@ export default async function SubmissionsTable({ id }: Props) {
         const content = JSON.parse(submission.content);
         rows.push({
             ...content,
-            submittedAt: submission.createdAt,
+            submittedAt: submission.createdAt
         });
     });
 
@@ -71,10 +71,16 @@ export default async function SubmissionsTable({ id }: Props) {
                         {rows.map((row) => (
                             <TableComponents.TableRow key={row.submittedAt.toISOString()}>
                                 {columns.map((column) => (
-                                    <RowCell key={column.id} type={column.type} value={row[column.id]} />
+                                    <RowCell
+                                        key={column.id}
+                                        type={column.type}
+                                        value={row[column.id]}
+                                    />
                                 ))}
                                 <TableComponents.TableCell className="text-muted-foreground text-right">
-                                    {formatDistance(row.submittedAt, new Date(), { addSuffix: true })}
+                                    {formatDistance(row.submittedAt, new Date(), {
+                                        addSuffix: true
+                                    })}
                                 </TableComponents.TableCell>
                             </TableComponents.TableRow>
                         ))}
@@ -82,15 +88,15 @@ export default async function SubmissionsTable({ id }: Props) {
                 </TableComponents.Table>
             </div>
         </>
-    )
+    );
 }
 
 type RowCellProps = {
     type: ElementsType;
     value: string;
-}
+};
 
 function RowCell({ type, value }: RowCellProps) {
     let node: React.ReactNode = value || 'N/A';
-    return <TableComponents.TableCell>{node}</TableComponents.TableCell>
+    return <TableComponents.TableCell>{node}</TableComponents.TableCell>;
 }

@@ -9,7 +9,7 @@ export type CustomInstance = {
 } & FormElementInstance;
 
 export const extraAttributes = {
-    text: 'Text here',
+    text: 'Text here'
 };
 
 export const ParagraphFieldFormElement: FormElement = {

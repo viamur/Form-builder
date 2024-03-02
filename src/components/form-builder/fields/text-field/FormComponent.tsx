@@ -1,13 +1,22 @@
 import { FormElement } from '@/components/form-builder/designer/FormElements';
 import { ComponentProps, useEffect, useState } from 'react';
-import { CustomInstance, TextFieldFormElement } from '@/components/form-builder/fields/text-field/TextField';
+import {
+    CustomInstance,
+    TextFieldFormElement
+} from '@/components/form-builder/fields/text-field/TextField';
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 import { cn } from '@/lib/utils';
 
 type Props = ComponentProps<FormElement['formComponent']>;
 
-export default function FormComponent({ elementInstance, submitValue, isInvalid, setError, defaultValue }: Props) {
+export default function FormComponent({
+    elementInstance,
+    submitValue,
+    isInvalid,
+    setError,
+    defaultValue
+}: Props) {
     const element = elementInstance as CustomInstance;
     const { label, required, placeholder, helperText } = element.extraAttributes;
 
@@ -32,7 +41,12 @@ export default function FormComponent({ elementInstance, submitValue, isInvalid,
                 value={value}
             />
             {helperText && (
-                <p className={cn("text-muted-foreground text-[0.8rem]", isInvalid && 'text-red-500')}>
+                <p
+                    className={cn(
+                        'text-muted-foreground text-[0.8rem]',
+                        isInvalid && 'text-red-500'
+                    )}
+                >
                     {helperText}
                 </p>
             )}

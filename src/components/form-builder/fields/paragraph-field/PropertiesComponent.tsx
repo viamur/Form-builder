@@ -9,7 +9,7 @@ import * as FormComponents from '../../../ui/form';
 import { Textarea } from '@/components/ui/textarea';
 
 export const propertiesSchema = z.object({
-    text: z.string().min(2).max(500),
+    text: z.string().min(2).max(500)
 });
 
 type PropertiesType = z.infer<typeof propertiesSchema>;

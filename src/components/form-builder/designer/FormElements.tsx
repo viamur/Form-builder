@@ -7,7 +7,7 @@ import { SeparatorFieldFormElement } from '@/components/form-builder/fields/sepa
 import { SpacerFieldFormElement } from '@/components/form-builder/fields/spacer-field/SpacerField';
 
 export type ElementsType =
-    'TextField'
+    | 'TextField'
     | 'TitleField'
     | 'SubTitleField'
     | 'ParagraphField'
@@ -34,7 +34,7 @@ export type FormElement = {
         submitValue?: SubmitFunction;
         isInvalid?: boolean;
         defaultValue?: string;
-        setError?: Dispatch<SetStateAction<Record<string, boolean>>>
+        setError?: Dispatch<SetStateAction<Record<string, boolean>>>;
     }>;
     propertiesComponent: React.FC<{
         elementInstance: FormElementInstance;
@@ -59,5 +59,5 @@ export const FormElements: FormElementsType = {
     SubTitleField: SubTitleFieldFormElement,
     ParagraphField: ParagraphFieldFormElement,
     SeparatorField: SeparatorFieldFormElement,
-    SpacerField: SpacerFieldFormElement,
+    SpacerField: SpacerFieldFormElement
 };

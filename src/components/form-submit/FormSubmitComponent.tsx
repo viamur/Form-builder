@@ -3,7 +3,7 @@
 import { FormElementInstance, FormElements } from '@/components/form-builder/designer/FormElements';
 import { Button } from '@/components/ui/button';
 import { HiCursorClick } from 'react-icons/hi';
-import { FaCheck } from "react-icons/fa";
+import { FaCheck } from 'react-icons/fa';
 import { useEffect, useRef, useState, useTransition } from 'react';
 import { toast } from '@/components/ui/use-toast';
 import { ImSpinner2 } from 'react-icons/im';
@@ -12,7 +12,7 @@ import { SubmitForm } from '@/actions/form';
 type Props = {
     formUrl: string;
     content: FormElementInstance[];
-}
+};
 export default function FormSubmitComponent({ formUrl, content }: Props) {
     const formValues = useRef<Record<string, string>>({});
     const [pending, setTransition] = useTransition();
@@ -30,9 +30,9 @@ export default function FormSubmitComponent({ formUrl, content }: Props) {
         }
         setFormErrors(formErrors);
         return Object.keys(formErrors).length === 0;
-    }
+    };
 
-    const submitValue = (key: string, value: string) => formValues.current[key] = value;
+    const submitValue = (key: string, value: string) => (formValues.current[key] = value);
     const submitForm = async () => {
         const valid = validateForm();
         if (!valid) {
@@ -62,7 +62,7 @@ export default function FormSubmitComponent({ formUrl, content }: Props) {
                 window.close();
             }, 3000);
         }
-    }, [submitted])
+    }, [submitted]);
 
     if (submitted) {
         return (
@@ -77,7 +77,7 @@ export default function FormSubmitComponent({ formUrl, content }: Props) {
                     </p>
                 </div>
             </div>
-        )
+        );
     }
 
     return (
@@ -111,5 +111,5 @@ export default function FormSubmitComponent({ formUrl, content }: Props) {
                 </Button>
             </div>
         </div>
-    )
+    );
 }

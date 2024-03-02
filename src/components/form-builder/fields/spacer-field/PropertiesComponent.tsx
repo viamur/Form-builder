@@ -9,7 +9,7 @@ import * as FormComponents from '../../../ui/form';
 import { Slider } from '@/components/ui/slider';
 
 export const propertiesSchema = z.object({
-    height: z.number().min(5).max(200),
+    height: z.number().min(5).max(200)
 });
 
 type PropertiesType = z.infer<typeof propertiesSchema>;
