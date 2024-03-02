@@ -56,10 +56,7 @@ export default function PropertiesComponent({ elementInstance }: Props) {
 
     return (
         <FormComponents.Form {...form}>
-            <form
-                className="space-y-3"
-                onSubmit={form.handleSubmit(submit)}
-            >
+            <form className="space-y-3" onSubmit={form.handleSubmit(submit)}>
                 <FormComponents.FormField
                     control={form.control}
                     name="label"

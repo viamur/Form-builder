@@ -108,12 +108,12 @@ function RowCell({ type, value }: RowCellProps) {
     let node: React.ReactNode = value || '-';
 
     switch (type) {
-        case "DateField":
+        case 'DateField':
             if (!value) break;
             const date = new Date(value);
             node = <Badge>{format(date, 'dd/MM/yyyy')}</Badge>;
-        break;
-        case "CheckboxField":
+            break;
+        case 'CheckboxField':
             node = <Checkbox checked={value === 'true'} disabled />;
             break;
         case 'SelectField':

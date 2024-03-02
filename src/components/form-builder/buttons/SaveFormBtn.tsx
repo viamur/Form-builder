@@ -8,7 +8,7 @@ import { toast } from '@/components/ui/use-toast';
 
 type Props = {
     id: number;
-}
+};
 
 function SaveFormBtn({ id }: Props) {
     const [loading, startTransition] = useTransition();

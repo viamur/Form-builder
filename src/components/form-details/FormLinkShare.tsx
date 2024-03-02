@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button';
 import { useEffect, useState } from 'react';
 import { Input } from '@/components/ui/input';
 import { toast } from '@/components/ui/use-toast';
-import { FaRegCopy } from "react-icons/fa";
+import { FaRegCopy } from 'react-icons/fa';
 
 type FormLinkShareProps = {
     shareURL: string;

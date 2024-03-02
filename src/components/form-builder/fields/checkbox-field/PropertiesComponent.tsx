@@ -12,7 +12,7 @@ import { Switch } from '@/components/ui/switch';
 export const propertiesSchema = z.object({
     label: z.string().min(2).max(50),
     helperText: z.string().max(200),
-    required: z.boolean().default(false),
+    required: z.boolean().default(false)
 });
 
 type PropertiesType = z.infer<typeof propertiesSchema>;

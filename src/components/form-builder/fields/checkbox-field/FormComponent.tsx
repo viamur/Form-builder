@@ -44,7 +44,12 @@ export default function FormComponent({
                     {required && <span className="text-red-500">*</span>}
                 </Label>
                 {helperText && (
-                    <p className={cn('text-muted-foreground text-[0.8rem]', isInvalid && 'text-red-500')}>
+                    <p
+                        className={cn(
+                            'text-muted-foreground text-[0.8rem]',
+                            isInvalid && 'text-red-500'
+                        )}
+                    >
                         {helperText}
                     </p>
                 )}
