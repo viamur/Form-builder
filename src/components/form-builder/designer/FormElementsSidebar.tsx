@@ -11,9 +11,13 @@ export default function FormElementsSidebar() {
                 <p className="text-sm text-muted-foreground col-span-1 md:col-span-2 my-2 place-self-start">
                     Layout elements
                 </p>
-                {Object.entries(FormElements).map(([key, value]) => (
-                    <SideBarBtnElement key={key} formElement={value} />
-                ))}
+                <SideBarBtnElement formElement={FormElements.TitleField} />
+                <SideBarBtnElement formElement={FormElements.SubTitleField} />
+
+                <p className="text-sm text-muted-foreground col-span-1 md:col-span-2 my-2 place-self-start">
+                    Form elements
+                </p>
+                <SideBarBtnElement formElement={FormElements.TextField} />
             </div>
         </div>
     );
