@@ -1,8 +1,8 @@
 import { FormElement } from '@/components/form-builder/designer/FormElements';
-import { CustomInstance } from './NumberField';
+import { CustomInstance } from './TextAreaField';
 import { Label } from '@/components/ui/label';
-import { Input } from '@/components/ui/input';
 import { ComponentProps } from 'react';
+import { Textarea } from '@/components/ui/textarea';
 
 type Props = ComponentProps<FormElement['designerComponent']>;
 
@@ -15,7 +15,7 @@ export default function DesignerComponent({ elementInstance }: Props) {
                 {label}
                 {required && <span className="text-red-500">*</span>}
             </Label>
-            <Input readOnly disabled type="number" placeholder={placeholder} />
+            <Textarea readOnly disabled placeholder={placeholder} />
             {helperText && <p className="text-muted-foreground text-[0.8rem]">{helperText}</p>}
         </div>
     );

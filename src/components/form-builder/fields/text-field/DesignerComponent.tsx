@@ -15,7 +15,7 @@ export default function DesignerComponent({ elementInstance }: Props) {
                 {label}
                 {required && <span className="text-red-500">*</span>}
             </Label>
-            <Input readOnly disabled type="number" placeholder={placeholder} />
+            <Input readOnly disabled placeholder={placeholder} />
             {helperText && <p className="text-muted-foreground text-[0.8rem]">{helperText}</p>}
         </div>
     );

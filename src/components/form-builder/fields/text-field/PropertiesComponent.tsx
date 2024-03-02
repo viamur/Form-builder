@@ -1,4 +1,4 @@
-import { FormElement, FormElementInstance } from '@/components/form-builder/designer/FormElements';
+import { FormElement } from '@/components/form-builder/designer/FormElements';
 import { CustomInstance } from '@/components/form-builder/fields/text-field/TextField';
 import { z } from 'zod';
 import { useForm } from 'react-hook-form';

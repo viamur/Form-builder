@@ -3,7 +3,7 @@ import { ComponentProps, useState } from 'react';
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 import { cn } from '@/lib/utils';
-import { NumberFieldFormElement, CustomInstance } from '@/components/form-builder/fields/number-field/NumberField';
+import { TextFieldFormElement, CustomInstance } from './TextField';
 
 type Props = ComponentProps<FormElement['formComponent']>;
 
@@ -26,12 +26,11 @@ export default function FormComponent({
                 {required && <span className="text-red-500">*</span>}
             </Label>
             <Input
-                type="number"
                 placeholder={placeholder}
                 onChange={(e) => setValue(e.target.value)}
                 onBlur={() => {
                     if (submitValue) {
-                        const valid = NumberFieldFormElement.validate(element, value);
+                        const valid = TextFieldFormElement.validate(element, value);
                         setError?.((prev) => ({ ...prev, [element.id]: !valid }));
                         submitValue(element.id, value);
                     }
