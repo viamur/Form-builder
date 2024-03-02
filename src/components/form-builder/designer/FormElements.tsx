@@ -5,6 +5,7 @@ import { SubTitleFieldFormElement } from '@/components/form-builder/fields/subti
 import { ParagraphFieldFormElement } from '@/components/form-builder/fields/paragraph-field/ParagraphField';
 import { SeparatorFieldFormElement } from '@/components/form-builder/fields/separator-field/SeparatorField';
 import { SpacerFieldFormElement } from '@/components/form-builder/fields/spacer-field/SpacerField';
+import { NumberFieldFormElement } from '@/components/form-builder/fields/number-field/NumberField';
 
 export type ElementsType =
     | 'TextField'
@@ -12,7 +13,8 @@ export type ElementsType =
     | 'SubTitleField'
     | 'ParagraphField'
     | 'SeparatorField'
-    | 'SpacerField';
+    | 'SpacerField'
+    | 'NumberField';
 
 export type SubmitFunction = (key: string, value: string) => void;
 
@@ -59,5 +61,6 @@ export const FormElements: FormElementsType = {
     SubTitleField: SubTitleFieldFormElement,
     ParagraphField: ParagraphFieldFormElement,
     SeparatorField: SeparatorFieldFormElement,
-    SpacerField: SpacerFieldFormElement
+    SpacerField: SpacerFieldFormElement,
+    NumberField: NumberFieldFormElement,
 };
