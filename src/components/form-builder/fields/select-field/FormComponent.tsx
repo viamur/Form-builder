@@ -3,7 +3,13 @@ import { ComponentProps, useState } from 'react';
 import { Label } from '@/components/ui/label';
 import { cn } from '@/lib/utils';
 import { SelectFieldFormElement, CustomInstance } from './SelectField';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import {
+    Select,
+    SelectContent,
+    SelectItem,
+    SelectTrigger,
+    SelectValue
+} from '@/components/ui/select';
 
 type Props = ComponentProps<FormElement['formComponent']>;
 
@@ -28,13 +34,14 @@ export default function FormComponent({
             <Select
                 defaultValue={value}
                 onValueChange={(value) => {
-                setValue(value);
-                if (!submitValue) return;
-                const valid = SelectFieldFormElement.validate(element, value);
-                submitValue(element.id, value);
-                if (!setError) return;
-                setError((prev) => ({ ...prev, [element.id]: !valid }));
-            }}>
+                    setValue(value);
+                    if (!submitValue) return;
+                    const valid = SelectFieldFormElement.validate(element, value);
+                    submitValue(element.id, value);
+                    if (!setError) return;
+                    setError((prev) => ({ ...prev, [element.id]: !valid }));
+                }}
+            >
                 <SelectTrigger className={cn('w-full', isInvalid && 'border-red-500')}>
                     <SelectValue placeholder={placeholder} />
                 </SelectTrigger>

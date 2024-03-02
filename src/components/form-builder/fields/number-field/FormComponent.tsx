@@ -3,7 +3,10 @@ import { ComponentProps, useState } from 'react';
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 import { cn } from '@/lib/utils';
-import { NumberFieldFormElement, CustomInstance } from '@/components/form-builder/fields/number-field/NumberField';
+import {
+    NumberFieldFormElement,
+    CustomInstance
+} from '@/components/form-builder/fields/number-field/NumberField';
 
 type Props = ComponentProps<FormElement['formComponent']>;
 

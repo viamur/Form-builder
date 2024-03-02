@@ -71,5 +71,5 @@ export const FormElements: FormElementsType = {
     NumberField: NumberFieldFormElement,
     TextAreaField: TextAreaFieldFormElement,
     DateField: DateFieldFormElement,
-    SelectField: SelectFieldFormElement,
+    SelectField: SelectFieldFormElement
 };

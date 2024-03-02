@@ -48,8 +48,8 @@ export default function PropertiesComponent({ elementInstance }: Props) {
 
         toast({
             title: 'Success',
-            description: 'Properties saved successfully',
-        })
+            description: 'Properties saved successfully'
+        });
 
         setSelectedElement(null);
     }
@@ -148,7 +148,7 @@ export default function PropertiesComponent({ elementInstance }: Props) {
                                     className="gap-2"
                                     onClick={(e) => {
                                         e.preventDefault();
-                                        form.setValue('options', field.value.concat('New option'))
+                                        form.setValue('options', field.value.concat('New option'));
                                     }}
                                 >
                                     <AiOutlinePlus />
@@ -158,7 +158,10 @@ export default function PropertiesComponent({ elementInstance }: Props) {
 
                             <div className="flex flex-col gap-2">
                                 {field.value.map((option, index) => (
-                                    <div key={index} className="flex items-center justify-between gap-1">
+                                    <div
+                                        key={index}
+                                        className="flex items-center justify-between gap-1"
+                                    >
                                         <Input
                                             value={option}
                                             onChange={(e) => {

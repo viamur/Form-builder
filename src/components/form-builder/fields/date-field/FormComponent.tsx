@@ -31,14 +31,21 @@ export default function FormComponent({
             </Label>
             <Popover>
                 <PopoverTrigger asChild>
-                    <Button variant="outline" className={cn("w-full justify-start text-left font-normal", !value && 'text-muted-foreground', isInvalid && 'border-red-500')}>
+                    <Button
+                        variant="outline"
+                        className={cn(
+                            'w-full justify-start text-left font-normal',
+                            !value && 'text-muted-foreground',
+                            isInvalid && 'border-red-500'
+                        )}
+                    >
                         <CalendarIcon className="mr-2 h-4 w-4" />
                         {value ? format(value, 'PPP') : <span>Pick a date</span>}
                     </Button>
                 </PopoverTrigger>
                 <PopoverContent className="w-auto p-0" align="start">
                     <Calendar
-                        mode='single'
+                        mode="single"
                         selected={value}
                         initialFocus
                         onSelect={(date) => {
