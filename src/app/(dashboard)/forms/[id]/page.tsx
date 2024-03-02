@@ -76,7 +76,7 @@ async function FormDetailsPage({ params }: BuilderPageProps) {
                     loading={false}
                 />
             </div>
-            <div className="container pt-10">
+            <div className="container py-10">
                 <SubmissionsTable id={form.id} />
             </div>
         </>

@@ -1,4 +1,4 @@
-import { PublishForm } from '@/actions/form';
+import { PublishForm, UpdateFormContent } from '@/actions/form';
 import { useRouter } from 'next/navigation';
 import { useTransition } from 'react';
 import { FaSpinner } from 'react-icons/fa';
@@ -6,13 +6,17 @@ import { MdOutlinePublish } from 'react-icons/md';
 import * as AlertDialogComponents from '../../ui/alert-dialog';
 import { Button } from '../../ui/button';
 import { toast } from '../../ui/use-toast';
+import useDesigner from '@/hooks/useDesigner';
 
 function PublishFormBtn({ id }: { id: number }) {
     const [loading, startTransition] = useTransition();
     const router = useRouter();
+    const { elements } = useDesigner();
 
     async function publishForm() {
         try {
+            const jsonElements = JSON.stringify(elements);
+            await UpdateFormContent(id, jsonElements);
             await PublishForm(id);
             toast({
                 title: 'Success',

@@ -1,7 +1,9 @@
 import { GetFormWithSubmissions } from '@/actions/form';
 import { ElementsType, FormElementInstance } from '@/components/form-builder/designer/FormElements';
 import * as TableComponents from '@/components/ui/table';
-import { formatDistance } from 'date-fns';
+import { format, formatDistance } from 'date-fns';
+import { Badge } from '@/components/ui/badge';
+import { Checkbox } from '@/components/ui/checkbox';
 
 type Row = Record<string, string> & {
     submittedAt: Date;
@@ -33,9 +35,10 @@ export default async function SubmissionsTable({ id }: Props) {
             case 'ParagraphField':
             case 'SelectField':
             case 'TextAreaField':
+            case 'CheckboxField':
                 columns.push({
                     id: element.id,
-                    label: element.type,
+                    label: element.extraAttributes?.label || element.type,
                     required: element.extraAttributes?.required || false,
                     type: element.type
                 });
@@ -102,6 +105,19 @@ type RowCellProps = {
 };
 
 function RowCell({ type, value }: RowCellProps) {
-    let node: React.ReactNode = value || 'N/A';
+    let node: React.ReactNode = value || '-';
+
+    switch (type) {
+        case "DateField":
+            if (!value) break;
+            const date = new Date(value);
+            node = <Badge>{format(date, 'dd/MM/yyyy')}</Badge>;
+        break;
+        case "CheckboxField":
+            node = <Checkbox checked={value === 'true'} disabled />;
+            break;
+        case 'SelectField':
+            node = <Badge variant="outline">{value}</Badge>;
+    }
     return <TableComponents.TableCell>{node}</TableComponents.TableCell>;
 }

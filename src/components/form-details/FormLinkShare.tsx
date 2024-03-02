@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button';
 import { useEffect, useState } from 'react';
 import { Input } from '@/components/ui/input';
 import { toast } from '@/components/ui/use-toast';
-import { ImShare } from 'react-icons/im';
+import { FaRegCopy } from "react-icons/fa";
 
 type FormLinkShareProps = {
     shareURL: string;
@@ -32,8 +32,8 @@ export default function FormLinkShare({ shareURL }: FormLinkShareProps) {
                     });
                 }}
             >
-                <ImShare className="mr-2 h-4 w-4" />
-                Share link
+                <FaRegCopy className="mr-2 h-4 w-4" />
+                Copy link
             </Button>
         </div>
     );

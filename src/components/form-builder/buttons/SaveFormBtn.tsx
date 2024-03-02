@@ -6,7 +6,11 @@ import useDesigner from '@/hooks/useDesigner';
 import { UpdateFormContent } from '@/actions/form';
 import { toast } from '@/components/ui/use-toast';
 
-function SaveFormBtn({ id }: { id: number }) {
+type Props = {
+    id: number;
+}
+
+function SaveFormBtn({ id }: Props) {
     const [loading, startTransition] = useTransition();
     const { elements } = useDesigner();
 
