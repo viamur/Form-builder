@@ -21,7 +21,7 @@ export const TitleFieldFormElement: FormElement = {
     }),
     designerBtnElement: {
         icon: LuHeading1,
-        label: 'Title Field'
+        label: 'Title field'
     },
     designerComponent: DesignerComponent,
     formComponent: FormComponent,

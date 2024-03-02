@@ -10,7 +10,7 @@ export type CustomInstance = {
 } & FormElementInstance;
 
 export const extraAttributes = {
-    label: 'Text Field',
+    label: 'Text field',
     helperText: 'Helper text',
     placeholder: 'Enter your text here',
     required: false
@@ -33,7 +33,7 @@ export const TextFieldFormElement: FormElement = {
     }),
     designerBtnElement: {
         icon: MdTextFields,
-        label: 'Text Field'
+        label: 'Text field'
     },
     designerComponent: DesignerComponent,
     formComponent: FormComponent,

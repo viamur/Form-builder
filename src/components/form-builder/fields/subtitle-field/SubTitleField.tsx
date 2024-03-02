@@ -21,7 +21,7 @@ export const SubTitleFieldFormElement: FormElement = {
     }),
     designerBtnElement: {
         icon: LuHeading2,
-        label: 'SubTitle Field'
+        label: 'SubTitle field'
     },
     designerComponent: DesignerComponent,
     formComponent: FormComponent,

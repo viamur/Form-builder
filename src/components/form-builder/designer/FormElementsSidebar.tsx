@@ -14,6 +14,7 @@ export default function FormElementsSidebar() {
                 <SideBarBtnElement formElement={FormElements.TitleField} />
                 <SideBarBtnElement formElement={FormElements.SubTitleField} />
                 <SideBarBtnElement formElement={FormElements.ParagraphField} />
+                <SideBarBtnElement formElement={FormElements.SeparatorField} />
 
                 <p className="text-sm text-muted-foreground col-span-1 md:col-span-2 my-2 place-self-start">
                     Form elements

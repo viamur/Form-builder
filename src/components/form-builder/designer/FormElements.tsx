@@ -3,8 +3,9 @@ import { Dispatch, SetStateAction } from 'react';
 import { TitleFieldFormElement } from '@/components/form-builder/fields/title-field/TitleField';
 import { SubTitleFieldFormElement } from '@/components/form-builder/fields/subtitle-field/SubTitleField';
 import { ParagraphFieldFormElement } from '@/components/form-builder/fields/paragraph-field/ParagraphField';
+import { SeparatorFieldFormElement } from '@/components/form-builder/fields/separator-field/SeparatorField';
 
-export type ElementsType = 'TextField' | 'TitleField' | 'SubTitleField' | 'ParagraphField';
+export type ElementsType = 'TextField' | 'TitleField' | 'SubTitleField' | 'ParagraphField' | 'SeparatorField';
 
 export type SubmitFunction = (key: string, value: string) => void;
 
@@ -50,4 +51,5 @@ export const FormElements: FormElementsType = {
     TitleField: TitleFieldFormElement,
     SubTitleField: SubTitleFieldFormElement,
     ParagraphField: ParagraphFieldFormElement,
+    SeparatorField: SeparatorFieldFormElement,
 };
