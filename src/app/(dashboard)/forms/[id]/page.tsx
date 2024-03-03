@@ -7,6 +7,7 @@ import { HiCursorClick } from 'react-icons/hi';
 import { MdCancelScheduleSend } from 'react-icons/md';
 import FormLinkShare from '@/components/form-details/FormLinkShare';
 import SubmissionsTable from '@/components/form-submit/SubmissionsTable';
+import { notFound } from 'next/navigation';
 
 type BuilderPageProps = {
     params: {
@@ -17,7 +18,7 @@ type BuilderPageProps = {
 async function FormDetailsPage({ params }: BuilderPageProps) {
     const form = await GetFormById(Number(params.id));
     if (!form) {
-        throw new Error('form not found');
+        notFound();
     }
 
     const { visits, submissions } = form;

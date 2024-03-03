@@ -86,17 +86,21 @@ export async function GetForms() {
 }
 
 export async function GetFormById(id: number) {
-    const user = await currentUser();
-    if (!user) {
-        throw new UserNotFoundErr();
-    }
-
-    return await prisma.form.findUnique({
-        where: {
-            userId: user.id,
-            id
+    try {
+        const user = await currentUser();
+        if (!user) {
+            throw new UserNotFoundErr();
         }
-    });
+
+        return await prisma.form.findUnique({
+            where: {
+                userId: user.id,
+                id
+            }
+        });
+    } catch (e) {
+        console.log(e);
+    }
 }
 
 export async function UpdateFormContent(id: number, jsonContent: string) {
@@ -134,19 +138,23 @@ export async function PublishForm(id: number) {
 }
 
 export async function GetFormContentByUrl(formUrl: string) {
-    return await prisma.form.update({
-        select: {
-            content: true
-        },
-        data: {
-            visits: {
-                increment: 1
+    try {
+        return await prisma.form.update({
+            select: {
+                content: true
+            },
+            data: {
+                visits: {
+                    increment: 1
+                }
+            },
+            where: {
+                shareURL: formUrl
             }
-        },
-        where: {
-            shareURL: formUrl
-        }
-    });
+        });
+    } catch (e) {
+        console.log(e);
+    }
 }
 
 export async function SubmitForm(formUrl: string, content: string) {

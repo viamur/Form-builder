@@ -1,6 +1,7 @@
 import { GetFormById } from '@/actions/form';
 import React from 'react';
 import FormBuilder from '@/components/form-builder/FormBuilder';
+import { notFound } from 'next/navigation';
 
 type BuilderPageProps = {
     params: {
@@ -11,7 +12,7 @@ type BuilderPageProps = {
 async function BuilderPage({ params }: BuilderPageProps) {
     const form = await GetFormById(Number(params.id));
     if (!form) {
-        throw new Error('form not found');
+        notFound();
     }
     return <FormBuilder form={form} />;
 }

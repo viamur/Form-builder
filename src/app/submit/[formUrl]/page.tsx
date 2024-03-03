@@ -1,6 +1,7 @@
 import { GetFormContentByUrl } from '@/actions/form';
 import { FormElementInstance } from '@/components/form-builder/designer/FormElements';
 import FormSubmitComponent from '@/components/form-submit/FormSubmitComponent';
+import { notFound } from 'next/navigation';
 
 type SubmitPageProps = {
     params: {
@@ -11,7 +12,7 @@ type SubmitPageProps = {
 async function SubmitPage({ params }: SubmitPageProps) {
     const form = await GetFormContentByUrl(params.formUrl);
     if (!form) {
-        throw new Error('Form not found');
+        notFound();
     }
 
     const formContent = JSON.parse(form.content) as FormElementInstance[];
