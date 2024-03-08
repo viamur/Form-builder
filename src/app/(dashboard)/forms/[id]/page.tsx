@@ -9,6 +9,7 @@ import FormLinkShare from '@/components/form-details/FormLinkShare';
 import SubmissionsTable from '@/components/form-submit/SubmissionsTable';
 import { notFound } from 'next/navigation';
 import DeleteFormBtn from '@/components/form-builder/buttons/DeleteFormBtn';
+import RefreshBtn from '@/components/form-details/RefreshBtn';
 
 type BuilderPageProps = {
     params: {
@@ -39,6 +40,7 @@ async function FormDetailsPage({ params }: BuilderPageProps) {
                     <h1 className="text-4xl font-bold truncate">{form.name}</h1>
                     <div className="flex items-center gap-2">
                         <DeleteFormBtn formId={form.id} />
+                        <RefreshBtn />
                         <VisitBtn shareURL={form.shareURL} />
                     </div>
                 </div>
