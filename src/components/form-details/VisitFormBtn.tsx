@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 type VisitBtnProps = {
     shareURL: string;
 };
-export default function VisitBtn({ shareURL }: VisitBtnProps) {
+export default function VisitFormBtn({ shareURL }: VisitBtnProps) {
     const [mounted, setMounted] = useState(false);
 
     useEffect(() => {

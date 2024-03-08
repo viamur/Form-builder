@@ -1,12 +1,12 @@
 import { GetFormById } from '@/actions/server-actions';
 import React from 'react';
-import VisitBtn from '@/components/form-details/VisitBtn';
+import VisitFormBtn from '@/components/form-details/VisitFormBtn';
 import StatsCard from '@/components/stats-cards/StatsCard';
 import { FaEye, FaWpforms } from 'react-icons/fa';
 import { HiCursorClick } from 'react-icons/hi';
 import { MdCancelScheduleSend } from 'react-icons/md';
 import FormLinkShare from '@/components/form-details/FormLinkShare';
-import SubmissionsTable from '@/components/form-submit/SubmissionsTable';
+import SubmittedFormsTable from '@/components/form-submit/SubmittedFormsTable';
 import { notFound } from 'next/navigation';
 import DeleteFormBtn from '@/components/form-builder/buttons/DeleteFormBtn';
 import RefreshBtn from '@/components/form-details/RefreshBtn';
@@ -50,7 +50,7 @@ async function FormDetailsPage({ params }: BuilderPageProps) {
                     <div className="flex items-center gap-2">
                         <DeleteFormBtn formId={form.id} />
                         <RefreshBtn />
-                        <VisitBtn shareURL={form.shareURL} />
+                        <VisitFormBtn shareURL={form.shareURL} />
                     </div>
                 </div>
             </div>
@@ -93,7 +93,7 @@ async function FormDetailsPage({ params }: BuilderPageProps) {
                 />
             </div>
             <div className="container py-10">
-                <SubmissionsTable id={form.id} />
+                <SubmittedFormsTable id={form.id} />
             </div>
         </>
     );

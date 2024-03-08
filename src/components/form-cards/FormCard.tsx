@@ -24,6 +24,7 @@ function FormCard({ form }: { form: Form }) {
                     {form.published && <Badge>Published</Badge>}
                     {!form.published && <Badge variant={'destructive'}>Draft</Badge>}
                 </CardTitle>
+
                 <CardDescription className="flex items-center justify-between text-muted-foreground text-sm">
                     {formatDistance(form.createdAt, new Date(), {
                         addSuffix: true
@@ -38,9 +39,11 @@ function FormCard({ form }: { form: Form }) {
                     )}
                 </CardDescription>
             </CardHeader>
+
             <CardContent className="h-[20px] truncate text-sm text-muted-foreground">
                 {form.description || 'No description'}
             </CardContent>
+
             <CardFooter>
                 {form.published && (
                     <Button asChild className="w-full mt-2 text-md gap-4">
@@ -49,6 +52,7 @@ function FormCard({ form }: { form: Form }) {
                         </Link>
                     </Button>
                 )}
+
                 {!form.published && (
                     <Button asChild variant={'secondary'} className="w-full mt-2 text-md gap-4">
                         <Link href={`/builder/${form.id}`}>

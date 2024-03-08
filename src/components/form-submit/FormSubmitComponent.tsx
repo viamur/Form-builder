@@ -3,11 +3,11 @@
 import { FormElementInstance, FormElements } from '@/components/form-builder/designer/FormElements';
 import { Button } from '@/components/ui/button';
 import { HiCursorClick } from 'react-icons/hi';
-import { FaCheck } from 'react-icons/fa';
-import { useEffect, useRef, useState, useTransition } from 'react';
+import { useRef, useState, useTransition } from 'react';
 import { toast } from '@/components/ui/use-toast';
 import { ImSpinner2 } from 'react-icons/im';
 import { SubmitForm } from '@/actions/server-actions';
+import FormSubmittedSuccessfully from '@/components/form-submit/FormSubmittedSuccessfully';
 
 type Props = {
     formUrl: string;
@@ -47,6 +47,11 @@ export default function FormSubmitComponent({ formUrl, content }: Props) {
         try {
             const JSONData = JSON.stringify(formValues.current);
             await SubmitForm(formUrl, JSONData);
+
+            setTimeout(() => {
+                window.close();
+            }, 3000);
+
             setSubmitted(true);
         } catch (error) {
             toast({
@@ -57,28 +62,8 @@ export default function FormSubmitComponent({ formUrl, content }: Props) {
         }
     };
 
-    useEffect(() => {
-        if (submitted) {
-            setTimeout(() => {
-                window.close();
-            }, 3000);
-        }
-    }, [submitted]);
-
     if (submitted) {
-        return (
-            <div className="flex justify-center w-full h-full items-center p-8">
-                <div className="max-w-[620px] flex flex-col gap-4 flex-grow bg-background w-full p-8 overflow-y-auto border shadow-xl shadow-gray-700/20 rounded-xl">
-                    <div className="flex flex-row items-center gap-2 justify-center">
-                        <FaCheck className="w-[26px] h-[26px] fill-green-700" />
-                        <h1 className="text-2xl font-bold text-center">Form Submitted</h1>
-                    </div>
-                    <p className="text-muted-foreground text-center">
-                        Thank you for submitting the form. This page will close in a few seconds.
-                    </p>
-                </div>
-            </div>
-        );
+        return <FormSubmittedSuccessfully />;
     }
 
     return (

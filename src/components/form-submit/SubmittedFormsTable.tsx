@@ -2,8 +2,7 @@ import { GetFormWithSubmissions } from '@/actions/server-actions';
 import { ElementsType, FormElementInstance } from '@/components/form-builder/designer/FormElements';
 import * as TableComponents from '@/components/ui/table';
 import { format, formatDistance } from 'date-fns';
-import { Badge } from '@/components/ui/badge';
-import { Checkbox } from '@/components/ui/checkbox';
+import SubmittedFormsTableRowCell from '@/components/form-submit/SubmittedFormsTableRowCell';
 
 type Row = Record<string, string> & {
     submittedAt: Date;
@@ -13,7 +12,7 @@ type Props = {
     id: number;
 };
 
-export default async function SubmissionsTable({ id }: Props) {
+export default async function SubmittedFormsTable({ id }: Props) {
     const form = await GetFormWithSubmissions(id);
     if (!form) {
         throw new Error('form not found');
@@ -79,7 +78,7 @@ export default async function SubmissionsTable({ id }: Props) {
                         {rows.map((row) => (
                             <TableComponents.TableRow key={row.submittedAt.toISOString()}>
                                 {columns.map((column) => (
-                                    <RowCell
+                                    <SubmittedFormsTableRowCell
                                         key={column.id}
                                         type={column.type}
                                         value={row[column.id]}
@@ -97,27 +96,4 @@ export default async function SubmissionsTable({ id }: Props) {
             </div>
         </>
     );
-}
-
-type RowCellProps = {
-    type: ElementsType;
-    value: string;
-};
-
-function RowCell({ type, value }: RowCellProps) {
-    let node: React.ReactNode = value || '-';
-
-    switch (type) {
-        case 'DateField':
-            if (!value) break;
-            const date = new Date(value);
-            node = <Badge>{format(date, 'dd/MM/yyyy')}</Badge>;
-            break;
-        case 'CheckboxField':
-            node = <Checkbox checked={value === 'true'} disabled />;
-            break;
-        case 'SelectField':
-            node = <Badge variant="outline">{value}</Badge>;
-    }
-    return <TableComponents.TableCell>{node}</TableComponents.TableCell>;
 }
