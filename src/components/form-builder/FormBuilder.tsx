@@ -12,6 +12,7 @@ import useDesigner from '@/hooks/useDesigner';
 import Loading from '@/app/(dashboard)/builder/[id]/loading';
 import FormBuilderPublished from '@/components/form-builder/FormBuilderPublished';
 import DeleteFormBtn from '@/components/form-builder/buttons/DeleteFormBtn';
+import EditNameFormBtn from '@/components/form-builder/buttons/EditNameFormBtn';
 
 type FormBuilderProps = {
     form: Form;
@@ -55,10 +56,13 @@ function FormBuilder({ form }: FormBuilderProps) {
         <DndContext sensors={sensors}>
             <main className="flex flex-col w-full">
                 <nav className="flex justify-between border-b-2 p-4 gap-3 items-center">
-                    <h2 className="truncate font-medium">
-                        <span className="text-muted-foreground mr-2">Form:</span>
-                        {form.name}
-                    </h2>
+                    <div className="flex items-center gap-1">
+                        <h2 className="truncate font-medium">
+                            <span className="text-muted-foreground mr-2">Form:</span>
+                            {form.name}
+                        </h2>
+                        <EditNameFormBtn formId={form.id} formName={form.name} />
+                    </div>
                     <div className="flex items-center gap-2">
                         <PreviewDialogBtn />
                         {!form.published && (

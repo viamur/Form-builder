@@ -60,12 +60,14 @@ function PublishFormBtn({ id }: { id: number }) {
                     </AlertDialogComponents.AlertDialogCancel>
                     <AlertDialogComponents.AlertDialogAction
                         disabled={loading}
+                        className="flex items-center gap-2"
                         onClick={(e) => {
                             e.preventDefault();
                             startTransition(publishForm);
                         }}
                     >
-                        Proceed {loading && <FaSpinner className="animate-spin" />}
+                        <span>Proceed</span>
+                        {loading && <FaSpinner className="animate-spin" />}
                     </AlertDialogComponents.AlertDialogAction>
                 </AlertDialogComponents.AlertDialogFooter>
             </AlertDialogComponents.AlertDialogContent>

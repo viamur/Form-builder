@@ -1,3 +1,5 @@
+'use client';
+
 import { Button } from '@/components/ui/button';
 import { MdDelete } from 'react-icons/md';
 import React, { useTransition } from 'react';

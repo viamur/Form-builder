@@ -209,3 +209,21 @@ export async function DeleteForm(id: number) {
 
     revalidatePath('/', 'page');
 }
+
+export async function EditFormName(id: number, name: string) {
+    const user = await currentUser();
+
+    if (!user) {
+        throw new UserNotFoundErr();
+    }
+
+    return prisma.form.update({
+        data: {
+            name
+        },
+        where: {
+            id,
+            userId: user.id
+        }
+    });
+}

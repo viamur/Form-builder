@@ -10,6 +10,7 @@ import SubmissionsTable from '@/components/form-submit/SubmissionsTable';
 import { notFound } from 'next/navigation';
 import DeleteFormBtn from '@/components/form-builder/buttons/DeleteFormBtn';
 import RefreshBtn from '@/components/form-details/RefreshBtn';
+import EditNameFormBtn from '@/components/form-builder/buttons/EditNameFormBtn';
 
 type BuilderPageProps = {
     params: {
@@ -37,7 +38,10 @@ async function FormDetailsPage({ params }: BuilderPageProps) {
         <>
             <div className="py-10 border-b border-muted">
                 <div className="flex justify-between container">
-                    <h1 className="text-4xl font-bold truncate">{form.name}</h1>
+                    <div className="flex items-center gap-1">
+                        <h1 className="text-4xl font-bold truncate">{form.name}</h1>
+                        <EditNameFormBtn formId={form.id} formName={form.name} />
+                    </div>
                     <div className="flex items-center gap-2">
                         <DeleteFormBtn formId={form.id} />
                         <RefreshBtn />
