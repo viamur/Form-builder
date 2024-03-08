@@ -69,3 +69,5 @@ function DeleteFormBtn({ formId }: Props) {
         </AlertDialogComponents.AlertDialog>
     );
 }
+
+export default DeleteFormBtn;
