@@ -12,5 +12,5 @@ export default function RefreshBtn() {
             <IoMdRefresh className="h-4 w-4" />
             Refresh
         </Button>
-    )
+    );
 }

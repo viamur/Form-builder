@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import React from 'react';
 
@@ -10,5 +10,5 @@ export default function NotFound() {
                 <Link href={'/'}>Go back to home</Link>
             </Button>
         </div>
-    )
+    );
 }

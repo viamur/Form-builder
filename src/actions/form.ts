@@ -207,5 +207,5 @@ export async function DeleteForm(id: number) {
     // Delete the form
     await prisma.form.delete({ where: { id, userId: user.id } });
 
-    revalidatePath('/', 'page')
+    revalidatePath('/', 'page');
 }
