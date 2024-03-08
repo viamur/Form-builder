@@ -11,6 +11,11 @@ import { notFound } from 'next/navigation';
 import DeleteFormBtn from '@/components/form-builder/buttons/DeleteFormBtn';
 import RefreshBtn from '@/components/form-details/RefreshBtn';
 import EditNameFormBtn from '@/components/form-builder/buttons/EditNameFormBtn';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: 'Details',
+};
 
 type BuilderPageProps = {
     params: {
