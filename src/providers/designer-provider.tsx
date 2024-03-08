@@ -14,7 +14,7 @@ type DesignerContextType = {
     updateElement: (id: string, element: FormElementInstance) => void;
 };
 
-export const DesignerContext = createContext<DesignerContextType | null>(null);
+export const DesignerProvider = createContext<DesignerContextType | null>(null);
 
 export default function DesignerContextProvider({ children }: PropsWithChildren) {
     const [elements, setElements] = useState<FormElementInstance[]>([]);
@@ -52,5 +52,5 @@ export default function DesignerContextProvider({ children }: PropsWithChildren)
         updateElement
     };
 
-    return <DesignerContext.Provider value={value}>{children}</DesignerContext.Provider>;
+    return <DesignerProvider.Provider value={value}>{children}</DesignerProvider.Provider>;
 }

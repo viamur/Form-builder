@@ -3,7 +3,7 @@ import { Inter } from 'next/font/google';
 import { ClerkProvider } from '@clerk/nextjs';
 import './globals.css';
 import { ThemeProvider } from '@/providers/theme-provider';
-import DesignerContextProvider from '@/context/DesignerContext';
+import DesignerContextProvider from '@/providers/designer-provider';
 import { Toaster } from '@/components/ui/toaster';
 import NextTopLoader from 'nextjs-toploader';
 

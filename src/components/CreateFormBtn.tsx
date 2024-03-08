@@ -1,6 +1,5 @@
 'use client';
 
-import { formSchema, formSchemaType } from '@/schemas/form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { ImSpinner2 } from 'react-icons/im';
@@ -21,6 +20,14 @@ import { toast } from './ui/use-toast';
 import { CreateForm } from '@/actions/form';
 import { BsFileEarmarkPlus } from 'react-icons/bs';
 import { useRouter } from 'next/navigation';
+import { z } from 'zod';
+
+const formSchema = z.object({
+    name: z.string().min(4),
+    description: z.string().optional()
+});
+
+type formSchemaType = z.infer<typeof formSchema>;
 
 function CreateFormBtn() {
     const router = useRouter();
@@ -30,6 +37,10 @@ function CreateFormBtn() {
 
     async function onSubmit(values: formSchemaType) {
         try {
+            const validation = formSchema.safeParse(values);
+            if (!validation.success) {
+                new Error('form not valid');
+            }
             const formId = await CreateForm(values);
             toast({
                 title: 'Success',

@@ -1,7 +1,6 @@
 'use server';
 
 import prisma from '@/lib/prisma';
-import { formSchema, formSchemaType } from '@/schemas/form';
 import { currentUser } from '@clerk/nextjs';
 import { revalidatePath } from 'next/cache';
 
@@ -42,12 +41,7 @@ export async function GetFormStats() {
     };
 }
 
-export async function CreateForm(data: formSchemaType) {
-    const validation = formSchema.safeParse(data);
-    if (!validation.success) {
-        throw new Error('form not valid');
-    }
-
+export async function CreateForm(data: { name: string; description?: string }) {
     const user = await currentUser();
     if (!user) {
         throw new UserNotFoundErr();

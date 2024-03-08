@@ -1,10 +1,10 @@
 'use client';
 
 import { useContext } from 'react';
-import { DesignerContext } from '@/context/DesignerContext';
+import { DesignerProvider } from '@/providers/designer-provider';
 
 function useDesigner() {
-    const context = useContext(DesignerContext);
+    const context = useContext(DesignerProvider);
     if (!context) {
         throw new Error('useDesigner must be used within a DesignerContextProvider');
     }
