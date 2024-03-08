@@ -1,4 +1,4 @@
-import { GetFormStats } from '@/actions/form';
+import { GetFormStats } from '@/actions/server-actions';
 import { FaEye, FaWpforms } from 'react-icons/fa';
 import { HiCursorClick } from 'react-icons/hi';
 import { MdCancelScheduleSend } from 'react-icons/md';

@@ -1,4 +1,4 @@
-import { GetFormById } from '@/actions/form';
+import { GetFormById } from '@/actions/server-actions';
 import React from 'react';
 import VisitBtn from '@/components/form-details/VisitBtn';
 import StatsCard from '@/components/stats-cards/StatsCard';

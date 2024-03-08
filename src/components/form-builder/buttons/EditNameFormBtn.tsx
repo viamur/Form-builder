@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import { MdModeEdit } from 'react-icons/md';
 import React, { useTransition } from 'react';
 import { useRouter } from 'next/navigation';
-import { EditFormName } from '@/actions/form';
+import { EditFormName } from '@/actions/server-actions';
 import { toast } from '@/components/ui/use-toast';
 import * as DialogComponents from '@/components/ui/dialog';
 import { FaSpinner } from 'react-icons/fa';

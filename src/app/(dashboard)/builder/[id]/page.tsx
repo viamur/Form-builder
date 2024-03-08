@@ -1,4 +1,4 @@
-import { GetFormById } from '@/actions/form';
+import { GetFormById } from '@/actions/server-actions';
 import React from 'react';
 import FormBuilder from '@/components/form-builder/FormBuilder';
 import { notFound } from 'next/navigation';

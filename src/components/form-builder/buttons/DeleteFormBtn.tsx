@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import { MdDelete } from 'react-icons/md';
 import React, { useTransition } from 'react';
 import { useRouter } from 'next/navigation';
-import { DeleteForm } from '@/actions/form';
+import { DeleteForm } from '@/actions/server-actions';
 import { toast } from '@/components/ui/use-toast';
 import * as AlertDialogComponents from '@/components/ui/alert-dialog';
 import { FaSpinner } from 'react-icons/fa';

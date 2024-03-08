@@ -1,4 +1,4 @@
-import { PublishForm, UpdateFormContent } from '@/actions/form';
+import { PublishForm, UpdateFormContent } from '@/actions/server-actions';
 import { useRouter } from 'next/navigation';
 import { useTransition } from 'react';
 import { FaSpinner } from 'react-icons/fa';

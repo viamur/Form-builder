@@ -1,4 +1,4 @@
-import { GetFormContentByUrl } from '@/actions/form';
+import { GetFormContentByUrl } from '@/actions/server-actions';
 import { FormElementInstance } from '@/components/form-builder/designer/FormElements';
 import FormSubmitComponent from '@/components/form-submit/FormSubmitComponent';
 import { notFound } from 'next/navigation';

@@ -3,7 +3,7 @@ import { Button } from '../../ui/button';
 import { HiSaveAs } from 'react-icons/hi';
 import { FaSpinner } from 'react-icons/fa';
 import useDesigner from '@/hooks/useDesigner';
-import { UpdateFormContent } from '@/actions/form';
+import { UpdateFormContent } from '@/actions/server-actions';
 import { toast } from '@/components/ui/use-toast';
 
 type Props = {

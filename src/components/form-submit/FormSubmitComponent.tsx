@@ -7,7 +7,7 @@ import { FaCheck } from 'react-icons/fa';
 import { useEffect, useRef, useState, useTransition } from 'react';
 import { toast } from '@/components/ui/use-toast';
 import { ImSpinner2 } from 'react-icons/im';
-import { SubmitForm } from '@/actions/form';
+import { SubmitForm } from '@/actions/server-actions';
 
 type Props = {
     formUrl: string;
