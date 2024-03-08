@@ -16,7 +16,7 @@ import { Input } from '@/components/ui/input';
 import * as TooltipComponents from '@/components/ui/tooltip';
 
 const schema = z.object({
-    name: z.string().min(2).max(50),
+    name: z.string().min(4).max(50),
 });
 
 type DefaultValues = z.infer<typeof schema>
@@ -41,6 +41,10 @@ function EditNameFormBtn({ formId, formName }: Props) {
 
     async function submit({name}: DefaultValues) {
         try {
+            const validation = schema.safeParse({name});
+            if (!validation.success) {
+                throw new Error('name not valid');
+            }
             await EditFormName(formId, name);
             setIsOpened(false);
             toast({
@@ -83,6 +87,7 @@ function EditNameFormBtn({ formId, formName }: Props) {
                     </DialogComponents.DialogTitle>
                     <FormComponents.Form {...form}>
                         <form onSubmit={(e) => {
+                            e.preventDefault();
                             startTransition(form.handleSubmit(submit));
                         }}>
                             <FormComponents.FormField
