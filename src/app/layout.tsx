@@ -14,13 +14,7 @@ export const metadata: Metadata = {
         template: '%s | Form Builder',
         default: 'Form Builder',
     },
-    description: 'Form Builder by viamur',
-    viewport: {
-        width: 'device-width',
-        initialScale: 1,
-        maximumScale: 1,
-        userScalable: false,
-    },
+    description: 'Form Builder by viamur'
 };
 
 export default function RootLayout({
