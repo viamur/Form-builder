@@ -10,13 +10,8 @@ import DragOverlayWrapper from '@/components/form-builder/designer/DragOverlayWr
 import React, { useEffect, useState } from 'react';
 import useDesigner from '@/hooks/useDesigner';
 import Loading from '@/app/(dashboard)/builder/[id]/loading';
-import { Input } from '@/components/ui/input';
-import { Button } from '@/components/ui/button';
-import { toast } from '@/components/ui/use-toast';
-import Link from 'next/link';
-import { BsArrowLeft, BsArrowRight } from 'react-icons/bs';
-import Confetti from 'react-confetti';
 import FormBuilderPublished from '@/components/form-builder/FormBuilderPublished';
+import DeleteFormBtn from '@/components/form-builder/buttons/DeleteFormBtn';
 
 type FormBuilderProps = {
     form: Form;
@@ -69,6 +64,7 @@ function FormBuilder({ form }: FormBuilderProps) {
                         {!form.published && (
                             <>
                                 <SaveFormBtn id={form.id} />
+                                <DeleteFormBtn formId={form.id} />
                                 <PublishFormBtn id={form.id} />
                             </>
                         )}
