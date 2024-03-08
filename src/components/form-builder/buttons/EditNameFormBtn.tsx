@@ -82,7 +82,9 @@ function EditNameFormBtn({ formId, formName }: Props) {
                         Edit Form Name
                     </DialogComponents.DialogTitle>
                     <FormComponents.Form {...form}>
-                        <form>
+                        <form onSubmit={(e) => {
+                            startTransition(form.handleSubmit(submit));
+                        }}>
                             <FormComponents.FormField
                                 control={form.control}
                                 defaultValue={formName}
