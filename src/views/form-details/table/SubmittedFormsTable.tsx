@@ -2,7 +2,7 @@ import { GetFormWithSubmissions } from '@/actions/server-actions';
 import { ElementsType, FormElementInstance } from '@/components/fields/FormElements';
 import * as TableComponents from '@/components/ui/table';
 import { format, formatDistance } from 'date-fns';
-import SubmittedFormsTableRowCell from '@/components/form-details/table/SubmittedFormsTableRowCell';
+import SubmittedFormsTableRowCell from './SubmittedFormsTableRowCell';
 
 type Row = Record<string, string> & {
     submittedAt: Date;

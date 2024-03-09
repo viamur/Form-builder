@@ -3,9 +3,9 @@ import { useRouter } from 'next/navigation';
 import { useTransition } from 'react';
 import { FaSpinner } from 'react-icons/fa';
 import { MdOutlinePublish } from 'react-icons/md';
-import * as AlertDialogComponents from '../../ui/alert-dialog';
-import { Button } from '../../ui/button';
-import { toast } from '../../ui/use-toast';
+import * as AlertDialogComponents from '@/components/ui/alert-dialog';
+import { Button } from '@/components/ui/button';
+import { toast } from '@/components/ui/use-toast';
 import useDesigner from '@/hooks/useDesigner';
 
 function PublishFormBtn({ id }: { id: number }) {

@@ -1,10 +1,10 @@
 import { Suspense } from 'react';
 import { Separator } from '@/components/ui/separator';
-import CreateFormBtn from '@/components/CreateFormBtn';
+import CreateFormBtn from '@/views/dashboard/buttons/CreateFormBtn';
 import StatsCardsWrapper from '@/components/stats-cards/StatsCardsWrapper';
 import { StatsCards } from '@/components/stats-cards/StatsCards';
-import FormCardSkeleton from '@/components/form-cards/FormCardsSkeleton';
-import FormCards from '@/components/form-cards/FormCards';
+import FormCardSkeleton from '@/views/dashboard/form-cards/FormCardsSkeleton';
+import FormCards from '@/views/dashboard/form-cards/FormCards';
 
 export default function Home() {
     return (

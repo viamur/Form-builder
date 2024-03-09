@@ -2,7 +2,7 @@ import { GetFormById } from '@/actions/server-actions';
 import React from 'react';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
-import FormDetails from '@/components/form-details/FormDetails';
+import FormDetails from '@/views/form-details/FormDetails';
 
 export const metadata: Metadata = {
     title: 'Details',

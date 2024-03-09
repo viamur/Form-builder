@@ -7,7 +7,7 @@ import { useRef, useState, useTransition } from 'react';
 import { toast } from '@/components/ui/use-toast';
 import { ImSpinner2 } from 'react-icons/im';
 import { SubmitForm } from '@/actions/server-actions';
-import FormSubmittedSuccessfully from '@/components/form-submit/FormSubmittedSuccessfully';
+import FormSubmittedSuccessfully from './FormSubmittedSuccessfully';
 
 type Props = {
     formUrl: string;

@@ -1,5 +1,5 @@
 import React, { useTransition } from 'react';
-import { Button } from '../../ui/button';
+import { Button } from '@/components/ui/button';
 import { HiSaveAs } from 'react-icons/hi';
 import { FaSpinner } from 'react-icons/fa';
 import useDesigner from '@/hooks/useDesigner';

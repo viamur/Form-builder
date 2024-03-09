@@ -1,6 +1,6 @@
 import { GetFormById } from '@/actions/server-actions';
 import React from 'react';
-import FormBuilder from '@/components/form-builder/FormBuilder';
+import FormBuilder from '@/views/form-builder/FormBuilder';
 import { notFound } from 'next/navigation';
 
 type BuilderPageProps = {

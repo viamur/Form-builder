@@ -1,11 +1,11 @@
 'use client';
 
 import { DragEndEvent, useDndMonitor, useDroppable } from '@dnd-kit/core';
-import DesignerSideBar from '@/components/form-builder/designer/DesignerSideBar';
+import DesignerSideBar from '@/views/form-builder/designer/DesignerSideBar';
 import { cn, idGenerator } from '@/lib/utils';
 import useDesigner from '@/hooks/useDesigner';
 import { ElementsType, FormElements } from '@/components/fields/FormElements';
-import DesignerElementWrapper from '@/components/form-builder/designer/DesignerElementWrapper';
+import DesignerElementWrapper from '@/views/form-builder/designer/DesignerElementWrapper';
 
 function Designer() {
     const { elements, addElement, setSelectedElement, removeElement, selectedElement } =
