@@ -8,6 +8,7 @@ import { toast } from '@/components/ui/use-toast';
 import { ImSpinner2 } from 'react-icons/im';
 import { SubmitForm } from '@/actions/server-actions';
 import FormSubmittedSuccessfully from './components/FormSubmittedSuccessfully';
+import { ScrollArea } from '@/components/ui/scroll-area';
 
 type Props = {
     formUrl: string;
@@ -67,35 +68,37 @@ export default function FormSubmit({ formUrl, content }: Props) {
     }
 
     return (
-        <div className="flex justify-center w-full h-full items-center p-8">
-            <div className="max-w-[620px] flex flex-col gap-4 flex-grow bg-background w-full p-8 overflow-y-auto border shadow-xl shadow-gray-700/20 rounded-xl">
-                {content.map((element) => {
-                    const FormElement = FormElements[element.type].formComponent;
-                    return (
-                        <FormElement
-                            key={element.id}
-                            elementInstance={element}
-                            submitValue={submitValue}
-                            isInvalid={formErrors[element.id]}
-                            setError={setFormErrors}
-                            defaultValue={formValues.current[element.id]}
-                        />
-                    );
-                })}
-                <Button
-                    className="mt-8"
-                    disabled={pending}
-                    onClick={() => setTransition(submitForm)}
-                >
-                    {pending && <ImSpinner2 className="mr-2" />}
-                    {!pending && (
-                        <>
-                            <HiCursorClick className="mr-2" />
-                            Submit
-                        </>
-                    )}
-                </Button>
+        <ScrollArea className="w-full h-full flex-grow" type="auto">
+            <div className="flex justify-center w-full h-full items-center p-8">
+                <div className="max-w-[620px] flex flex-col gap-4 flex-grow bg-background w-full p-8 overflow-y-auto border shadow-xl shadow-gray-700/20 rounded-xl">
+                    {content.map((element) => {
+                        const FormElement = FormElements[element.type].formComponent;
+                        return (
+                            <FormElement
+                                key={element.id}
+                                elementInstance={element}
+                                submitValue={submitValue}
+                                isInvalid={formErrors[element.id]}
+                                setError={setFormErrors}
+                                defaultValue={formValues.current[element.id]}
+                            />
+                        );
+                    })}
+                    <Button
+                        className="mt-8"
+                        disabled={pending}
+                        onClick={() => setTransition(submitForm)}
+                    >
+                        {pending && <ImSpinner2 className="mr-2" />}
+                        {!pending && (
+                            <>
+                                <HiCursorClick className="mr-2" />
+                                Submit
+                            </>
+                        )}
+                    </Button>
+                </div>
             </div>
-        </div>
+        </ScrollArea>
     );
 }

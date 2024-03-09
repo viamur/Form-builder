@@ -30,9 +30,7 @@ async function SubmitPage({ params }: SubmitPageProps) {
     const formContent = JSON.parse(form.content) as FormElementInstance[];
 
     return (
-        <ScrollArea className="w-full h-full flex-grow" type="auto">
-            <FormSubmit formUrl={params.formUrl} content={formContent} />
-        </ScrollArea>
+        <FormSubmit formUrl={params.formUrl} content={formContent} />
     );
 }
 
