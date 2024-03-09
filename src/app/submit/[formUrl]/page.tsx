@@ -1,5 +1,5 @@
 import { GetFormContentByUrl } from '@/actions/server-actions';
-import { FormElementInstance } from '@/components/form-builder/designer/FormElements';
+import { FormElementInstance } from '@/components/fields/FormElements';
 import FormSubmitComponent from '@/components/form-submit/FormSubmitComponent';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';

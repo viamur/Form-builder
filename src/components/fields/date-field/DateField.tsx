@@ -1,4 +1,4 @@
-import { FormElement, FormElementInstance } from '../../form-builder/designer/FormElements';
+import { FormElement, FormElementInstance } from '../FormElements';
 import DesignerComponent from './DesignerComponent';
 import PropertiesComponent from './PropertiesComponent';
 import FormComponent from './FormComponent';

@@ -1,4 +1,4 @@
-import { FormElement } from '@/components/form-builder/designer/FormElements';
+import { FormElement } from '@/components/fields/FormElements';
 import { CustomInstance } from './ParagraphField';
 import { Label } from '@/components/ui/label';
 import { ComponentProps } from 'react';

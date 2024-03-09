@@ -1,5 +1,5 @@
 import { ComponentProps } from 'react';
-import { FormElement } from '@/components/form-builder/designer/FormElements';
+import { FormElement } from '@/components/fields/FormElements';
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 import { CustomInstance } from './TextField';

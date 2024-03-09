@@ -1,4 +1,4 @@
-import { FormElement } from '@/components/form-builder/designer/FormElements';
+import { FormElement } from '@/components/fields/FormElements';
 import { z } from 'zod';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';

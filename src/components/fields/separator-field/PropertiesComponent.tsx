@@ -1,4 +1,4 @@
-import { FormElement } from '@/components/form-builder/designer/FormElements';
+import { FormElement } from '@/components/fields/FormElements';
 import { ComponentProps, useEffect } from 'react';
 
 type Props = ComponentProps<FormElement['propertiesComponent']>;

@@ -1,7 +1,7 @@
 import { ComponentProps, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
-import { FormElement } from '@/components/form-builder/designer/FormElements';
+import { FormElement } from '@/components/fields/FormElements';
 import { zodResolver } from '@hookform/resolvers/zod';
 import useDesigner from '@/hooks/useDesigner';
 import { Input } from '@/components/ui/input';

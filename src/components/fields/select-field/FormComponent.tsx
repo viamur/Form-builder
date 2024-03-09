@@ -1,4 +1,4 @@
-import { FormElement } from '@/components/form-builder/designer/FormElements';
+import { FormElement } from '@/components/fields/FormElements';
 import { ComponentProps, useState } from 'react';
 import { Label } from '@/components/ui/label';
 import { cn } from '@/lib/utils';

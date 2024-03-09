@@ -1,4 +1,4 @@
-import { FormElement, FormElementInstance } from '@/components/form-builder/designer/FormElements';
+import { FormElement, FormElementInstance } from '@/components/fields/FormElements';
 import { MdTextFields } from 'react-icons/md';
 import DesignerComponent from './DesignerComponent';
 import PropertiesComponent from './PropertiesComponent';

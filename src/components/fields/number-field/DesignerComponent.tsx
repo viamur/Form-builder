@@ -1,4 +1,4 @@
-import { FormElement } from '@/components/form-builder/designer/FormElements';
+import { FormElement } from '@/components/fields/FormElements';
 import { CustomInstance } from './NumberField';
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
