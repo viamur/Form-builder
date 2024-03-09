@@ -1,5 +1,5 @@
-import EditNameFormBtn from '@/components/form-builder/buttons/EditNameFormBtn';
-import DeleteFormBtn from '@/components/form-builder/buttons/DeleteFormBtn';
+import EditNameFormBtn from '@/components/buttons/EditNameFormBtn';
+import DeleteFormBtn from '@/components/buttons/DeleteFormBtn';
 import RefreshBtn from '@/components/form-details/RefreshBtn';
 import VisitFormBtn from '@/components/form-details/VisitFormBtn';
 import FormLinkShare from '@/components/form-details/FormLinkShare';

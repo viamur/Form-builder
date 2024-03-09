@@ -11,8 +11,8 @@ import React, { useEffect, useState } from 'react';
 import useDesigner from '@/hooks/useDesigner';
 import Loading from '@/app/(dashboard)/builder/[id]/loading';
 import FormBuilderPublished from '@/components/form-builder/FormBuilderPublished';
-import DeleteFormBtn from '@/components/form-builder/buttons/DeleteFormBtn';
-import EditNameFormBtn from '@/components/form-builder/buttons/EditNameFormBtn';
+import DeleteFormBtn from '@/components/buttons/DeleteFormBtn';
+import EditNameFormBtn from '@/components/buttons/EditNameFormBtn';
 
 type FormBuilderProps = {
     form: Form;
