@@ -1,5 +1,5 @@
 import { GetFormWithSubmissions } from '@/actions/server-actions';
-import { ElementsType, FormElementInstance } from '@/components/form-builder/designer/FormElements';
+import { ElementsType, FormElementInstance } from '@/components/form-builder/fields/FormElements';
 import * as TableComponents from '@/components/ui/table';
 import { format, formatDistance } from 'date-fns';
 import SubmittedFormsTableRowCell from '@/components/form-submit/SubmittedFormsTableRowCell';
