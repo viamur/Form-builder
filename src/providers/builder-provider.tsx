@@ -1,7 +1,7 @@
 'use client';
 
 import { FormElementInstance } from '@/components/fields/FormElements';
-import { createContext, Dispatch, PropsWithChildren, SetStateAction, useState } from 'react';
+import { createContext, Dispatch, PropsWithChildren, SetStateAction, useCallback, useMemo, useState } from 'react';
 
 type BuilderFormContextType = {
     elements: FormElementInstance[];
@@ -20,28 +20,28 @@ export default function BuilderContextProvider({ children }: PropsWithChildren) 
     const [elements, setElements] = useState<FormElementInstance[]>([]);
     const [selectedElement, setSelectedElement] = useState<FormElementInstance | null>(null);
 
-    const addElement = (index: number, element: FormElementInstance) => {
+    const addElement = useCallback((index: number, element: FormElementInstance) => {
         setElements((prevElements) => {
             const newElements = [...prevElements];
             newElements.splice(index, 0, element);
             return newElements;
         });
-    };
+    }, [setElements]);
 
-    const removeElement = (id: string) => {
+    const removeElement = useCallback((id: string) => {
         setElements((prevElements) => prevElements.filter((element) => element.id !== id));
-    };
+    }, [setElements]);
 
-    const updateElement = (id: string, element: FormElementInstance) => {
+    const updateElement = useCallback((id: string, element: FormElementInstance) => {
         setElements((prevElements) => {
             const index = prevElements.findIndex((element) => element.id === id);
             const newElements = [...prevElements];
             newElements[index] = element;
             return newElements;
         });
-    };
+    }, [setElements]);
 
-    const value = {
+    const value = useMemo(() => ({
         elements,
         addElement,
         removeElement,
@@ -50,7 +50,7 @@ export default function BuilderContextProvider({ children }: PropsWithChildren) 
         selectedElement,
         setSelectedElement,
         updateElement
-    };
+    }), [elements, addElement, removeElement, setElements, selectedElement, setSelectedElement, updateElement]);
 
     return <BuilderProvider.Provider value={value}>{children}</BuilderProvider.Provider>;
 }
