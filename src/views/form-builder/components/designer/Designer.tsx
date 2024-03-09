@@ -1,7 +1,7 @@
 'use client';
 
 import { DragEndEvent, useDndMonitor, useDroppable } from '@dnd-kit/core';
-import DesignerSideBar from '@/views/form-builder/components/sidebar/DesignerSideBar';
+import Sidebar from '@/views/form-builder/components/sidebar/Sidebar';
 import { cn, idGenerator } from '@/lib/utils';
 import useDesigner from '@/hooks/useDesigner';
 import { ElementsType, FormElements } from '@/components/fields/FormElements';
@@ -131,7 +131,7 @@ function Designer() {
                     )}
                 </div>
             </div>
-            <DesignerSideBar />
+            <Sidebar />
         </div>
     );
 }

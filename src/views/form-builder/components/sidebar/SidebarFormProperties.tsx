@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import { AiOutlineClose } from 'react-icons/ai';
 import { Separator } from '@/components/ui/separator';
 
-export default function PropertiesFormSidebar() {
+export default function SidebarFormProperties() {
     const { selectedElement, setSelectedElement } = useDesigner();
     if (!selectedElement) return null;
 

@@ -6,7 +6,7 @@ import SaveFormBtn from '@/views/form-builder/components/buttons/SaveFormBtn';
 import PreviewDialogBtn from '@/views/form-builder/components/buttons/PreviewDialogBtn';
 import Designer from '@/views/form-builder/components/designer/Designer';
 import { DndContext, MouseSensor, TouchSensor, useSensor, useSensors } from '@dnd-kit/core';
-import DragOverlayWrapper from '@/views/form-builder/components/designer/DragOverlayWrapper';
+import DragOverlayWrapper from '@/views/form-builder/components/DragOverlayWrapper';
 import React, { useEffect, useState } from 'react';
 import useDesigner from '@/hooks/useDesigner';
 import Loading from '@/app/(dashboard)/builder/[id]/loading';
