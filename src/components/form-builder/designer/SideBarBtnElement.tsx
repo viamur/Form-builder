@@ -1,6 +1,6 @@
 'use client';
 
-import { FormElement } from '@/components/form-builder/fields/FormElements';
+import { FormElement } from '@/components/form-builder/designer/FormElements';
 import { Button } from '@/components/ui/button';
 import { useDraggable } from '@dnd-kit/core';
 import { cn } from '@/lib/utils';

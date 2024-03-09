@@ -4,7 +4,7 @@ import { DragEndEvent, useDndMonitor, useDroppable } from '@dnd-kit/core';
 import DesignerSideBar from '@/components/form-builder/designer/DesignerSideBar';
 import { cn, idGenerator } from '@/lib/utils';
 import useDesigner from '@/hooks/useDesigner';
-import { ElementsType, FormElements } from '@/components/form-builder/fields/FormElements';
+import { ElementsType, FormElements } from '@/components/form-builder/designer/FormElements';
 import DesignerElementWrapper from '@/components/form-builder/designer/DesignerElementWrapper';
 
 function Designer() {
