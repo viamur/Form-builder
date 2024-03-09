@@ -42,7 +42,11 @@ export default function DesignerElementWrapper({ element }: Props) {
         }
     });
 
-    if (draggable.isDragging) return null;
+    if (draggable.isDragging) {
+        return (
+            <div className="w-full h-[120px] rounded-md bg-accent/40 pointer-events-none border-dashed border-2 border-red-500" />
+        )
+    }
 
     return (
         <div

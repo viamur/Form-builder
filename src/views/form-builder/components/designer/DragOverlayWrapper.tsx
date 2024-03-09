@@ -24,6 +24,7 @@ export default function DragOverlayWrapper() {
     const isSideBarBtnElement = draggedItem?.data?.current?.isDesignerBtnElement as
         | boolean
         | undefined;
+
     if (isSideBarBtnElement) {
         const type = draggedItem?.data?.current?.type as ElementsType | undefined;
         if (type) {
