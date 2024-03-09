@@ -1,6 +1,6 @@
 import useDesigner from '@/hooks/useDesigner';
-import FormElementsSidebar from '@/views/form-builder/components/designer/FormElementsSidebar';
-import PropertiesFormSidebar from '@/views/form-builder/components/designer/PropertiesFormSidebar';
+import FormElementsSidebar from '@/views/form-builder/components/sidebar/FormElementsSidebar';
+import PropertiesFormSidebar from '@/views/form-builder/components/sidebar/PropertiesFormSidebar';
 
 function DesignerSideBar() {
     const { selectedElement } = useDesigner();
