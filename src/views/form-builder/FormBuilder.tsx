@@ -1,9 +1,6 @@
 'use client';
 
 import { Form } from '@prisma/client';
-import PublishFormBtn from '@/views/form-builder/components/buttons/PublishFormBtn';
-import SaveFormBtn from '@/views/form-builder/components/buttons/SaveFormBtn';
-import PreviewDialogBtn from '@/views/form-builder/components/buttons/PreviewDialogBtn';
 import FormBuilderArea from '@/views/form-builder/components/form-builder-area/FormBuilderArea';
 import { DndContext, MouseSensor, TouchSensor, useSensor, useSensors } from '@dnd-kit/core';
 import DragOverlayWrapper from '@/views/form-builder/components/DragOverlayWrapper';
@@ -11,8 +8,6 @@ import React, { useEffect, useState } from 'react';
 import useBuilderFormContext from '@/hooks/useBuilderFormContext';
 import Loading from '@/app/(dashboard)/builder/[id]/loading';
 import FormBuilderPublished from '@/views/form-builder/components/FormBuilderPublished';
-import DeleteFormBtn from '@/components/buttons/DeleteFormBtn';
-import EditNameFormBtn from '@/components/buttons/EditNameFormBtn';
 import FormBuilderHeader from '@/views/form-builder/components/FormBuilderHeader';
 import Sidebar from '@/views/form-builder/components/form-builder-sidebar/Sidebar';
 
