@@ -1,5 +1,5 @@
 import SideBarBtnElement from '@/components/form-builder/designer/SideBarBtnElement';
-import { FormElements } from '@/components/form-builder/fields/FormElements';
+import { FormElements } from '@/components/form-builder/designer/FormElements';
 import { Separator } from '@/components/ui/separator';
 
 export default function FormElementsSidebar() {

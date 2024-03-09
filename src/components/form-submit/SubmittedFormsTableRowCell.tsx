@@ -1,4 +1,4 @@
-import { ElementsType } from '@/components/form-builder/fields/FormElements';
+import { ElementsType } from '@/components/form-builder/designer/FormElements';
 import { Badge } from '@/components/ui/badge';
 import { format } from 'date-fns';
 import { Checkbox } from '@/components/ui/checkbox';

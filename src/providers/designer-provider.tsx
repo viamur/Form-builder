@@ -1,6 +1,6 @@
 'use client';
 
-import { FormElementInstance } from '@/components/form-builder/fields/FormElements';
+import { FormElementInstance } from '@/components/form-builder/designer/FormElements';
 import { createContext, Dispatch, PropsWithChildren, SetStateAction, useState } from 'react';
 
 type DesignerContextType = {
