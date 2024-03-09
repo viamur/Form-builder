@@ -122,13 +122,13 @@ function FormBuilderArea() {
                     </div>
                 )}
                 {elements.length > 0 && (
-                <ScrollArea className="w-full" type="auto">
-                    <div className="flex flex-col w-full gap-2 p-4">
-                        {elements.map((el) => (
-                            <FormBuilderElementWrapper key={el.id} element={el} />
-                        ))}
-                    </div>
-                </ScrollArea>
+                    <ScrollArea className="w-full" type="auto">
+                        <div className="flex flex-col w-full gap-2 p-4">
+                            {elements.map((el) => (
+                                <FormBuilderElementWrapper key={el.id} element={el} />
+                            ))}
+                        </div>
+                    </ScrollArea>
                 )}
             </div>
         </div>

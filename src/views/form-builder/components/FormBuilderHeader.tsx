@@ -9,9 +9,9 @@ type Props = {
     formId: number;
     formName: string;
     isPublished: boolean;
-}
+};
 
-export default function FormBuilderHeader({formId, formName, isPublished}: Props) {
+export default function FormBuilderHeader({ formId, formName, isPublished }: Props) {
     return (
         <nav className="flex justify-between border-b-2 p-4 gap-3 items-center">
             <div className="flex items-center gap-1">
@@ -32,5 +32,5 @@ export default function FormBuilderHeader({formId, formName, isPublished}: Props
                 )}
             </div>
         </nav>
-    )
+    );
 }

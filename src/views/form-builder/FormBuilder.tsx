@@ -57,13 +57,16 @@ function FormBuilder({ form }: FormBuilderProps) {
     return (
         <DndContext sensors={sensors}>
             <main className="flex flex-col w-full overflow-hidden">
-                <FormBuilderHeader formId={form.id} formName={form.name} isPublished={form.published} />
+                <FormBuilderHeader
+                    formId={form.id}
+                    formName={form.name}
+                    isPublished={form.published}
+                />
 
                 <div className="flex flex-grow w-full h-full overflow-hidden">
                     <FormBuilderArea />
                     <Sidebar />
                 </div>
-
             </main>
             <DragOverlayWrapper />
         </DndContext>

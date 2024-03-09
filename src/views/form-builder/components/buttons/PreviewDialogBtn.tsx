@@ -29,7 +29,9 @@ function PreviewDialogBtn() {
                             <div className="flex flex-col gap-4 flex-grow h-full w-full p-8">
                                 {elements.map((element) => {
                                     const FormComponent = FormElements[element.type].formComponent;
-                                    return <FormComponent elementInstance={element} key={element.id} />;
+                                    return (
+                                        <FormComponent elementInstance={element} key={element.id} />
+                                    );
                                 })}
                             </div>
                         </ScrollArea>

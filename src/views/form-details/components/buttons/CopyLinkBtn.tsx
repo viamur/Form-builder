@@ -4,7 +4,7 @@ import { toast } from '@/components/ui/use-toast';
 
 type Props = {
     link: string;
-}
+};
 
 export default function CopyLinkBtn({ link }: Props) {
     const onCopyLink = () => {
@@ -14,15 +14,12 @@ export default function CopyLinkBtn({ link }: Props) {
                 description: 'Link copied to clipboard'
             });
         });
-    }
+    };
 
     return (
-        <Button
-            className="w-[200px] flex-shrink-0"
-            onClick={onCopyLink}
-        >
+        <Button className="w-[200px] flex-shrink-0" onClick={onCopyLink}>
             <FaRegCopy className="mr-2 h-4 w-4" />
             Copy link
         </Button>
-    )
+    );
 }

@@ -45,7 +45,7 @@ export default function FormBuilderElementWrapper({ element }: Props) {
     if (draggable.isDragging) {
         return (
             <div className="w-full h-[120px] rounded-md bg-accent/40 pointer-events-none border-dashed border-2 border-red-500" />
-        )
+        );
     }
 
     return (

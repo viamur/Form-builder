@@ -10,7 +10,7 @@ type Form = NonNullable<Awaited<ReturnType<typeof GetFormById>>>;
 
 type Props = {
     form: Form;
-}
+};
 
 export default function FormDetails({ form }: Props) {
     const { visits, submissions } = form;
@@ -40,5 +40,5 @@ export default function FormDetails({ form }: Props) {
                 <SubmittedFormsTable id={form.id} />
             </ScrollArea>
         </>
-    )
+    );
 }

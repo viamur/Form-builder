@@ -22,7 +22,12 @@ export function StatsCards({
     isContainer
 }: StatsCardsProps) {
     return (
-        <div className={cn('w-full pt-8 gap-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4', isContainer && 'container')}>
+        <div
+            className={cn(
+                'w-full pt-8 gap-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4',
+                isContainer && 'container'
+            )}
+        >
             <StatsCard
                 title="Total visits"
                 icon={<FaEye className="text-blue-600" style={{ margin: 0 }} />}

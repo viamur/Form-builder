@@ -15,11 +15,10 @@ import { Input } from '@/components/ui/input';
 import * as TooltipComponents from '@/components/ui/tooltip';
 
 const schema = z.object({
-    name: z.string().min(4).max(50),
+    name: z.string().min(4).max(50)
 });
 
-type DefaultValues = z.infer<typeof schema>
-
+type DefaultValues = z.infer<typeof schema>;
 
 type Props = {
     formId: number;
@@ -31,15 +30,15 @@ function EditNameFormBtn({ formId, formName }: Props) {
     const [loading, startTransition] = useTransition();
 
     const form = useForm<DefaultValues>({
-        defaultValues: {name: ''},
-        values: {name: formName},
+        defaultValues: { name: '' },
+        values: { name: formName },
         resolver: zodResolver(schema),
         mode: 'onBlur'
     });
 
-    async function submit({name}: DefaultValues) {
+    async function submit({ name }: DefaultValues) {
         try {
-            const validation = schema.safeParse({name});
+            const validation = schema.safeParse({ name });
             if (!validation.success) {
                 throw new Error('name not valid');
             }
@@ -60,38 +59,38 @@ function EditNameFormBtn({ formId, formName }: Props) {
 
     return (
         <DialogComponents.Dialog open={isOpened} onOpenChange={setIsOpened}>
-                <TooltipComponents.TooltipProvider delayDuration={0}>
-                    <TooltipComponents.Tooltip>
-                        <TooltipComponents.TooltipTrigger>
-                            <Button
-                                variant="ghost"
-                                size="icon"
-                                className="rounded-full"
-                                onClick={() => setIsOpened(true)}
-                            >
-                                <MdModeEdit className="h-4 w-4" />
-                            </Button>
-                        </TooltipComponents.TooltipTrigger>
-                        <TooltipComponents.TooltipContent>
-                            Edit Name
-                        </TooltipComponents.TooltipContent>
-                    </TooltipComponents.Tooltip>
-                </TooltipComponents.TooltipProvider>
+            <TooltipComponents.TooltipProvider delayDuration={0}>
+                <TooltipComponents.Tooltip>
+                    <TooltipComponents.TooltipTrigger>
+                        <Button
+                            variant="ghost"
+                            size="icon"
+                            className="rounded-full"
+                            onClick={() => setIsOpened(true)}
+                        >
+                            <MdModeEdit className="h-4 w-4" />
+                        </Button>
+                    </TooltipComponents.TooltipTrigger>
+                    <TooltipComponents.TooltipContent>Edit Name</TooltipComponents.TooltipContent>
+                </TooltipComponents.Tooltip>
+            </TooltipComponents.TooltipProvider>
             <DialogComponents.DialogContent className="w-[400px]">
                 <DialogComponents.DialogHeader>
                     <DialogComponents.DialogTitle className="mb-4">
                         Edit Form Name
                     </DialogComponents.DialogTitle>
                     <FormComponents.Form {...form}>
-                        <form onSubmit={(e) => {
-                            e.preventDefault();
-                            startTransition(form.handleSubmit(submit));
-                        }}>
+                        <form
+                            onSubmit={(e) => {
+                                e.preventDefault();
+                                startTransition(form.handleSubmit(submit));
+                            }}
+                        >
                             <FormComponents.FormField
                                 control={form.control}
                                 defaultValue={formName}
                                 name="name"
-                                render={({field}) => (
+                                render={({ field }) => (
                                     <FormComponents.FormItem>
                                         <FormComponents.FormControl>
                                             <Input {...field} />
@@ -104,9 +103,7 @@ function EditNameFormBtn({ formId, formName }: Props) {
                     </FormComponents.Form>
                 </DialogComponents.DialogHeader>
                 <DialogComponents.DialogFooter>
-                    <DialogComponents.DialogClose>
-                        Cancel
-                    </DialogComponents.DialogClose>
+                    <DialogComponents.DialogClose>Cancel</DialogComponents.DialogClose>
                     <Button
                         disabled={loading || !form.formState.isDirty}
                         className="flex items-center gap-2 min-w-[100px]"
@@ -120,7 +117,7 @@ function EditNameFormBtn({ formId, formName }: Props) {
                 </DialogComponents.DialogFooter>
             </DialogComponents.DialogContent>
         </DialogComponents.Dialog>
-);
+    );
 }
 
 export default EditNameFormBtn;

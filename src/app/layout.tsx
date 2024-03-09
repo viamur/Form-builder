@@ -12,7 +12,7 @@ const inter = Inter({ subsets: ['latin'] });
 export const metadata: Metadata = {
     title: {
         template: '%s | Form Builder',
-        default: 'Form Builder',
+        default: 'Form Builder'
     },
     description: 'Form Builder by viamur'
 };
@@ -25,8 +25,8 @@ export default function RootLayout({
     return (
         <ClerkProvider>
             <html lang="en">
-            <body className={inter.className}>
-            <NextTopLoader />
+                <body className={inter.className}>
+                    <NextTopLoader />
                     <BuilderContextProvider>
                         <ThemeProvider
                             attribute="class"

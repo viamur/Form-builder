@@ -11,7 +11,10 @@ export default function SidebarFormElements() {
             </div>
             <Separator className="mb-2" />
             <div className="grid grid-cols-1 md:grid-cols-2 gap-2 place-items-center">
-                <Badge className="col-span-1 md:col-span-2 my-2 place-self-start" variant="secondary">
+                <Badge
+                    className="col-span-1 md:col-span-2 my-2 place-self-start"
+                    variant="secondary"
+                >
                     Layout elements
                 </Badge>
                 <SidebarButton formElement={FormElements.TitleField} />
@@ -20,7 +23,10 @@ export default function SidebarFormElements() {
                 <SidebarButton formElement={FormElements.SeparatorField} />
                 <SidebarButton formElement={FormElements.SpacerField} />
 
-                <Badge className="col-span-1 md:col-span-2 my-2 place-self-start mt-4" variant="secondary">
+                <Badge
+                    className="col-span-1 md:col-span-2 my-2 place-self-start mt-4"
+                    variant="secondary"
+                >
                     Form elements
                 </Badge>
                 <SidebarButton formElement={FormElements.TextField} />

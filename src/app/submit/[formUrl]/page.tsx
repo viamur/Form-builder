@@ -11,8 +11,8 @@ export const metadata: Metadata = {
         width: 'device-width',
         initialScale: 1,
         maximumScale: 1,
-        userScalable: false,
-    },
+        userScalable: false
+    }
 };
 
 type SubmitPageProps = {
@@ -29,9 +29,7 @@ async function SubmitPage({ params }: SubmitPageProps) {
 
     const formContent = JSON.parse(form.content) as FormElementInstance[];
 
-    return (
-        <FormSubmit formUrl={params.formUrl} content={formContent} />
-    );
+    return <FormSubmit formUrl={params.formUrl} content={formContent} />;
 }
 
 export default SubmitPage;

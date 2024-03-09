@@ -8,7 +8,7 @@ type Props = {
     formId: number;
     formName: string;
     formShareURL: string;
-}
+};
 
 export default function FormDetailsHeader({ formId, formShareURL, formName }: Props) {
     return (
@@ -25,5 +25,5 @@ export default function FormDetailsHeader({ formId, formShareURL, formName }: Pr
                 </div>
             </div>
         </div>
-    )
+    );
 }

@@ -62,7 +62,7 @@ export async function CreateForm(data: { name: string; description?: string }) {
         throw new Error('something went wrong');
     }
 
-    revalidatePath('/(dashboard)/', 'page')
+    revalidatePath('/(dashboard)/', 'page');
     return form.id;
 }
 
@@ -117,7 +117,7 @@ export async function UpdateFormContent(id: number, jsonContent: string) {
         }
     });
 
-    revalidatePath('/(dashboard)/builder/[id]', 'page')
+    revalidatePath('/(dashboard)/builder/[id]', 'page');
 
     return;
 }
@@ -209,7 +209,7 @@ export async function DeleteForm(id: number) {
     await prisma.form.delete({ where: { id, userId: user.id } });
 
     revalidatePath('/', 'page');
-    redirect('/')
+    redirect('/');
 }
 
 export async function EditFormName(id: number, name: string) {
@@ -229,7 +229,7 @@ export async function EditFormName(id: number, name: string) {
         }
     });
 
-    revalidatePath('/', 'page')
+    revalidatePath('/', 'page');
 
     return;
 }
