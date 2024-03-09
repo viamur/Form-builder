@@ -4,6 +4,7 @@ import { MdPreview } from 'react-icons/md';
 import * as DialogComponents from '@/components/ui/dialog';
 import useDesigner from '@/hooks/useDesigner';
 import { FormElements } from '@/components/fields/FormElements';
+import { ScrollArea } from '@/components/ui/scroll-area';
 
 function PreviewDialogBtn() {
     const { elements } = useDesigner();
@@ -23,11 +24,15 @@ function PreviewDialogBtn() {
                     </p>
                 </div>
                 <div className="bg-accent bg-[url(/paper.svg)] dark:bg-[url(/paper-dark.svg)] overflow-y-auto flex flex-col flex-grow items-center justify-center p-4">
-                    <div className="max-w-[620px] flex flex-col gap-4 flex-grow bg-background h-full w-full rounded-2xl p-8 overflow-y-auto">
-                        {elements.map((element) => {
-                            const FormComponent = FormElements[element.type].formComponent;
-                            return <FormComponent elementInstance={element} key={element.id} />;
-                        })}
+                    <div className="max-w-[620px] flex-grow bg-background h-full w-full rounded-2xl">
+                        <ScrollArea className="h-full w-full" type="auto">
+                            <div className="flex flex-col gap-4 flex-grow h-full w-full p-8">
+                                {elements.map((element) => {
+                                    const FormComponent = FormElements[element.type].formComponent;
+                                    return <FormComponent elementInstance={element} key={element.id} />;
+                                })}
+                            </div>
+                        </ScrollArea>
                     </div>
                 </div>
             </DialogComponents.DialogContent>

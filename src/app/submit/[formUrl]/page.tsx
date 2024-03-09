@@ -3,6 +3,7 @@ import { FormElementInstance } from '@/components/fields/FormElements';
 import FormSubmit from '@/views/form-submit/FormSubmit';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
+import { ScrollArea } from '@/components/ui/scroll-area';
 
 export const metadata: Metadata = {
     title: 'Submit Form',
@@ -28,7 +29,11 @@ async function SubmitPage({ params }: SubmitPageProps) {
 
     const formContent = JSON.parse(form.content) as FormElementInstance[];
 
-    return <FormSubmit formUrl={params.formUrl} content={formContent} />;
+    return (
+        <ScrollArea className="w-full h-full flex-grow" type="auto">
+            <FormSubmit formUrl={params.formUrl} content={formContent} />
+        </ScrollArea>
+    );
 }
 
 export default SubmitPage;

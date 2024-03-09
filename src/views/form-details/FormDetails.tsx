@@ -28,7 +28,7 @@ export default function FormDetails({ form }: Props) {
             <FormDetailsHeader formId={form.id} formName={form.name} formShareURL={form.shareURL} />
             <FormLinkShare shareURL={form.shareURL} />
 
-            <ScrollArea>
+            <ScrollArea type="auto">
                 <StatsCards
                     isContainer
                     visits={visits}

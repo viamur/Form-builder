@@ -5,6 +5,7 @@ import { cn, idGenerator } from '@/lib/utils';
 import useDesigner from '@/hooks/useDesigner';
 import { ElementsType, FormElements } from '@/components/fields/FormElements';
 import FormBuilderElementWrapper from '@/views/form-builder/components/form-builder-area/FormBuilderElementWrapper';
+import { ScrollArea } from '@/components/ui/scroll-area';
 
 function FormBuilderArea() {
     const { elements, addElement, setSelectedElement, removeElement, selectedElement } =
@@ -121,11 +122,13 @@ function FormBuilderArea() {
                     </div>
                 )}
                 {elements.length > 0 && (
+                <ScrollArea className="w-full" type="auto">
                     <div className="flex flex-col w-full gap-2 p-4">
                         {elements.map((el) => (
                             <FormBuilderElementWrapper key={el.id} element={el} />
                         ))}
                     </div>
+                </ScrollArea>
                 )}
             </div>
         </div>
