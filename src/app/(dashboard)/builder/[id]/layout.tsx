@@ -6,7 +6,7 @@ export const metadata: Metadata = {
 };
 
 function layout({ children }: PropsWithChildren) {
-    return <div className="flex w-full flex-grow mx-auto">{children}</div>;
+    return <div className="flex w-full flex-grow mx-auto overflow-hidden">{children}</div>;
 }
 
 export default layout;

@@ -1,6 +1,7 @@
 import useDesigner from '@/hooks/useDesigner';
-import SidebarFormElements from '@/views/form-builder/components/sidebar/SidebarFormElements';
-import SidebarFormProperties from '@/views/form-builder/components/sidebar/SidebarFormProperties';
+import SidebarFormElements from '@/views/form-builder/components/form-builder-sidebar/SidebarFormElements';
+import SidebarFormProperties from '@/views/form-builder/components/form-builder-sidebar/SidebarFormProperties';
+import { memo } from 'react';
 
 function Sidebar() {
     const { selectedElement } = useDesigner();
@@ -11,4 +12,4 @@ function Sidebar() {
         </aside>
     );
 }
-export default Sidebar;
+export default memo(Sidebar);

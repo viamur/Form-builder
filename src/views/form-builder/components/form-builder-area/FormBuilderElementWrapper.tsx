@@ -10,7 +10,7 @@ type Props = {
     element: FormElementInstance;
 };
 
-export default function DesignerElementWrapper({ element }: Props) {
+export default function FormBuilderElementWrapper({ element }: Props) {
     const [mouseIsOver, setMouseIsOver] = useState(false);
 
     const { removeElement, setSelectedElement } = useDesigner();

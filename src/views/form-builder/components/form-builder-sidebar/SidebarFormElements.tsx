@@ -1,4 +1,4 @@
-import SidebarButton from '@/views/form-builder/components/sidebar/SidebarButton';
+import SidebarButton from '@/views/form-builder/components/form-builder-sidebar/SidebarButton';
 import { FormElements } from '@/components/fields/FormElements';
 import { Separator } from '@/components/ui/separator';
 
