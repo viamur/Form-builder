@@ -46,12 +46,7 @@ function PublishFormBtn({ id }: { id: number }) {
                     </AlertDialogComponents.AlertDialogTitle>
                     <AlertDialogComponents.AlertDialogDescription>
                         This action cannot be undone. After publishing you will not be able to edit
-                        this form. <br />
-                        <br />
-                        <span className="font-medium">
-                            By publishing this form you will make it available to the public and you
-                            will be able to collect submissions.
-                        </span>
+                        this form.
                     </AlertDialogComponents.AlertDialogDescription>
                 </AlertDialogComponents.AlertDialogHeader>
                 <AlertDialogComponents.AlertDialogFooter>
