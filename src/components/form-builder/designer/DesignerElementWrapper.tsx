@@ -1,4 +1,4 @@
-import { FormElementInstance, FormElements } from '@/components/form-builder/designer/FormElements';
+import { FormElementInstance, FormElements } from '@/components/form-builder/fields/FormElements';
 import { useDraggable, useDroppable } from '@dnd-kit/core';
 import { cn } from '@/lib/utils';
 import { useState } from 'react';

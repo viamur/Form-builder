@@ -1,0 +1,12 @@
+import { FormElement } from '@/components/form-builder/fields/FormElements';
+import { ComponentProps } from 'react';
+import { CustomInstance } from './TitleField';
+
+type Props = ComponentProps<FormElement['formComponent']>;
+
+export default function FormComponent({ elementInstance }: Props) {
+    const element = elementInstance as CustomInstance;
+    const { title } = element.extraAttributes;
+
+    return <p className="text-xl">{title}</p>;
+}
