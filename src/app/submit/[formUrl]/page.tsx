@@ -1,6 +1,6 @@
 import { GetFormContentByUrl } from '@/actions/server-actions';
 import { FormElementInstance } from '@/components/fields/FormElements';
-import FormSubmitComponent from '@/components/form-submit/FormSubmitComponent';
+import FormSubmit from '@/views/form-submit/FormSubmit';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 
@@ -28,7 +28,7 @@ async function SubmitPage({ params }: SubmitPageProps) {
 
     const formContent = JSON.parse(form.content) as FormElementInstance[];
 
-    return <FormSubmitComponent formUrl={params.formUrl} content={formContent} />;
+    return <FormSubmit formUrl={params.formUrl} content={formContent} />;
 }
 
 export default SubmitPage;

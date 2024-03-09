@@ -1,7 +1,7 @@
 'use client';
 import { useEffect, useState } from 'react';
 import { Input } from '@/components/ui/input';
-import CopyLinkBtn from '@/views/form-details/buttons/CopyLinkBtn';
+import CopyLinkBtn from '@/views/form-details/components/buttons/CopyLinkBtn';
 
 type FormLinkShareProps = {
     shareURL: string;

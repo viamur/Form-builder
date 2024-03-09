@@ -1,10 +1,10 @@
 import EditNameFormBtn from '@/components/buttons/EditNameFormBtn';
 import DeleteFormBtn from '@/components/buttons/DeleteFormBtn';
 import { StatsCards } from '@/components/stats-cards/StatsCards';
-import RefreshBtn from './buttons/RefreshBtn';
-import VisitFormBtn from './buttons/VisitFormBtn';
-import FormLinkShare from './FormLinkShare';
-import SubmittedFormsTable from './table/SubmittedFormsTable';
+import RefreshBtn from '@/views/form-details/components/buttons/RefreshBtn';
+import VisitFormBtn from '@/views/form-details/components/buttons/VisitFormBtn';
+import FormLinkShare from './components/FormLinkShare';
+import SubmittedFormsTable from '@/views/form-details/components/table/SubmittedFormsTable';
 import React from 'react';
 import { GetFormById } from '@/actions/server-actions';
 

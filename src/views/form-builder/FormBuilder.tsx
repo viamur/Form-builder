@@ -1,16 +1,16 @@
 'use client';
 
 import { Form } from '@prisma/client';
-import PublishFormBtn from '@/views/form-builder/buttons/PublishFormBtn';
-import SaveFormBtn from '@/views/form-builder/buttons/SaveFormBtn';
-import PreviewDialogBtn from '@/views/form-builder/buttons/PreviewDialogBtn';
-import Designer from '@/views/form-builder/designer/Designer';
+import PublishFormBtn from '@/views/form-builder/components/buttons/PublishFormBtn';
+import SaveFormBtn from '@/views/form-builder/components/buttons/SaveFormBtn';
+import PreviewDialogBtn from '@/views/form-builder/components/buttons/PreviewDialogBtn';
+import Designer from '@/views/form-builder/components/designer/Designer';
 import { DndContext, MouseSensor, TouchSensor, useSensor, useSensors } from '@dnd-kit/core';
-import DragOverlayWrapper from '@/views/form-builder/designer/DragOverlayWrapper';
+import DragOverlayWrapper from '@/views/form-builder/components/designer/DragOverlayWrapper';
 import React, { useEffect, useState } from 'react';
 import useDesigner from '@/hooks/useDesigner';
 import Loading from '@/app/(dashboard)/builder/[id]/loading';
-import FormBuilderPublished from '@/views/form-builder/FormBuilderPublished';
+import FormBuilderPublished from '@/views/form-builder/components/FormBuilderPublished';
 import DeleteFormBtn from '@/components/buttons/DeleteFormBtn';
 import EditNameFormBtn from '@/components/buttons/EditNameFormBtn';
 

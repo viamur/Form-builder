@@ -7,13 +7,13 @@ import { useRef, useState, useTransition } from 'react';
 import { toast } from '@/components/ui/use-toast';
 import { ImSpinner2 } from 'react-icons/im';
 import { SubmitForm } from '@/actions/server-actions';
-import FormSubmittedSuccessfully from './FormSubmittedSuccessfully';
+import FormSubmittedSuccessfully from './components/FormSubmittedSuccessfully';
 
 type Props = {
     formUrl: string;
     content: FormElementInstance[];
 };
-export default function FormSubmitComponent({ formUrl, content }: Props) {
+export default function FormSubmit({ formUrl, content }: Props) {
     const formValues = useRef<Record<string, string>>({});
     const [pending, setTransition] = useTransition();
     const [formErrors, setFormErrors] = useState<Record<string, boolean>>({});
