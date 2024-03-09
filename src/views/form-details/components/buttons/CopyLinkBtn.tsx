@@ -10,7 +10,7 @@ export default function CopyLinkBtn({ link }: Props) {
     const onCopyLink = () => {
         navigator.clipboard.writeText(link).then(() => {
             toast({
-                title: 'Copied!',
+                title      : 'Copied!',
                 description: 'Link copied to clipboard'
             });
         });

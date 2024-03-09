@@ -1,3 +1,33 @@
 {
-    "extends": "next"
+    "extends": [
+        "next",
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended"
+    ],
+    "parser" : "@typescript-eslint/parser",
+    "plugins": [
+        "@typescript-eslint"
+    ],
+    "rules": {
+        "no-var": "error",
+        "no-undef": "error",
+        "prefer-const": "error",
+        "no-multiple-empty-lines": "error",
+        "key-spacing": [
+            "error",
+            {
+                "singleLine": {
+                    "beforeColon": false,
+                    "afterColon" : true
+                },
+                "align": {
+                    "beforeColon": false,
+                    "afterColon" : true,
+                    "on"         : "colon"
+                }
+            }
+        ],
+        "quote-props": ["error", "as-needed"],
+        "import/newline-after-import": ["error", { "count": 1 }]
+    }
 }

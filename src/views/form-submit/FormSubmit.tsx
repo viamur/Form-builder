@@ -1,14 +1,14 @@
 'use client';
 
+import { useRef, useState, useTransition } from 'react';
+import { HiCursorClick } from 'react-icons/hi';
+import { ImSpinner2 } from 'react-icons/im';
 import { FormElementInstance, FormElements } from '@/components/fields/FormElements';
 import { Button } from '@/components/ui/button';
-import { HiCursorClick } from 'react-icons/hi';
-import { useRef, useState, useTransition } from 'react';
 import { toast } from '@/components/ui/use-toast';
-import { ImSpinner2 } from 'react-icons/im';
 import { SubmitForm } from '@/server-actions/server-actions';
-import FormSubmittedSuccessfully from './components/FormSubmittedSuccessfully';
 import { ScrollArea } from '@/components/ui/scroll-area';
+import FormSubmittedSuccessfully from './components/FormSubmittedSuccessfully';
 
 type Props = {
     formUrl: string;
@@ -38,9 +38,9 @@ export default function FormSubmit({ formUrl, content }: Props) {
         const valid = validateForm();
         if (!valid) {
             toast({
-                title: 'Form is invalid',
+                title      : 'Form is invalid',
                 description: 'Please check the form for errors',
-                variant: 'destructive'
+                variant    : 'destructive'
             });
             return;
         }
@@ -56,9 +56,9 @@ export default function FormSubmit({ formUrl, content }: Props) {
             setSubmitted(true);
         } catch (error) {
             toast({
-                title: 'Form submission failed',
+                title      : 'Form submission failed',
                 description: 'Please try again later',
-                variant: 'destructive'
+                variant    : 'destructive'
             });
         }
     };

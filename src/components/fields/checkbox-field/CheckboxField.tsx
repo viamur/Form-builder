@@ -9,9 +9,9 @@ export type CustomInstance = {
 } & FormElementInstance;
 
 export const extraAttributes = {
-    label: 'Checkbox field',
+    label     : 'Checkbox field',
     helperText: 'Helper text',
-    required: false
+    required  : false
 };
 
 function validateExtraAttributes(formElement: FormElementInstance, currentValue: string) {
@@ -23,18 +23,18 @@ function validateExtraAttributes(formElement: FormElementInstance, currentValue:
 }
 
 export const CheckboxFieldFormElement: FormElement = {
-    type: 'CheckboxField',
+    type     : 'CheckboxField',
     construct: (id: string) => ({
         id,
         type: 'CheckboxField',
         extraAttributes
     }),
     designerBtnElement: {
-        icon: IoMdCheckbox,
+        icon : IoMdCheckbox,
         label: 'Checkbox field'
     },
-    designerComponent: DesignerComponent,
-    formComponent: FormComponent,
+    designerComponent  : DesignerComponent,
+    formComponent      : FormComponent,
     propertiesComponent: PropertiesComponent,
-    validate: validateExtraAttributes
+    validate           : validateExtraAttributes
 };

@@ -9,9 +9,9 @@ export type CustomInstance = {
 } & FormElementInstance;
 
 export const extraAttributes = {
-    label: 'Date field',
+    label     : 'Date field',
     helperText: 'Pick a date',
-    required: false
+    required  : false
 };
 
 function validateExtraAttributes(formElement: FormElementInstance, currentValue: string) {
@@ -23,18 +23,18 @@ function validateExtraAttributes(formElement: FormElementInstance, currentValue:
 }
 
 export const DateFieldFormElement: FormElement = {
-    type: 'DateField',
+    type     : 'DateField',
     construct: (id: string) => ({
         id,
         type: 'DateField',
         extraAttributes
     }),
     designerBtnElement: {
-        icon: BsFillCalendarDateFill,
+        icon : BsFillCalendarDateFill,
         label: 'Date field'
     },
-    designerComponent: DesignerComponent,
-    formComponent: FormComponent,
+    designerComponent  : DesignerComponent,
+    formComponent      : FormComponent,
     propertiesComponent: PropertiesComponent,
-    validate: validateExtraAttributes
+    validate           : validateExtraAttributes
 };

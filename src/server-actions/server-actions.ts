@@ -2,7 +2,7 @@
 
 import prisma from '@/lib/prisma';
 import { currentUser } from '@clerk/nextjs';
-import { revalidatePath, unstable_noStore as noStore } from 'next/cache';
+import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 
 class UserNotFoundErr extends Error {}
@@ -18,7 +18,7 @@ export async function GetFormStats() {
             userId: user.id
         },
         _sum: {
-            visits: true,
+            visits     : true,
             submissions: true
         }
     });
@@ -172,7 +172,7 @@ export async function SubmitForm(formUrl: string, content: string) {
             }
         },
         where: {
-            shareURL: formUrl,
+            shareURL : formUrl,
             published: true
         }
     });

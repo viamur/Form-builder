@@ -31,9 +31,9 @@ function EditNameFormBtn({ formId, formName }: Props) {
 
     const form = useForm<DefaultValues>({
         defaultValues: { name: '' },
-        values: { name: formName },
-        resolver: zodResolver(schema),
-        mode: 'onBlur'
+        values       : { name: formName },
+        resolver     : zodResolver(schema),
+        mode         : 'onBlur'
     });
 
     async function submit({ name }: DefaultValues) {
@@ -45,14 +45,14 @@ function EditNameFormBtn({ formId, formName }: Props) {
             await EditFormName(formId, name);
             setIsOpened(false);
             toast({
-                title: 'Success',
+                title      : 'Success',
                 description: 'Name has been updated'
             });
         } catch (error) {
             toast({
-                title: 'Error',
+                title      : 'Error',
                 description: 'Something went wrong',
-                variant: 'destructive'
+                variant    : 'destructive'
             });
         }
     }
@@ -107,7 +107,7 @@ function EditNameFormBtn({ formId, formName }: Props) {
                     <Button
                         disabled={loading || !form.formState.isDirty}
                         className="flex items-center gap-2 min-w-[100px]"
-                        onClick={(e) => {
+                        onClick={() => {
                             startTransition(form.handleSubmit(submit));
                         }}
                     >

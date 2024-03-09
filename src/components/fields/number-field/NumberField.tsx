@@ -9,10 +9,10 @@ export type CustomInstance = {
 } & FormElementInstance;
 
 export const extraAttributes = {
-    label: 'Number field',
-    helperText: 'Helper text',
+    label      : 'Number field',
+    helperText : 'Helper text',
     placeholder: '0',
-    required: false
+    required   : false
 };
 
 function validateExtraAttributes(formElement: FormElementInstance, currentValue: string) {
@@ -24,18 +24,18 @@ function validateExtraAttributes(formElement: FormElementInstance, currentValue:
 }
 
 export const NumberFieldFormElement: FormElement = {
-    type: 'NumberField',
+    type     : 'NumberField',
     construct: (id: string) => ({
         id,
         type: 'NumberField',
         extraAttributes
     }),
     designerBtnElement: {
-        icon: Bs123,
+        icon : Bs123,
         label: 'Number field'
     },
-    designerComponent: DesignerComponent,
-    formComponent: FormComponent,
+    designerComponent  : DesignerComponent,
+    formComponent      : FormComponent,
     propertiesComponent: PropertiesComponent,
-    validate: validateExtraAttributes
+    validate           : validateExtraAttributes
 };

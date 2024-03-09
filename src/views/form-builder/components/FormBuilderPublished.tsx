@@ -37,7 +37,7 @@ export default function FormBuilderPublished({ shareURL, formId }: Props) {
                             onClick={() => {
                                 navigator.clipboard.writeText(shareUrl);
                                 toast({
-                                    title: 'Copied!',
+                                    title      : 'Copied!',
                                     description: 'Link copied to clipboard'
                                 });
                             }}

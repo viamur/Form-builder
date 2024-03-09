@@ -26,7 +26,7 @@ function FormBuilder({ form }: FormBuilderProps) {
     });
     const touchSensor = useSensor(TouchSensor, {
         activationConstraint: {
-            delay: 300,
+            delay    : 300,
             tolerance: 5
         }
     });

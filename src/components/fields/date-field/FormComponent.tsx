@@ -2,7 +2,7 @@ import { FormElement } from '@/components/fields/FormElements';
 import { ComponentProps, useState } from 'react';
 import { Label } from '@/components/ui/label';
 import { cn } from '@/lib/utils';
-import { DateFieldFormElement, CustomInstance } from './DateField';
+import { CustomInstance, DateFieldFormElement } from './DateField';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { CalendarIcon } from '@radix-ui/react-icons';
 import { Button } from '@/components/ui/button';
@@ -19,7 +19,7 @@ export default function FormComponent({
     defaultValue
 }: Props) {
     const element = elementInstance as CustomInstance;
-    const { label, required, placeholder, helperText } = element.extraAttributes;
+    const { label, required, helperText } = element.extraAttributes;
 
     const [value, setValue] = useState(defaultValue ? new Date(defaultValue) : undefined);
 

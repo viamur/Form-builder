@@ -22,8 +22,8 @@ export default function PropertiesComponent({ elementInstance }: Props) {
     const element = elementInstance as CustomInstance;
     const form = useForm<PropertiesType>({
         defaultValues: element.extraAttributes,
-        resolver: zodResolver(propertiesSchema),
-        mode: 'onBlur'
+        resolver     : zodResolver(propertiesSchema),
+        mode         : 'onBlur'
     });
 
     useEffect(() => {

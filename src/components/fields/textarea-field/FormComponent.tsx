@@ -1,9 +1,8 @@
 import { FormElement } from '@/components/fields/FormElements';
 import { ComponentProps, useState } from 'react';
 import { Label } from '@/components/ui/label';
-import { Input } from '@/components/ui/input';
 import { cn } from '@/lib/utils';
-import { TextAreaFieldFormElement, CustomInstance } from './TextAreaField';
+import { CustomInstance, TextAreaFieldFormElement } from './TextAreaField';
 import { Textarea } from '@/components/ui/textarea';
 
 type Props = ComponentProps<FormElement['formComponent']>;

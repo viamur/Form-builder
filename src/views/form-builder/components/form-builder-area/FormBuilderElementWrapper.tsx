@@ -17,27 +17,27 @@ export default function FormBuilderElementWrapper({ element }: Props) {
 
     const DesignerElement = FormElements[element.type].designerComponent;
     const topHalf = useDroppable({
-        id: element.id + '-top',
+        id  : element.id + '-top',
         data: {
-            type: element.type,
-            elementId: element.id,
+            type                    : element.type,
+            elementId               : element.id,
             isTopHalfDesignerElement: true
         }
     });
     const bottomHalf = useDroppable({
-        id: element.id + '-bottom',
+        id  : element.id + '-bottom',
         data: {
-            type: element.type,
-            elementId: element.id,
+            type                       : element.type,
+            elementId                  : element.id,
             isBottomHalfDesignerElement: true
         }
     });
 
     const draggable = useDraggable({
-        id: element.id + '-drag-handler',
+        id  : element.id + '-drag-handler',
         data: {
-            type: element.type,
-            elementId: element.id,
+            type             : element.type,
+            elementId        : element.id,
             isDesignerElement: true
         }
     });

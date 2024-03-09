@@ -13,18 +13,18 @@ export const extraAttributes = {
 };
 
 export const SubTitleFieldFormElement: FormElement = {
-    type: 'SubTitleField',
+    type     : 'SubTitleField',
     construct: (id: string) => ({
         id,
         type: 'SubTitleField',
         extraAttributes
     }),
     designerBtnElement: {
-        icon: LuHeading2,
+        icon : LuHeading2,
         label: 'SubTitle field'
     },
-    designerComponent: DesignerComponent,
-    formComponent: FormComponent,
+    designerComponent  : DesignerComponent,
+    formComponent      : FormComponent,
     propertiesComponent: PropertiesComponent,
-    validate: () => true
+    validate           : () => true
 };

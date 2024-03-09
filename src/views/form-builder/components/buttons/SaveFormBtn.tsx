@@ -19,14 +19,14 @@ function SaveFormBtn({ id }: Props) {
             const jsonElements = JSON.stringify(elements);
             await UpdateFormContent(id, jsonElements);
             toast({
-                title: 'Success',
+                title      : 'Success',
                 description: 'Your form has been saved'
             });
         } catch (error) {
             toast({
-                title: 'Error',
+                title      : 'Error',
                 description: 'Something went wrong',
-                variant: 'destructive'
+                variant    : 'destructive'
             });
             console.error(error);
         }

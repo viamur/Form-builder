@@ -3,7 +3,7 @@ import { ComponentProps, useState } from 'react';
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 import { cn } from '@/lib/utils';
-import { TextFieldFormElement, CustomInstance } from './TextField';
+import { CustomInstance, TextFieldFormElement } from './TextField';
 
 type Props = ComponentProps<FormElement['formComponent']>;
 

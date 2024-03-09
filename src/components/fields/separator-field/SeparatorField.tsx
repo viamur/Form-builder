@@ -5,17 +5,17 @@ import FormComponent from './FormComponent';
 import { RiSeparator } from 'react-icons/ri';
 
 export const SeparatorFieldFormElement: FormElement = {
-    type: 'SeparatorField',
+    type     : 'SeparatorField',
     construct: (id: string) => ({
         id,
         type: 'SeparatorField'
     }),
     designerBtnElement: {
-        icon: RiSeparator,
+        icon : RiSeparator,
         label: 'Separator field'
     },
-    designerComponent: DesignerComponent,
-    formComponent: FormComponent,
+    designerComponent  : DesignerComponent,
+    formComponent      : FormComponent,
     propertiesComponent: PropertiesComponent,
-    validate: () => true
+    validate           : () => true
 };

@@ -11,7 +11,7 @@ function FormBuilderArea() {
     const { elements, addElement, setSelectedElement, removeElement, selectedElement } =
         useBuilderFormContext();
     const droppable = useDroppable({
-        id: 'designer-drop-area',
+        id  : 'designer-drop-area',
         data: {
             isDesignerDropArea: true
         }

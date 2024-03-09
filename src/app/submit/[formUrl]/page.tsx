@@ -3,12 +3,11 @@ import { FormElementInstance } from '@/components/fields/FormElements';
 import FormSubmit from '@/views/form-submit/FormSubmit';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
-import { ScrollArea } from '@/components/ui/scroll-area';
 
 export const metadata: Metadata = {
-    title: 'Submit Form',
+    title   : 'Submit Form',
     viewport: {
-        width: 'device-width',
+        width       : 'device-width',
         initialScale: 1,
         maximumScale: 1,
         userScalable: false

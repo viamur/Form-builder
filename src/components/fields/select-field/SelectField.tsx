@@ -9,11 +9,11 @@ export type CustomInstance = {
 } & FormElementInstance;
 
 export const extraAttributes = {
-    label: 'Select field',
-    helperText: 'Helper text',
+    label      : 'Select field',
+    helperText : 'Helper text',
     placeholder: 'Select an option',
-    required: false,
-    options: []
+    required   : false,
+    options    : []
 };
 
 function validateExtraAttributes(formElement: FormElementInstance, currentValue: string) {
@@ -25,18 +25,18 @@ function validateExtraAttributes(formElement: FormElementInstance, currentValue:
 }
 
 export const SelectFieldFormElement: FormElement = {
-    type: 'SelectField',
+    type     : 'SelectField',
     construct: (id: string) => ({
         id,
         type: 'SelectField',
         extraAttributes
     }),
     designerBtnElement: {
-        icon: RxDropdownMenu,
+        icon : RxDropdownMenu,
         label: 'Select field'
     },
-    designerComponent: DesignerComponent,
-    formComponent: FormComponent,
+    designerComponent  : DesignerComponent,
+    formComponent      : FormComponent,
     propertiesComponent: PropertiesComponent,
-    validate: validateExtraAttributes
+    validate           : validateExtraAttributes
 };

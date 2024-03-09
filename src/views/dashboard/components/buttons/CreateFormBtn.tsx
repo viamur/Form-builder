@@ -30,7 +30,7 @@ import { useRouter } from 'next/navigation';
 import { z } from 'zod';
 
 const formSchema = z.object({
-    name: z.string().min(4),
+    name       : z.string().min(4),
     description: z.string().optional()
 });
 
@@ -50,15 +50,15 @@ function CreateFormBtn() {
             }
             const formId = await CreateForm(values);
             toast({
-                title: 'Success',
+                title      : 'Success',
                 description: 'Form created successfully'
             });
             router.push(`/builder/${formId}`);
         } catch (error) {
             toast({
-                title: 'Error',
+                title      : 'Error',
                 description: 'Something went wrong, please try again later',
-                variant: 'destructive'
+                variant    : 'destructive'
             });
         }
     }

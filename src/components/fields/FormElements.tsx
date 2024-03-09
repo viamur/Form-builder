@@ -1,5 +1,5 @@
 import { TextFieldFormElement } from '@/components/fields/text-field/TextField';
-import { Dispatch, SetStateAction } from 'react';
+import React, { Dispatch, SetStateAction } from 'react';
 import { TitleFieldFormElement } from '@/components/fields/title-field/TitleField';
 import { SubTitleFieldFormElement } from '@/components/fields/subtitle-field/SubTitleField';
 import { ParagraphFieldFormElement } from '@/components/fields/paragraph-field/ParagraphField';
@@ -56,7 +56,7 @@ export type FormElement = {
 export type FormElementInstance = {
     id: string;
     type: ElementsType;
-    extraAttributes?: Record<string, any>;
+    extraAttributes?: Record<string, string | number | boolean | string[]>;
 };
 
 type FormElementsType = {
@@ -64,15 +64,15 @@ type FormElementsType = {
 };
 
 export const FormElements: FormElementsType = {
-    TextField: TextFieldFormElement,
-    TitleField: TitleFieldFormElement,
-    SubTitleField: SubTitleFieldFormElement,
+    TextField     : TextFieldFormElement,
+    TitleField    : TitleFieldFormElement,
+    SubTitleField : SubTitleFieldFormElement,
     ParagraphField: ParagraphFieldFormElement,
     SeparatorField: SeparatorFieldFormElement,
-    SpacerField: SpacerFieldFormElement,
-    NumberField: NumberFieldFormElement,
-    TextAreaField: TextAreaFieldFormElement,
-    DateField: DateFieldFormElement,
-    SelectField: SelectFieldFormElement,
-    CheckboxField: CheckboxFieldFormElement
+    SpacerField   : SpacerFieldFormElement,
+    NumberField   : NumberFieldFormElement,
+    TextAreaField : TextAreaFieldFormElement,
+    DateField     : DateFieldFormElement,
+    SelectField   : SelectFieldFormElement,
+    CheckboxField : CheckboxFieldFormElement
 };

@@ -13,18 +13,18 @@ export const extraAttributes = {
 };
 
 export const TitleFieldFormElement: FormElement = {
-    type: 'TitleField',
+    type     : 'TitleField',
     construct: (id: string) => ({
         id,
         type: 'TitleField',
         extraAttributes
     }),
     designerBtnElement: {
-        icon: LuHeading1,
+        icon : LuHeading1,
         label: 'Title field'
     },
-    designerComponent: DesignerComponent,
-    formComponent: FormComponent,
+    designerComponent  : DesignerComponent,
+    formComponent      : FormComponent,
     propertiesComponent: PropertiesComponent,
-    validate: () => true
+    validate           : () => true
 };

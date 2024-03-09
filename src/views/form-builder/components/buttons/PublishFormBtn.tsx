@@ -19,13 +19,13 @@ function PublishFormBtn({ id }: { id: number }) {
             await UpdateFormContent(id, jsonElements);
             await PublishForm(id);
             toast({
-                title: 'Success',
+                title      : 'Success',
                 description: 'Your form is now available to the public'
             });
             router.refresh();
         } catch (error) {
             toast({
-                title: 'Error',
+                title      : 'Error',
                 description: 'Something went wrong'
             });
         }

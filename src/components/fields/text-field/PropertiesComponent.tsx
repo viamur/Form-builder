@@ -10,9 +10,9 @@ import { CustomInstance } from './TextField';
 import * as FormComponents from '../../ui/form';
 
 export const propertiesSchema = z.object({
-    label: z.string().min(2).max(50),
-    helperText: z.string().max(200),
-    required: z.boolean().default(false),
+    label      : z.string().min(2).max(50),
+    helperText : z.string().max(200),
+    required   : z.boolean().default(false),
     placeholder: z.string().max(50)
 });
 
@@ -26,8 +26,8 @@ export default function PropertiesComponent({ elementInstance }: Props) {
     const element = elementInstance as CustomInstance;
     const form = useForm<PropertiesType>({
         defaultValues: element.extraAttributes,
-        resolver: zodResolver(propertiesSchema),
-        mode: 'onBlur'
+        resolver     : zodResolver(propertiesSchema),
+        mode         : 'onBlur'
     });
 
     useEffect(() => {

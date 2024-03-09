@@ -3,6 +3,7 @@ import { Badge } from '@/components/ui/badge';
 import { format } from 'date-fns';
 import { Checkbox } from '@/components/ui/checkbox';
 import * as TableComponents from '@/components/ui/table';
+import React from 'react';
 
 type Props = {
     type: ElementsType;
@@ -15,8 +16,7 @@ function SubmittedFormsTableRowCell({ type, value }: Props) {
     switch (type) {
         case 'DateField':
             if (!value) break;
-            const date = new Date(value);
-            node = <Badge>{format(date, 'dd/MM/yyyy')}</Badge>;
+            node = <Badge>{format(new Date(value), 'dd/MM/yyyy')}</Badge>;
             break;
         case 'CheckboxField':
             node = <Checkbox checked={value === 'true'} disabled />;

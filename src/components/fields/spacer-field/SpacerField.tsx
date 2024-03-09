@@ -13,18 +13,18 @@ export const extraAttributes = {
 };
 
 export const SpacerFieldFormElement: FormElement = {
-    type: 'SpacerField',
+    type     : 'SpacerField',
     construct: (id: string) => ({
         id,
         type: 'SpacerField',
         extraAttributes
     }),
     designerBtnElement: {
-        icon: LuSeparatorHorizontal,
+        icon : LuSeparatorHorizontal,
         label: 'Spacer field'
     },
-    designerComponent: DesignerComponent,
-    formComponent: FormComponent,
+    designerComponent  : DesignerComponent,
+    formComponent      : FormComponent,
     propertiesComponent: PropertiesComponent,
-    validate: () => true
+    validate           : () => true
 };

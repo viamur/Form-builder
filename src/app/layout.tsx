@@ -6,13 +6,14 @@ import { ThemeProvider } from '@/providers/theme-provider';
 import BuilderContextProvider from '@/providers/builder-provider';
 import { Toaster } from '@/components/ui/toaster';
 import NextTopLoader from 'nextjs-toploader';
+import React from 'react';
 
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
     title: {
         template: '%s | Form Builder',
-        default: 'Form Builder'
+        default : 'Form Builder'
     },
     description: 'Form Builder by viamur'
 };

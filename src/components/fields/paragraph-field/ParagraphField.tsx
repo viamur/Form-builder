@@ -13,18 +13,18 @@ export const extraAttributes = {
 };
 
 export const ParagraphFieldFormElement: FormElement = {
-    type: 'ParagraphField',
+    type     : 'ParagraphField',
     construct: (id: string) => ({
         id,
         type: 'ParagraphField',
         extraAttributes
     }),
     designerBtnElement: {
-        icon: BsTextParagraph,
+        icon : BsTextParagraph,
         label: 'Paragraph Field'
     },
-    designerComponent: DesignerComponent,
-    formComponent: FormComponent,
+    designerComponent  : DesignerComponent,
+    formComponent      : FormComponent,
     propertiesComponent: PropertiesComponent,
-    validate: () => true
+    validate           : () => true
 };

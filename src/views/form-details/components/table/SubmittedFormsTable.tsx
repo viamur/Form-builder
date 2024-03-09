@@ -1,7 +1,7 @@
 import { GetFormWithSubmissions } from '@/server-actions/server-actions';
 import { ElementsType, FormElementInstance } from '@/components/fields/FormElements';
 import * as TableComponents from '@/components/ui/table';
-import { format, formatDistance } from 'date-fns';
+import { formatDistance } from 'date-fns';
 import SubmittedFormsTableRowCell from './SubmittedFormsTableRowCell';
 
 type Row = Record<string, string> & {
@@ -36,10 +36,10 @@ export default async function SubmittedFormsTable({ id }: Props) {
             case 'TextAreaField':
             case 'CheckboxField':
                 columns.push({
-                    id: element.id,
-                    label: element.extraAttributes?.label || element.type,
-                    required: element.extraAttributes?.required || false,
-                    type: element.type
+                    id      : element.id,
+                    label   : typeof element.extraAttributes?.label === 'string' ? element.extraAttributes?.label : element.type,
+                    required: typeof element.extraAttributes?.required === 'boolean' ? element.extraAttributes?.required : false,
+                    type    : element.type
                 });
                 break;
             default:

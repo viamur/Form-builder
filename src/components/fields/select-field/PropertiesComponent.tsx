@@ -14,11 +14,11 @@ import { AiOutlineClose, AiOutlinePlus } from 'react-icons/ai';
 import { toast } from '@/components/ui/use-toast';
 
 export const propertiesSchema = z.object({
-    label: z.string().min(2).max(50),
-    helperText: z.string().max(200),
-    required: z.boolean().default(false),
+    label      : z.string().min(2).max(50),
+    helperText : z.string().max(200),
+    required   : z.boolean().default(false),
     placeholder: z.string().max(50),
-    options: z.array(z.string()).default([])
+    options    : z.array(z.string()).default([])
 });
 
 type PropertiesType = z.infer<typeof propertiesSchema>;
@@ -31,8 +31,8 @@ export default function PropertiesComponent({ elementInstance }: Props) {
     const element = elementInstance as CustomInstance;
     const form = useForm<PropertiesType>({
         defaultValues: element.extraAttributes,
-        resolver: zodResolver(propertiesSchema),
-        mode: 'onSubmit'
+        resolver     : zodResolver(propertiesSchema),
+        mode         : 'onSubmit'
     });
 
     useEffect(() => {
@@ -47,7 +47,7 @@ export default function PropertiesComponent({ elementInstance }: Props) {
         });
 
         toast({
-            title: 'Success',
+            title      : 'Success',
             description: 'Properties saved successfully'
         });
 

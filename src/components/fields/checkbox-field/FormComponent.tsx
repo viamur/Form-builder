@@ -1,7 +1,6 @@
 import { FormElement } from '@/components/fields/FormElements';
 import { ComponentProps, useState } from 'react';
 import { Label } from '@/components/ui/label';
-import { Input } from '@/components/ui/input';
 import { cn } from '@/lib/utils';
 import { CheckboxFieldFormElement, CustomInstance } from './CheckboxField';
 import { Checkbox } from '@/components/ui/checkbox';
@@ -28,7 +27,7 @@ export default function FormComponent({
                 checked={value}
                 className={cn(isInvalid && 'border-red-500')}
                 onCheckedChange={(checked) => {
-                    let value = checked === true;
+                    const value = checked === true;
                     setValue(value);
                     if (!submitValue) return;
                     const valid = CheckboxFieldFormElement.validate(element, value.toString());

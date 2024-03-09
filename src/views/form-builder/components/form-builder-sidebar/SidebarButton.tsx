@@ -12,9 +12,9 @@ type Props = {
 function SidebarButton({ formElement }: Props) {
     const { label, icon: Icon } = formElement.designerBtnElement;
     const draggable = useDraggable({
-        id: `designer-btn-${formElement.type}`,
+        id  : `designer-btn-${formElement.type}`,
         data: {
-            type: formElement.type,
+            type                : formElement.type,
             isDesignerBtnElement: true
         }
     });
