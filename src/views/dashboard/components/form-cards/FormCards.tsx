@@ -1,4 +1,4 @@
-import { GetForms } from '@/actions/server-actions';
+import { GetForms } from '@/server-actions/server-actions';
 import FormCard from './FormCard';
 
 async function FormCards() {

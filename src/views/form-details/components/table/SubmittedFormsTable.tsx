@@ -1,4 +1,4 @@
-import { GetFormWithSubmissions } from '@/actions/server-actions';
+import { GetFormWithSubmissions } from '@/server-actions/server-actions';
 import { ElementsType, FormElementInstance } from '@/components/fields/FormElements';
 import * as TableComponents from '@/components/ui/table';
 import { format, formatDistance } from 'date-fns';

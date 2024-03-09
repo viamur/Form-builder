@@ -17,7 +17,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { toast } from '@/components/ui/use-toast';
-import { CreateForm } from '@/actions/server-actions';
+import { CreateForm } from '@/server-actions/server-actions';
 import { BsFileEarmarkPlus } from 'react-icons/bs';
 import { useRouter } from 'next/navigation';
 import { z } from 'zod';

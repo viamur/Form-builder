@@ -2,7 +2,8 @@
 
 import prisma from '@/lib/prisma';
 import { currentUser } from '@clerk/nextjs';
-import { revalidatePath } from 'next/cache';
+import { revalidatePath, unstable_noStore as noStore } from 'next/cache';
+import { redirect } from 'next/navigation';
 
 class UserNotFoundErr extends Error {}
 
@@ -61,6 +62,7 @@ export async function CreateForm(data: { name: string; description?: string }) {
         throw new Error('something went wrong');
     }
 
+    revalidatePath('/(dashboard)/', 'page')
     return form.id;
 }
 
@@ -70,7 +72,7 @@ export async function GetForms() {
         throw new UserNotFoundErr();
     }
 
-    return await prisma.form.findMany({
+    return prisma.form.findMany({
         where: {
             userId: user.id
         },
@@ -81,13 +83,14 @@ export async function GetForms() {
 }
 
 export async function GetFormById(id: number) {
+    // noStore();
     try {
         const user = await currentUser();
         if (!user) {
             throw new UserNotFoundErr();
         }
 
-        return await prisma.form.findUnique({
+        return prisma.form.findUnique({
             where: {
                 userId: user.id,
                 id
@@ -104,7 +107,7 @@ export async function UpdateFormContent(id: number, jsonContent: string) {
         throw new UserNotFoundErr();
     }
 
-    return await prisma.form.update({
+    await prisma.form.update({
         where: {
             userId: user.id,
             id
@@ -113,6 +116,10 @@ export async function UpdateFormContent(id: number, jsonContent: string) {
             content: jsonContent
         }
     });
+
+    revalidatePath('/(dashboard)/builder/[id]', 'page')
+
+    return;
 }
 
 export async function PublishForm(id: number) {
@@ -121,7 +128,7 @@ export async function PublishForm(id: number) {
         throw new UserNotFoundErr();
     }
 
-    return await prisma.form.update({
+    return prisma.form.update({
         data: {
             published: true
         },
@@ -134,7 +141,7 @@ export async function PublishForm(id: number) {
 
 export async function GetFormContentByUrl(formUrl: string) {
     try {
-        return await prisma.form.update({
+        return prisma.form.update({
             select: {
                 content: true
             },
@@ -153,7 +160,7 @@ export async function GetFormContentByUrl(formUrl: string) {
 }
 
 export async function SubmitForm(formUrl: string, content: string) {
-    return await prisma.form.update({
+    return prisma.form.update({
         data: {
             submissions: {
                 increment: 1
@@ -177,7 +184,7 @@ export async function GetFormWithSubmissions(id: number) {
         throw new UserNotFoundErr();
     }
 
-    return await prisma.form.findUnique({
+    return prisma.form.findUnique({
         where: {
             userId: user.id,
             id
@@ -202,6 +209,7 @@ export async function DeleteForm(id: number) {
     await prisma.form.delete({ where: { id, userId: user.id } });
 
     revalidatePath('/', 'page');
+    redirect('/')
 }
 
 export async function EditFormName(id: number, name: string) {
@@ -211,7 +219,7 @@ export async function EditFormName(id: number, name: string) {
         throw new UserNotFoundErr();
     }
 
-    return prisma.form.update({
+    await prisma.form.update({
         data: {
             name
         },
@@ -220,4 +228,8 @@ export async function EditFormName(id: number, name: string) {
             userId: user.id
         }
     });
+
+    revalidatePath('/', 'page')
+
+    return;
 }

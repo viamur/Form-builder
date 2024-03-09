@@ -3,8 +3,7 @@
 import { Button } from '@/components/ui/button';
 import { MdDelete } from 'react-icons/md';
 import React, { useTransition } from 'react';
-import { useRouter } from 'next/navigation';
-import { DeleteForm } from '@/actions/server-actions';
+import { DeleteForm } from '@/server-actions/server-actions';
 import { toast } from '@/components/ui/use-toast';
 import * as AlertDialogComponents from '@/components/ui/alert-dialog';
 import { FaSpinner } from 'react-icons/fa';
@@ -15,7 +14,6 @@ type Props = {
 
 function DeleteFormBtn({ formId }: Props) {
     const [loading, startTransition] = useTransition();
-    const router = useRouter();
 
     async function publishForm() {
         try {
@@ -24,7 +22,6 @@ function DeleteFormBtn({ formId }: Props) {
                 title: 'Success',
                 description: 'Form has been deleted'
             });
-            router.replace('/');
         } catch (error) {
             toast({
                 title: 'Error',

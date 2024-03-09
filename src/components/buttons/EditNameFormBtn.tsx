@@ -3,8 +3,7 @@
 import { Button } from '@/components/ui/button';
 import { MdModeEdit } from 'react-icons/md';
 import React, { useTransition } from 'react';
-import { useRouter } from 'next/navigation';
-import { EditFormName } from '@/actions/server-actions';
+import { EditFormName } from '@/server-actions/server-actions';
 import { toast } from '@/components/ui/use-toast';
 import * as DialogComponents from '@/components/ui/dialog';
 import { FaSpinner } from 'react-icons/fa';
@@ -30,7 +29,6 @@ type Props = {
 function EditNameFormBtn({ formId, formName }: Props) {
     const [isOpened, setIsOpened] = React.useState(false);
     const [loading, startTransition] = useTransition();
-    const router = useRouter();
 
     const form = useForm<DefaultValues>({
         defaultValues: {name: ''},
@@ -51,7 +49,6 @@ function EditNameFormBtn({ formId, formName }: Props) {
                 title: 'Success',
                 description: 'Name has been updated'
             });
-            router.refresh();
         } catch (error) {
             toast({
                 title: 'Error',

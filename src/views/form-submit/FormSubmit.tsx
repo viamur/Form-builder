@@ -6,7 +6,7 @@ import { HiCursorClick } from 'react-icons/hi';
 import { useRef, useState, useTransition } from 'react';
 import { toast } from '@/components/ui/use-toast';
 import { ImSpinner2 } from 'react-icons/im';
-import { SubmitForm } from '@/actions/server-actions';
+import { SubmitForm } from '@/server-actions/server-actions';
 import FormSubmittedSuccessfully from './components/FormSubmittedSuccessfully';
 import { ScrollArea } from '@/components/ui/scroll-area';
 
