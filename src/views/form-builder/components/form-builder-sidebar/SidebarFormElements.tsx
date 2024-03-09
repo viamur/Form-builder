@@ -1,6 +1,7 @@
 import SidebarButton from '@/views/form-builder/components/form-builder-sidebar/SidebarButton';
 import { FormElements } from '@/components/fields/FormElements';
 import { Separator } from '@/components/ui/separator';
+import { Badge } from '@/components/ui/badge';
 
 export default function SidebarFormElements() {
     return (
@@ -10,18 +11,18 @@ export default function SidebarFormElements() {
             </div>
             <Separator className="mb-2" />
             <div className="grid grid-cols-1 md:grid-cols-2 gap-2 place-items-center">
-                <p className="text-sm text-muted-foreground col-span-1 md:col-span-2 my-2 place-self-start">
+                <Badge className="col-span-1 md:col-span-2 my-2 place-self-start" variant="secondary">
                     Layout elements
-                </p>
+                </Badge>
                 <SidebarButton formElement={FormElements.TitleField} />
                 <SidebarButton formElement={FormElements.SubTitleField} />
                 <SidebarButton formElement={FormElements.ParagraphField} />
                 <SidebarButton formElement={FormElements.SeparatorField} />
                 <SidebarButton formElement={FormElements.SpacerField} />
 
-                <p className="text-sm text-muted-foreground col-span-1 md:col-span-2 my-2 place-self-start">
+                <Badge className="col-span-1 md:col-span-2 my-2 place-self-start mt-4" variant="secondary">
                     Form elements
-                </p>
+                </Badge>
                 <SidebarButton formElement={FormElements.TextField} />
                 <SidebarButton formElement={FormElements.NumberField} />
                 <SidebarButton formElement={FormElements.TextAreaField} />
