@@ -58,7 +58,7 @@ export default async function SubmittedFormsTable({ id }: Props) {
     });
 
     return (
-        <>
+        <div className="container py-10">
             <h1 className="text-2xl font-bold my-4">Submissions</h1>
             <div className="rounded-md border">
                 <TableComponents.Table>
@@ -94,6 +94,6 @@ export default async function SubmittedFormsTable({ id }: Props) {
                     </TableComponents.TableBody>
                 </TableComponents.Table>
             </div>
-        </>
+        </div>
     );
 }

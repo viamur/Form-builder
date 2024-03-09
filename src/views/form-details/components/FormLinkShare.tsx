@@ -1,4 +1,5 @@
 'use client';
+
 import { useEffect, useState } from 'react';
 import { Input } from '@/components/ui/input';
 import CopyLinkBtn from '@/views/form-details/components/buttons/CopyLinkBtn';
@@ -17,9 +18,11 @@ export default function FormLinkShare({ shareURL }: FormLinkShareProps) {
     const shareLink = `${window.location.origin}/submit/${shareURL}`;
 
     return (
-        <div className="flex flex-grow gap-4 items-center container">
-            <Input value={shareLink} readOnly />
-            <CopyLinkBtn link={shareLink} />
+        <div className="py-4 border-b border-muted">
+            <div className="flex flex-grow gap-4 items-center container">
+                <Input value={shareLink} readOnly />
+                <CopyLinkBtn link={shareLink} />
+            </div>
         </div>
     );
 }

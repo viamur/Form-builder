@@ -1,12 +1,10 @@
-import EditNameFormBtn from '@/components/buttons/EditNameFormBtn';
-import DeleteFormBtn from '@/components/buttons/DeleteFormBtn';
 import { StatsCards } from '@/components/stats-cards/StatsCards';
-import RefreshBtn from '@/views/form-details/components/buttons/RefreshBtn';
-import VisitFormBtn from '@/views/form-details/components/buttons/VisitFormBtn';
 import FormLinkShare from './components/FormLinkShare';
 import SubmittedFormsTable from '@/views/form-details/components/table/SubmittedFormsTable';
 import React from 'react';
 import { GetFormById } from '@/actions/server-actions';
+import { ScrollArea } from '@/components/ui/scroll-area';
+import FormDetailsHeader from '@/views/form-details/components/FormDetailsHeader';
 
 type Form = NonNullable<Awaited<ReturnType<typeof GetFormById>>>;
 
@@ -27,33 +25,20 @@ export default function FormDetails({ form }: Props) {
 
     return (
         <>
-            <div className="py-10 border-b border-muted">
-                <div className="flex justify-between container">
-                    <div className="flex items-center gap-1">
-                        <h1 className="text-4xl font-bold truncate">{form.name}</h1>
-                        <EditNameFormBtn formId={form.id} formName={form.name} />
-                    </div>
-                    <div className="flex items-center gap-2">
-                        <DeleteFormBtn formId={form.id} />
-                        <RefreshBtn />
-                        <VisitFormBtn shareURL={form.shareURL} />
-                    </div>
-                </div>
-            </div>
-            <div className="py-4 border-b border-muted">
-                <FormLinkShare shareURL={form.shareURL} />
-            </div>
-            <StatsCards
-                isContainer
-                visits={visits}
-                submissions={submissions}
-                submissionRate={submissionRate}
-                bounceRate={bounceRate}
-                loading={false}
-            />
-            <div className="container py-10">
+            <FormDetailsHeader formId={form.id} formName={form.name} formShareURL={form.shareURL} />
+            <FormLinkShare shareURL={form.shareURL} />
+
+            <ScrollArea>
+                <StatsCards
+                    isContainer
+                    visits={visits}
+                    submissions={submissions}
+                    submissionRate={submissionRate}
+                    bounceRate={bounceRate}
+                    loading={false}
+                />
                 <SubmittedFormsTable id={form.id} />
-            </div>
+            </ScrollArea>
         </>
     )
 }

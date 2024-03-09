@@ -5,7 +5,7 @@ import React from 'react';
 
 export default function Header() {
     return (
-        <nav className="flex justify-between items-center border-b border-border h-[60px] px-4 py-2">
+        <nav className="flex justify-between items-center flex-shrink-0 border-b border-border h-[60px] px-4 py-2">
             <Logo />
             <div className="flex gap-4 items-center min-w-[190px] justify-between">
                 <ThemeSwitcher />
