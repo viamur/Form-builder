@@ -1,15 +1,15 @@
-import { TextFieldFormElement } from '@/components/form-builder/fields/text-field/TextField';
+import { TextFieldFormElement } from '@/components/fields/text-field/TextField';
 import { Dispatch, SetStateAction } from 'react';
-import { TitleFieldFormElement } from '@/components/form-builder/fields/title-field/TitleField';
-import { SubTitleFieldFormElement } from '@/components/form-builder/fields/subtitle-field/SubTitleField';
-import { ParagraphFieldFormElement } from '@/components/form-builder/fields/paragraph-field/ParagraphField';
-import { SeparatorFieldFormElement } from '@/components/form-builder/fields/separator-field/SeparatorField';
-import { SpacerFieldFormElement } from '@/components/form-builder/fields/spacer-field/SpacerField';
-import { NumberFieldFormElement } from '@/components/form-builder/fields/number-field/NumberField';
-import { TextAreaFieldFormElement } from '@/components/form-builder/fields/textarea-field/TextAreaField';
-import { DateFieldFormElement } from '@/components/form-builder/fields/date-field/DateField';
-import { SelectFieldFormElement } from '@/components/form-builder/fields/select-field/SelectField';
-import { CheckboxFieldFormElement } from '@/components/form-builder/fields/checkbox-field/CheckboxField';
+import { TitleFieldFormElement } from '@/components/fields/title-field/TitleField';
+import { SubTitleFieldFormElement } from '@/components/fields/subtitle-field/SubTitleField';
+import { ParagraphFieldFormElement } from '@/components/fields/paragraph-field/ParagraphField';
+import { SeparatorFieldFormElement } from '@/components/fields/separator-field/SeparatorField';
+import { SpacerFieldFormElement } from '@/components/fields/spacer-field/SpacerField';
+import { NumberFieldFormElement } from '@/components/fields/number-field/NumberField';
+import { TextAreaFieldFormElement } from '@/components/fields/textarea-field/TextAreaField';
+import { DateFieldFormElement } from '@/components/fields/date-field/DateField';
+import { SelectFieldFormElement } from '@/components/fields/select-field/SelectField';
+import { CheckboxFieldFormElement } from '@/components/fields/checkbox-field/CheckboxField';
 
 export type ElementsType =
     | 'TextField'

@@ -6,7 +6,7 @@ import { cn } from '@/lib/utils';
 import {
     NumberFieldFormElement,
     CustomInstance
-} from '@/components/form-builder/fields/number-field/NumberField';
+} from './NumberField';
 
 type Props = ComponentProps<FormElement['formComponent']>;
 

@@ -1,15 +1,15 @@
 import { FormElement } from '@/components/form-builder/designer/FormElements';
-import { CustomInstance } from './SpacerField';
+import { CustomInstance } from './ParagraphField';
 import { z } from 'zod';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { ComponentProps, useEffect } from 'react';
 import useDesigner from '@/hooks/useDesigner';
-import * as FormComponents from '../../../ui/form';
-import { Slider } from '@/components/ui/slider';
+import * as FormComponents from '../../ui/form';
+import { Textarea } from '@/components/ui/textarea';
 
 export const propertiesSchema = z.object({
-    height: z.number().min(5).max(200)
+    text: z.string().min(2).max(500)
 });
 
 type PropertiesType = z.infer<typeof propertiesSchema>;
@@ -31,10 +31,9 @@ export default function PropertiesComponent({ elementInstance }: Props) {
     }, [form, element]);
 
     function submit(data: PropertiesType) {
-        const { height } = data;
         updateElement(element.id, {
             ...element,
-            extraAttributes: { height }
+            extraAttributes: { text: data.text }
         });
     }
 
@@ -49,21 +48,19 @@ export default function PropertiesComponent({ elementInstance }: Props) {
             >
                 <FormComponents.FormField
                     control={form.control}
-                    name="height"
+                    name="text"
                     render={({ field }) => (
                         <FormComponents.FormItem>
-                            <FormComponents.FormLabel>
-                                {`Height: ${field.value}px`}
-                            </FormComponents.FormLabel>
-                            <FormComponents.FormControl className="pt-2">
-                                <Slider
-                                    defaultValue={[field.value]}
-                                    onValueChange={(value) => {
-                                        field.onChange(value[0]);
+                            <FormComponents.FormLabel>Text</FormComponents.FormLabel>
+                            <FormComponents.FormControl>
+                                <Textarea
+                                    {...field}
+                                    rows={5}
+                                    onKeyDown={(e) => {
+                                        if (e.key === 'Enter') {
+                                            e.currentTarget.blur();
+                                        }
                                     }}
-                                    min={5}
-                                    max={200}
-                                    step={1}
                                 />
                             </FormComponents.FormControl>
                             <FormComponents.FormMessage />

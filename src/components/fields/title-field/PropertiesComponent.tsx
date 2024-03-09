@@ -1,15 +1,15 @@
 import { FormElement } from '@/components/form-builder/designer/FormElements';
-import { CustomInstance } from './ParagraphField';
+import { CustomInstance } from './TitleField';
 import { z } from 'zod';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { ComponentProps, useEffect } from 'react';
 import useDesigner from '@/hooks/useDesigner';
-import * as FormComponents from '../../../ui/form';
-import { Textarea } from '@/components/ui/textarea';
+import { Input } from '@/components/ui/input';
+import * as FormComponents from '../../ui/form';
 
 export const propertiesSchema = z.object({
-    text: z.string().min(2).max(500)
+    title: z.string().min(2).max(50)
 });
 
 type PropertiesType = z.infer<typeof propertiesSchema>;
@@ -31,9 +31,10 @@ export default function PropertiesComponent({ elementInstance }: Props) {
     }, [form, element]);
 
     function submit(data: PropertiesType) {
+        const { title } = data;
         updateElement(element.id, {
             ...element,
-            extraAttributes: { text: data.text }
+            extraAttributes: { title }
         });
     }
 
@@ -48,14 +49,13 @@ export default function PropertiesComponent({ elementInstance }: Props) {
             >
                 <FormComponents.FormField
                     control={form.control}
-                    name="text"
+                    name="title"
                     render={({ field }) => (
                         <FormComponents.FormItem>
-                            <FormComponents.FormLabel>Text</FormComponents.FormLabel>
+                            <FormComponents.FormLabel>Title</FormComponents.FormLabel>
                             <FormComponents.FormControl>
-                                <Textarea
+                                <Input
                                     {...field}
-                                    rows={5}
                                     onKeyDown={(e) => {
                                         if (e.key === 'Enter') {
                                             e.currentTarget.blur();

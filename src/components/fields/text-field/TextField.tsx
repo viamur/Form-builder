@@ -1,9 +1,8 @@
 import { FormElement, FormElementInstance } from '@/components/form-builder/designer/FormElements';
 import { MdTextFields } from 'react-icons/md';
-import DesignerComponent from '@/components/form-builder/fields/text-field/DesignerComponent';
-import PropertiesComponent from '@/components/form-builder/fields/text-field/PropertiesComponent';
-import { z } from 'zod';
-import FormComponent from '@/components/form-builder/fields/text-field/FormComponent';
+import DesignerComponent from './DesignerComponent';
+import PropertiesComponent from './PropertiesComponent';
+import FormComponent from './FormComponent';
 
 export type CustomInstance = {
     extraAttributes: typeof extraAttributes;

@@ -1,18 +1,21 @@
-import { FormElement } from '@/components/form-builder/designer/FormElements';
-import { CustomInstance } from './CheckboxField';
-import { z } from 'zod';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
 import { ComponentProps, useEffect } from 'react';
+import { useForm } from 'react-hook-form';
+import { z } from 'zod';
+import { FormElement } from '@/components/form-builder/designer/FormElements';
+import { zodResolver } from '@hookform/resolvers/zod';
 import useDesigner from '@/hooks/useDesigner';
-import * as FormComponents from '../../../ui/form';
 import { Input } from '@/components/ui/input';
 import { Switch } from '@/components/ui/switch';
+import { Slider } from '@/components/ui/slider';
+import { CustomInstance } from './TextAreaField';
+import * as FormComponents from '../../ui/form';
 
 export const propertiesSchema = z.object({
     label: z.string().min(2).max(50),
     helperText: z.string().max(200),
-    required: z.boolean().default(false)
+    required: z.boolean().default(false),
+    placeholder: z.string().max(50),
+    rows: z.number().min(1).max(10)
 });
 
 type PropertiesType = z.infer<typeof propertiesSchema>;
@@ -34,10 +37,10 @@ export default function PropertiesComponent({ elementInstance }: Props) {
     }, [form, element]);
 
     function submit(data: PropertiesType) {
-        const { label, required, helperText } = data;
+        const { label, placeholder, required, helperText, rows } = data;
         updateElement(element.id, {
             ...element,
-            extraAttributes: { label, helperText, required }
+            extraAttributes: { label, helperText, required, placeholder, rows }
         });
     }
 
@@ -76,6 +79,30 @@ export default function PropertiesComponent({ elementInstance }: Props) {
 
                 <FormComponents.FormField
                     control={form.control}
+                    name="placeholder"
+                    render={({ field }) => (
+                        <FormComponents.FormItem>
+                            <FormComponents.FormLabel>Placeholder</FormComponents.FormLabel>
+                            <FormComponents.FormControl>
+                                <Input
+                                    {...field}
+                                    onKeyDown={(e) => {
+                                        if (e.key === 'Enter') {
+                                            e.currentTarget.blur();
+                                        }
+                                    }}
+                                />
+                            </FormComponents.FormControl>
+                            <FormComponents.FormDescription>
+                                The placeholder of the field.
+                            </FormComponents.FormDescription>
+                            <FormComponents.FormMessage />
+                        </FormComponents.FormItem>
+                    )}
+                />
+
+                <FormComponents.FormField
+                    control={form.control}
                     name="helperText"
                     render={({ field }) => (
                         <FormComponents.FormItem>
@@ -94,6 +121,28 @@ export default function PropertiesComponent({ elementInstance }: Props) {
                                 The helper text of the field. <br />
                                 It will be displayed below the field.
                             </FormComponents.FormDescription>
+                            <FormComponents.FormMessage />
+                        </FormComponents.FormItem>
+                    )}
+                />
+
+                <FormComponents.FormField
+                    control={form.control}
+                    name="rows"
+                    render={({ field }) => (
+                        <FormComponents.FormItem>
+                            <FormComponents.FormLabel>{`Rows ${field.value}`}</FormComponents.FormLabel>
+                            <FormComponents.FormControl>
+                                <Slider
+                                    defaultValue={[field.value]}
+                                    min={1}
+                                    max={10}
+                                    step={1}
+                                    onValueChange={(value) => {
+                                        field.onChange(value[0]);
+                                    }}
+                                />
+                            </FormComponents.FormControl>
                             <FormComponents.FormMessage />
                         </FormComponents.FormItem>
                     )}

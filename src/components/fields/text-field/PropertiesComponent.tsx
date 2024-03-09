@@ -1,13 +1,13 @@
 import { FormElement } from '@/components/form-builder/designer/FormElements';
-import { CustomInstance } from './NumberField';
 import { z } from 'zod';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { ComponentProps, useEffect } from 'react';
 import useDesigner from '@/hooks/useDesigner';
-import * as FormComponents from '../../../ui/form';
 import { Input } from '@/components/ui/input';
 import { Switch } from '@/components/ui/switch';
+import { CustomInstance } from './TextField';
+import * as FormComponents from '../../ui/form';
 
 export const propertiesSchema = z.object({
     label: z.string().min(2).max(50),

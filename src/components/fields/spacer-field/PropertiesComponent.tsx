@@ -1,15 +1,15 @@
 import { FormElement } from '@/components/form-builder/designer/FormElements';
-import { CustomInstance } from './SubTitleField';
+import { CustomInstance } from './SpacerField';
 import { z } from 'zod';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { ComponentProps, useEffect } from 'react';
 import useDesigner from '@/hooks/useDesigner';
-import * as FormComponents from '../../../ui/form';
-import { Input } from '@/components/ui/input';
+import * as FormComponents from '../../ui/form';
+import { Slider } from '@/components/ui/slider';
 
 export const propertiesSchema = z.object({
-    title: z.string().min(2).max(50)
+    height: z.number().min(5).max(200)
 });
 
 type PropertiesType = z.infer<typeof propertiesSchema>;
@@ -31,10 +31,10 @@ export default function PropertiesComponent({ elementInstance }: Props) {
     }, [form, element]);
 
     function submit(data: PropertiesType) {
-        const { title } = data;
+        const { height } = data;
         updateElement(element.id, {
             ...element,
-            extraAttributes: { title }
+            extraAttributes: { height }
         });
     }
 
@@ -49,18 +49,21 @@ export default function PropertiesComponent({ elementInstance }: Props) {
             >
                 <FormComponents.FormField
                     control={form.control}
-                    name="title"
+                    name="height"
                     render={({ field }) => (
                         <FormComponents.FormItem>
-                            <FormComponents.FormLabel>Title</FormComponents.FormLabel>
-                            <FormComponents.FormControl>
-                                <Input
-                                    {...field}
-                                    onKeyDown={(e) => {
-                                        if (e.key === 'Enter') {
-                                            e.currentTarget.blur();
-                                        }
+                            <FormComponents.FormLabel>
+                                {`Height: ${field.value}px`}
+                            </FormComponents.FormLabel>
+                            <FormComponents.FormControl className="pt-2">
+                                <Slider
+                                    defaultValue={[field.value]}
+                                    onValueChange={(value) => {
+                                        field.onChange(value[0]);
                                     }}
+                                    min={5}
+                                    max={200}
+                                    step={1}
                                 />
                             </FormComponents.FormControl>
                             <FormComponents.FormMessage />

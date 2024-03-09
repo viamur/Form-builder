@@ -1,8 +1,8 @@
-import { FormElement, FormElementInstance } from '@/components/form-builder/designer/FormElements';
-import { CustomInstance } from '@/components/form-builder/fields/text-field/TextField';
+import { ComponentProps } from 'react';
+import { FormElement } from '@/components/form-builder/designer/FormElements';
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
-import { ComponentProps } from 'react';
+import { CustomInstance } from './TextField';
 
 type Props = ComponentProps<FormElement['designerComponent']>;
 
