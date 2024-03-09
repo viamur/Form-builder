@@ -1,11 +1,11 @@
-import useDesigner from '@/hooks/useDesigner';
+import useBuilderFormContext from '@/hooks/useBuilderFormContext';
 import { FormElements } from '@/components/fields/FormElements';
 import { Button } from '@/components/ui/button';
 import { AiOutlineClose } from 'react-icons/ai';
 import { Separator } from '@/components/ui/separator';
 
 export default function SidebarFormProperties() {
-    const { selectedElement, setSelectedElement } = useDesigner();
+    const { selectedElement, setSelectedElement } = useBuilderFormContext();
     if (!selectedElement) return null;
 
     const PropertiesForm = FormElements[selectedElement.type].propertiesComponent;

@@ -8,7 +8,7 @@ import FormBuilderArea from '@/views/form-builder/components/form-builder-area/F
 import { DndContext, MouseSensor, TouchSensor, useSensor, useSensors } from '@dnd-kit/core';
 import DragOverlayWrapper from '@/views/form-builder/components/DragOverlayWrapper';
 import React, { useEffect, useState } from 'react';
-import useDesigner from '@/hooks/useDesigner';
+import useBuilderFormContext from '@/hooks/useBuilderFormContext';
 import Loading from '@/app/(dashboard)/builder/[id]/loading';
 import FormBuilderPublished from '@/views/form-builder/components/FormBuilderPublished';
 import DeleteFormBtn from '@/components/buttons/DeleteFormBtn';
@@ -22,7 +22,7 @@ type FormBuilderProps = {
 
 function FormBuilder({ form }: FormBuilderProps) {
     const [isReady, setIsReady] = useState(false);
-    const { setElements, setSelectedElement } = useDesigner();
+    const { setElements, setSelectedElement } = useBuilderFormContext();
 
     const mouseSensor = useSensor(MouseSensor, {
         activationConstraint: {

@@ -3,7 +3,7 @@
 import { FormElementInstance } from '@/components/fields/FormElements';
 import { createContext, Dispatch, PropsWithChildren, SetStateAction, useState } from 'react';
 
-type DesignerContextType = {
+type BuilderFormContextType = {
     elements: FormElementInstance[];
     addElement: (index: number, element: FormElementInstance) => void;
     removeElement: (id: string) => void;
@@ -14,9 +14,9 @@ type DesignerContextType = {
     updateElement: (id: string, element: FormElementInstance) => void;
 };
 
-export const DesignerProvider = createContext<DesignerContextType | null>(null);
+export const BuilderProvider = createContext<BuilderFormContextType | null>(null);
 
-export default function DesignerContextProvider({ children }: PropsWithChildren) {
+export default function BuilderContextProvider({ children }: PropsWithChildren) {
     const [elements, setElements] = useState<FormElementInstance[]>([]);
     const [selectedElement, setSelectedElement] = useState<FormElementInstance | null>(null);
 
@@ -52,5 +52,5 @@ export default function DesignerContextProvider({ children }: PropsWithChildren)
         updateElement
     };
 
-    return <DesignerProvider.Provider value={value}>{children}</DesignerProvider.Provider>;
+    return <BuilderProvider.Provider value={value}>{children}</BuilderProvider.Provider>;
 }

@@ -2,12 +2,12 @@ import React from 'react';
 import { Button } from '@/components/ui/button';
 import { MdPreview } from 'react-icons/md';
 import * as DialogComponents from '@/components/ui/dialog';
-import useDesigner from '@/hooks/useDesigner';
+import useBuilderFormContext from '@/hooks/useBuilderFormContext';
 import { FormElements } from '@/components/fields/FormElements';
 import { ScrollArea } from '@/components/ui/scroll-area';
 
 function PreviewDialogBtn() {
-    const { elements } = useDesigner();
+    const { elements } = useBuilderFormContext();
     return (
         <DialogComponents.Dialog>
             <DialogComponents.DialogTrigger asChild>

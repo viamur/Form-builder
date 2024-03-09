@@ -2,14 +2,14 @@
 
 import { DragEndEvent, useDndMonitor, useDroppable } from '@dnd-kit/core';
 import { cn, idGenerator } from '@/lib/utils';
-import useDesigner from '@/hooks/useDesigner';
+import useBuilderFormContext from '@/hooks/useBuilderFormContext';
 import { ElementsType, FormElements } from '@/components/fields/FormElements';
 import FormBuilderElementWrapper from '@/views/form-builder/components/form-builder-area/FormBuilderElementWrapper';
 import { ScrollArea } from '@/components/ui/scroll-area';
 
 function FormBuilderArea() {
     const { elements, addElement, setSelectedElement, removeElement, selectedElement } =
-        useDesigner();
+        useBuilderFormContext();
     const droppable = useDroppable({
         id: 'designer-drop-area',
         data: {

@@ -4,7 +4,7 @@ import { cn } from '@/lib/utils';
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { BiSolidTrash } from 'react-icons/bi';
-import useDesigner from '@/hooks/useDesigner';
+import useBuilderFormContext from '@/hooks/useBuilderFormContext';
 
 type Props = {
     element: FormElementInstance;
@@ -13,7 +13,7 @@ type Props = {
 export default function FormBuilderElementWrapper({ element }: Props) {
     const [mouseIsOver, setMouseIsOver] = useState(false);
 
-    const { removeElement, setSelectedElement } = useDesigner();
+    const { removeElement, setSelectedElement } = useBuilderFormContext();
 
     const DesignerElement = FormElements[element.type].designerComponent;
     const topHalf = useDroppable({

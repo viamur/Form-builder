@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { FormElement } from '@/components/fields/FormElements';
 import { zodResolver } from '@hookform/resolvers/zod';
-import useDesigner from '@/hooks/useDesigner';
+import useBuilderFormContext from '@/hooks/useBuilderFormContext';
 import { Input } from '@/components/ui/input';
 import { Switch } from '@/components/ui/switch';
 import { Slider } from '@/components/ui/slider';
@@ -23,7 +23,7 @@ type PropertiesType = z.infer<typeof propertiesSchema>;
 type Props = ComponentProps<FormElement['propertiesComponent']>;
 
 export default function PropertiesComponent({ elementInstance }: Props) {
-    const { updateElement } = useDesigner();
+    const { updateElement } = useBuilderFormContext();
 
     const element = elementInstance as CustomInstance;
     const form = useForm<PropertiesType>({

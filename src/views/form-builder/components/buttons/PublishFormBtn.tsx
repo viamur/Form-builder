@@ -6,12 +6,12 @@ import { MdOutlinePublish } from 'react-icons/md';
 import * as AlertDialogComponents from '@/components/ui/alert-dialog';
 import { Button } from '@/components/ui/button';
 import { toast } from '@/components/ui/use-toast';
-import useDesigner from '@/hooks/useDesigner';
+import useBuilderFormContext from '@/hooks/useBuilderFormContext';
 
 function PublishFormBtn({ id }: { id: number }) {
     const [loading, startTransition] = useTransition();
     const router = useRouter();
-    const { elements } = useDesigner();
+    const { elements } = useBuilderFormContext();
 
     async function publishForm() {
         try {

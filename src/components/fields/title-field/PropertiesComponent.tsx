@@ -4,7 +4,7 @@ import { z } from 'zod';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { ComponentProps, useEffect } from 'react';
-import useDesigner from '@/hooks/useDesigner';
+import useBuilderFormContext from '@/hooks/useBuilderFormContext';
 import { Input } from '@/components/ui/input';
 import * as FormComponents from '../../ui/form';
 
@@ -17,7 +17,7 @@ type PropertiesType = z.infer<typeof propertiesSchema>;
 type Props = ComponentProps<FormElement['propertiesComponent']>;
 
 export default function PropertiesComponent({ elementInstance }: Props) {
-    const { updateElement } = useDesigner();
+    const { updateElement } = useBuilderFormContext();
 
     const element = elementInstance as CustomInstance;
     const form = useForm<PropertiesType>({

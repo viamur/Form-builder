@@ -3,7 +3,7 @@ import { Inter } from 'next/font/google';
 import { ClerkProvider } from '@clerk/nextjs';
 import './globals.css';
 import { ThemeProvider } from '@/providers/theme-provider';
-import DesignerContextProvider from '@/providers/designer-provider';
+import BuilderContextProvider from '@/providers/builder-provider';
 import { Toaster } from '@/components/ui/toaster';
 import NextTopLoader from 'nextjs-toploader';
 
@@ -27,7 +27,7 @@ export default function RootLayout({
             <html lang="en">
             <body className={inter.className}>
             <NextTopLoader />
-                    <DesignerContextProvider>
+                    <BuilderContextProvider>
                         <ThemeProvider
                             attribute="class"
                             defaultTheme="system"
@@ -37,7 +37,7 @@ export default function RootLayout({
                             {children}
                             <Toaster />
                         </ThemeProvider>
-                    </DesignerContextProvider>
+                    </BuilderContextProvider>
                 </body>
             </html>
         </ClerkProvider>
