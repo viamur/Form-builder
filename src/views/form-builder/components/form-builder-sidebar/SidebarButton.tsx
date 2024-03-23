@@ -15,8 +15,8 @@ function SidebarButton({ formElement }: Props) {
         id  : `designer-btn-${formElement.type}`,
         data: {
             type                : formElement.type,
-            isDesignerBtnElement: true
-        }
+            isDesignerBtnElement: true,
+        },
     });
     return (
         <Button
@@ -24,7 +24,7 @@ function SidebarButton({ formElement }: Props) {
             variant="outline"
             className={cn(
                 'flex flex-col gap-2 h-[120px] w-[120px] cursor-grab',
-                draggable.isDragging && 'border-red-500 border-2 border-dashed bg-accent'
+                draggable.isDragging && 'border-red-500 border-2 border-dashed bg-accent',
             )}
             {...draggable.listeners}
             {...draggable.attributes}

@@ -2,14 +2,14 @@ import { FormElement } from '@/components/fields/FormElements';
 import { ComponentProps, useState } from 'react';
 import { Label } from '@/components/ui/label';
 import { cn } from '@/lib/utils';
-import { CustomInstance, SelectFieldFormElement } from './SelectField';
 import {
     Select,
     SelectContent,
     SelectItem,
     SelectTrigger,
-    SelectValue
+    SelectValue,
 } from '@/components/ui/select';
+import { CustomInstance, SelectFieldFormElement } from './SelectField';
 
 type Props = ComponentProps<FormElement['formComponent']>;
 
@@ -18,7 +18,7 @@ export default function FormComponent({
     submitValue,
     isInvalid,
     setError,
-    defaultValue
+    defaultValue,
 }: Props) {
     const element = elementInstance as CustomInstance;
     const { label, required, placeholder, helperText, options } = element.extraAttributes;
@@ -57,7 +57,7 @@ export default function FormComponent({
                 <p
                     className={cn(
                         'text-muted-foreground text-[0.8rem]',
-                        isInvalid && 'text-red-500'
+                        isInvalid && 'text-red-500',
                     )}
                 >
                     {helperText}

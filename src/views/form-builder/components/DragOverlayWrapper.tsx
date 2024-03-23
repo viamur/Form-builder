@@ -2,7 +2,8 @@ import { Active, DragOverlay, useDndMonitor } from '@dnd-kit/core';
 import { useState } from 'react';
 import { ElementsType, FormElements } from '@/components/fields/FormElements';
 import useBuilderFormContext from '@/hooks/useBuilderFormContext';
-import SideBarBtnElementDragOverlay from '@/views/form-builder/components/form-builder-sidebar/SideBarButtonDragOverlay';
+import SideBarBtnElementDragOverlay
+    from '@/views/form-builder/components/form-builder-sidebar/SideBarButtonDragOverlay';
 
 export default function DragOverlayWrapper() {
     const [draggedItem, setDraggedItem] = useState<Active | null>(null);
@@ -18,7 +19,7 @@ export default function DragOverlayWrapper() {
         },
         onDragEnd: () => {
             setDraggedItem(null);
-        }
+        },
     });
 
     const isSideBarBtnElement = draggedItem?.data?.current?.isDesignerBtnElement as
@@ -41,7 +42,10 @@ export default function DragOverlayWrapper() {
         } else {
             const DesignerComponent = FormElements[element.type].designerComponent;
             node = (
-                <div className="flex bg-accent border rounded-md h-[120px] w-full py-2 px-4 opacity-80 pointer-events-none">
+                <div
+                    className="flex bg-accent border rounded-md h-[120px] w-full py-2 px-4
+                     opacity-80 pointer-events-none"
+                >
                     <DesignerComponent elementInstance={element} />
                 </div>
             );

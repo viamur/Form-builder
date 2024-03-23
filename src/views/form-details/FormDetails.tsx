@@ -1,10 +1,10 @@
 import { StatsCards } from '@/components/stats-cards/StatsCards';
-import FormLinkShare from './components/FormLinkShare';
 import SubmittedFormsTable from '@/views/form-details/components/table/SubmittedFormsTable';
 import React from 'react';
 import { GetFormById } from '@/server-actions/server-actions';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import FormDetailsHeader from '@/views/form-details/components/FormDetailsHeader';
+import FormLinkShare from './components/FormLinkShare';
 
 type Form = NonNullable<Awaited<ReturnType<typeof GetFormById>>>;
 

@@ -11,7 +11,7 @@ import {
     DialogFooter,
     DialogHeader,
     DialogTitle,
-    DialogTrigger
+    DialogTrigger,
 } from '@/components/ui/dialog';
 import {
     Form,
@@ -19,7 +19,7 @@ import {
     FormField,
     FormItem,
     FormLabel,
-    FormMessage
+    FormMessage,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -31,7 +31,7 @@ import { z } from 'zod';
 
 const formSchema = z.object({
     name       : z.string().min(4),
-    description: z.string().optional()
+    description: z.string().optional(),
 });
 
 type formSchemaType = z.infer<typeof formSchema>;
@@ -39,7 +39,7 @@ type formSchemaType = z.infer<typeof formSchema>;
 function CreateFormBtn() {
     const router = useRouter();
     const form = useForm<formSchemaType>({
-        resolver: zodResolver(formSchema)
+        resolver: zodResolver(formSchema),
     });
 
     async function onSubmit(values: formSchemaType) {
@@ -51,14 +51,14 @@ function CreateFormBtn() {
             const formId = await CreateForm(values);
             toast({
                 title      : 'Success',
-                description: 'Form created successfully'
+                description: 'Form created successfully',
             });
             router.push(`/builder/${formId}`);
         } catch (error) {
             toast({
                 title      : 'Error',
                 description: 'Something went wrong, please try again later',
-                variant    : 'destructive'
+                variant    : 'destructive',
             });
         }
     }
@@ -67,8 +67,9 @@ function CreateFormBtn() {
         <Dialog>
             <DialogTrigger asChild>
                 <Button
-                    variant={'outline'}
-                    className="group border border-primary/20 h-[190px] items-center justify-center flex flex-col hover:border-primary hover:cursor-pointer border-dashed gap-4"
+                    variant="outline"
+                    className="group border border-primary/20 h-[190px] items-center justify-center
+                    flex flex-col hover:border-primary hover:cursor-pointer border-dashed gap-4"
                 >
                     <BsFileEarmarkPlus className="h-8 w-8 text-muted-foreground group-hover:text-primary" />
                     <p className="font-bold text-xl text-muted-foreground group-hover:text-primary">

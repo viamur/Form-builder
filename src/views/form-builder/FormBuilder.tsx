@@ -21,14 +21,14 @@ function FormBuilder({ form }: FormBuilderProps) {
 
     const mouseSensor = useSensor(MouseSensor, {
         activationConstraint: {
-            distance: 10
-        }
+            distance: 10,
+        },
     });
     const touchSensor = useSensor(TouchSensor, {
         activationConstraint: {
             delay    : 300,
-            tolerance: 5
-        }
+            tolerance: 5,
+        },
     });
     const sensors = useSensors(mouseSensor, touchSensor);
 
@@ -38,7 +38,9 @@ function FormBuilder({ form }: FormBuilderProps) {
         setElements(elements);
         setSelectedElement(null);
         const readyTimeout = setTimeout(() => setIsReady(true), 500);
-        return () => clearTimeout(readyTimeout);
+        return () => {
+            clearTimeout(readyTimeout);
+        };
     }, [form, setElements, isReady, setIsReady, setSelectedElement]);
 
     if (!isReady) {

@@ -1,7 +1,7 @@
 import { FormElement } from '@/components/fields/FormElements';
-import { CustomInstance } from './ParagraphField';
 import { Label } from '@/components/ui/label';
 import { ComponentProps } from 'react';
+import { CustomInstance } from './ParagraphField';
 
 type Props = ComponentProps<FormElement['designerComponent']>;
 

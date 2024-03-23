@@ -15,12 +15,12 @@ export async function GetFormStats() {
 
     const stats = await prisma.form.aggregate({
         where: {
-            userId: user.id
+            userId: user.id,
         },
         _sum: {
             visits     : true,
-            submissions: true
-        }
+            submissions: true,
+        },
     });
 
     const visits = stats._sum.visits || 0;
@@ -38,7 +38,7 @@ export async function GetFormStats() {
         visits,
         submissions,
         submissionRate,
-        bounceRate
+        bounceRate,
     };
 }
 
@@ -54,8 +54,8 @@ export async function CreateForm(data: { name: string; description?: string }) {
         data: {
             userId: user.id,
             name,
-            description
-        }
+            description,
+        },
     });
 
     if (!form) {
@@ -74,11 +74,11 @@ export async function GetForms() {
 
     return prisma.form.findMany({
         where: {
-            userId: user.id
+            userId: user.id,
         },
         orderBy: {
-            createdAt: 'desc'
-        }
+            createdAt: 'desc',
+        },
     });
 }
 
@@ -93,8 +93,8 @@ export async function GetFormById(id: number) {
         return prisma.form.findUnique({
             where: {
                 userId: user.id,
-                id
-            }
+                id,
+            },
         });
     } catch (e) {
         console.log(e);
@@ -110,16 +110,14 @@ export async function UpdateFormContent(id: number, jsonContent: string) {
     await prisma.form.update({
         where: {
             userId: user.id,
-            id
+            id,
         },
         data: {
-            content: jsonContent
-        }
+            content: jsonContent,
+        },
     });
 
     revalidatePath('/(dashboard)/builder/[id]', 'page');
-
-    return;
 }
 
 export async function PublishForm(id: number) {
@@ -130,12 +128,12 @@ export async function PublishForm(id: number) {
 
     return prisma.form.update({
         data: {
-            published: true
+            published: true,
         },
         where: {
             userId: user.id,
-            id
-        }
+            id,
+        },
     });
 }
 
@@ -143,16 +141,16 @@ export async function GetFormContentByUrl(formUrl: string) {
     try {
         return prisma.form.update({
             select: {
-                content: true
+                content: true,
             },
             data: {
                 visits: {
-                    increment: 1
-                }
+                    increment: 1,
+                },
             },
             where: {
-                shareURL: formUrl
-            }
+                shareURL: formUrl,
+            },
         });
     } catch (e) {
         console.log(e);
@@ -163,18 +161,18 @@ export async function SubmitForm(formUrl: string, content: string) {
     return prisma.form.update({
         data: {
             submissions: {
-                increment: 1
+                increment: 1,
             },
             FormSubmissions: {
                 create: {
-                    content
-                }
-            }
+                    content,
+                },
+            },
         },
         where: {
             shareURL : formUrl,
-            published: true
-        }
+            published: true,
+        },
     });
 }
 
@@ -187,11 +185,11 @@ export async function GetFormWithSubmissions(id: number) {
     return prisma.form.findUnique({
         where: {
             userId: user.id,
-            id
+            id,
         },
         include: {
-            FormSubmissions: true
-        }
+            FormSubmissions: true,
+        },
     });
 }
 
@@ -221,15 +219,13 @@ export async function EditFormName(id: number, name: string) {
 
     await prisma.form.update({
         data: {
-            name
+            name,
         },
         where: {
             id,
-            userId: user.id
-        }
+            userId: user.id,
+        },
     });
 
     revalidatePath('/', 'page');
-
-    return;
 }

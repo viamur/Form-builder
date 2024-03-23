@@ -20,13 +20,13 @@ function SaveFormBtn({ id }: Props) {
             await UpdateFormContent(id, jsonElements);
             toast({
                 title      : 'Success',
-                description: 'Your form has been saved'
+                description: 'Your form has been saved',
             });
         } catch (error) {
             toast({
                 title      : 'Error',
                 description: 'Something went wrong',
-                variant    : 'destructive'
+                variant    : 'destructive',
             });
             console.error(error);
         }
@@ -34,7 +34,7 @@ function SaveFormBtn({ id }: Props) {
 
     return (
         <Button
-            variant={'outline'}
+            variant="outline"
             className="gap-2"
             disabled={loading}
             onClick={() => startTransition(onSave)}

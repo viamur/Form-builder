@@ -8,13 +8,19 @@ import FormBuilderElementWrapper from '@/views/form-builder/components/form-buil
 import { ScrollArea } from '@/components/ui/scroll-area';
 
 function FormBuilderArea() {
-    const { elements, addElement, setSelectedElement, removeElement, selectedElement } =
-        useBuilderFormContext();
+    const {
+        elements,
+        addElement,
+        setSelectedElement,
+        removeElement,
+        selectedElement,
+    } = useBuilderFormContext();
+
     const droppable = useDroppable({
         id  : 'designer-drop-area',
         data: {
-            isDesignerDropArea: true
-        }
+            isDesignerDropArea: true,
+        },
     });
 
     useDndMonitor({
@@ -44,8 +50,7 @@ function FormBuilderArea() {
             const isDroppingOverDesignerElement =
                 isDroppingOverDesignerElementTopHalf || isDroppingOverDesignerElementBottomHalf;
 
-            const droppingSidebarBtnOverDesignerElement =
-                isDesignerBtnElement && isDroppingOverDesignerElement;
+            const droppingSidebarBtnOverDesignerElement = isDesignerBtnElement && isDroppingOverDesignerElement;
 
             // #2
             if (droppingSidebarBtnOverDesignerElement) {
@@ -93,7 +98,7 @@ function FormBuilderArea() {
                     : overElIndex;
                 addElement(indexForNewElement, activeEl);
             }
-        }
+        },
     });
     return (
         <div
@@ -102,18 +107,20 @@ function FormBuilderArea() {
                     setSelectedElement(null);
                 }
             }}
-            className="flex p-4 w-full h-full flex-grow items-center justify-center relative bg-accent bg-[url(/paper.svg)] dark:bg-[url(/paper-dark.svg)]"
+            className="flex p-4 w-full h-full flex-grow items-center justify-center relative
+             bg-accent bg-[url(/paper.svg)] dark:bg-[url(/paper-dark.svg)]"
         >
             <div
                 ref={droppable.setNodeRef}
                 className={cn(
-                    'bg-background max-w-[920px] h-full m-auto rounded-xl flex flex-col flex-grow items-center justify-self-auto flex-1 overflow-y-auto',
-                    droppable.isOver && 'ring-4 ring-primary ring-inset'
+                    'bg-background max-w-[920px] h-full m-auto rounded-xl flex flex-col ' +
+                    'flex-grow items-center justify-self-auto flex-1 overflow-y-auto',
+                    droppable.isOver && 'ring-4 ring-primary ring-inset',
                 )}
             >
                 {!droppable.isOver && elements.length === 0 && (
                     <p className="text-3xl text-muted-foreground flex flex-grow items-center font-bold">
-                        Drop here
+              Drop here
                     </p>
                 )}
                 {droppable.isOver && elements.length === 0 && (

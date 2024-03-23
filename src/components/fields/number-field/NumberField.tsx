@@ -1,19 +1,19 @@
 import { FormElement, FormElementInstance } from '@/components/fields/FormElements';
+import { Bs123 } from 'react-icons/bs';
 import DesignerComponent from './DesignerComponent';
 import PropertiesComponent from './PropertiesComponent';
 import FormComponent from './FormComponent';
-import { Bs123 } from 'react-icons/bs';
-
-export type CustomInstance = {
-    extraAttributes: typeof extraAttributes;
-} & FormElementInstance;
 
 export const extraAttributes = {
     label      : 'Number field',
     helperText : 'Helper text',
     placeholder: '0',
-    required   : false
+    required   : false,
 };
+
+export type CustomInstance = {
+    extraAttributes: typeof extraAttributes;
+} & FormElementInstance;
 
 function validateExtraAttributes(formElement: FormElementInstance, currentValue: string) {
     const element = formElement as CustomInstance;
@@ -28,14 +28,14 @@ export const NumberFieldFormElement: FormElement = {
     construct: (id: string) => ({
         id,
         type: 'NumberField',
-        extraAttributes
+        extraAttributes,
     }),
     designerBtnElement: {
         icon : Bs123,
-        label: 'Number field'
+        label: 'Number field',
     },
     designerComponent  : DesignerComponent,
     formComponent      : FormComponent,
     propertiesComponent: PropertiesComponent,
-    validate           : validateExtraAttributes
+    validate           : validateExtraAttributes,
 };

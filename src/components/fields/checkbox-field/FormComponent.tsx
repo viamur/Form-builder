@@ -2,8 +2,8 @@ import { FormElement } from '@/components/fields/FormElements';
 import { ComponentProps, useState } from 'react';
 import { Label } from '@/components/ui/label';
 import { cn } from '@/lib/utils';
-import { CheckboxFieldFormElement, CustomInstance } from './CheckboxField';
 import { Checkbox } from '@/components/ui/checkbox';
+import { CheckboxFieldFormElement, CustomInstance } from './CheckboxField';
 
 type Props = ComponentProps<FormElement['formComponent']>;
 
@@ -12,7 +12,7 @@ export default function FormComponent({
     submitValue,
     isInvalid,
     setError,
-    defaultValue
+    defaultValue,
 }: Props) {
     const element = elementInstance as CustomInstance;
     const { label, required, helperText } = element.extraAttributes;
@@ -46,7 +46,7 @@ export default function FormComponent({
                     <p
                         className={cn(
                             'text-muted-foreground text-[0.8rem]',
-                            isInvalid && 'text-red-500'
+                            isInvalid && 'text-red-500',
                         )}
                     >
                         {helperText}

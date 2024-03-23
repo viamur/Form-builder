@@ -1,8 +1,8 @@
 import { FormElement } from '@/components/fields/FormElements';
-import { CustomInstance } from './SelectField';
 import { Label } from '@/components/ui/label';
 import { ComponentProps } from 'react';
 import { Select, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { CustomInstance } from './SelectField';
 
 type Props = ComponentProps<FormElement['designerComponent']>;
 

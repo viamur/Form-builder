@@ -1,20 +1,20 @@
 import { FormElement, FormElementInstance } from '@/components/fields/FormElements';
+import { BsTextareaResize } from 'react-icons/bs';
 import DesignerComponent from './DesignerComponent';
 import PropertiesComponent from './PropertiesComponent';
 import FormComponent from './FormComponent';
-import { BsTextareaResize } from 'react-icons/bs';
-
-export type CustomInstance = {
-    extraAttributes: typeof extraAttributes;
-} & FormElementInstance;
 
 export const extraAttributes = {
     label      : 'Text area',
     helperText : 'Helper text',
     placeholder: 'Enter your text here',
     rows       : 3,
-    required   : false
+    required   : false,
 };
+
+export type CustomInstance = {
+    extraAttributes: typeof extraAttributes;
+} & FormElementInstance;
 
 function validateExtraAttributes(formElement: FormElementInstance, currentValue: string) {
     const element = formElement as CustomInstance;
@@ -29,14 +29,14 @@ export const TextAreaFieldFormElement: FormElement = {
     construct: (id: string) => ({
         id,
         type: 'TextAreaField',
-        extraAttributes
+        extraAttributes,
     }),
     designerBtnElement: {
         icon : BsTextareaResize,
-        label: 'TextArea field'
+        label: 'TextArea field',
     },
     designerComponent  : DesignerComponent,
     formComponent      : FormComponent,
     propertiesComponent: PropertiesComponent,
-    validate           : validateExtraAttributes
+    validate           : validateExtraAttributes,
 };

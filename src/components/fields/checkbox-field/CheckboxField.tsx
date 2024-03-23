@@ -1,18 +1,18 @@
 import { FormElement, FormElementInstance } from '@/components/fields/FormElements';
+import { IoMdCheckbox } from 'react-icons/io';
 import DesignerComponent from './DesignerComponent';
 import PropertiesComponent from './PropertiesComponent';
 import FormComponent from './FormComponent';
-import { IoMdCheckbox } from 'react-icons/io';
-
-export type CustomInstance = {
-    extraAttributes: typeof extraAttributes;
-} & FormElementInstance;
 
 export const extraAttributes = {
     label     : 'Checkbox field',
     helperText: 'Helper text',
-    required  : false
+    required  : false,
 };
+
+export type CustomInstance = {
+    extraAttributes: typeof extraAttributes;
+} & FormElementInstance;
 
 function validateExtraAttributes(formElement: FormElementInstance, currentValue: string) {
     const element = formElement as CustomInstance;
@@ -27,14 +27,14 @@ export const CheckboxFieldFormElement: FormElement = {
     construct: (id: string) => ({
         id,
         type: 'CheckboxField',
-        extraAttributes
+        extraAttributes,
     }),
     designerBtnElement: {
         icon : IoMdCheckbox,
-        label: 'Checkbox field'
+        label: 'Checkbox field',
     },
     designerComponent  : DesignerComponent,
     formComponent      : FormComponent,
     propertiesComponent: PropertiesComponent,
-    validate           : validateExtraAttributes
+    validate           : validateExtraAttributes,
 };

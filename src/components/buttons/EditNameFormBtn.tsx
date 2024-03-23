@@ -15,7 +15,7 @@ import { Input } from '@/components/ui/input';
 import * as TooltipComponents from '@/components/ui/tooltip';
 
 const schema = z.object({
-    name: z.string().min(4).max(50)
+    name: z.string().min(4).max(50),
 });
 
 type DefaultValues = z.infer<typeof schema>;
@@ -33,7 +33,7 @@ function EditNameFormBtn({ formId, formName }: Props) {
         defaultValues: { name: '' },
         values       : { name: formName },
         resolver     : zodResolver(schema),
-        mode         : 'onBlur'
+        mode         : 'onBlur',
     });
 
     async function submit({ name }: DefaultValues) {
@@ -46,13 +46,13 @@ function EditNameFormBtn({ formId, formName }: Props) {
             setIsOpened(false);
             toast({
                 title      : 'Success',
-                description: 'Name has been updated'
+                description: 'Name has been updated',
             });
         } catch (error) {
             toast({
                 title      : 'Error',
                 description: 'Something went wrong',
-                variant    : 'destructive'
+                variant    : 'destructive',
             });
         }
     }

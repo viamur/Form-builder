@@ -2,12 +2,12 @@ import { FormElement } from '@/components/fields/FormElements';
 import { ComponentProps, useState } from 'react';
 import { Label } from '@/components/ui/label';
 import { cn } from '@/lib/utils';
-import { CustomInstance, DateFieldFormElement } from './DateField';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { CalendarIcon } from '@radix-ui/react-icons';
 import { Button } from '@/components/ui/button';
 import { format } from 'date-fns';
 import { Calendar } from '@/components/ui/calendar';
+import { CustomInstance, DateFieldFormElement } from './DateField';
 
 type Props = ComponentProps<FormElement['formComponent']>;
 
@@ -16,7 +16,7 @@ export default function FormComponent({
     submitValue,
     isInvalid,
     setError,
-    defaultValue
+    defaultValue,
 }: Props) {
     const element = elementInstance as CustomInstance;
     const { label, required, helperText } = element.extraAttributes;
@@ -36,7 +36,7 @@ export default function FormComponent({
                         className={cn(
                             'w-full justify-start text-left font-normal',
                             !value && 'text-muted-foreground',
-                            isInvalid && 'border-red-500'
+                            isInvalid && 'border-red-500',
                         )}
                     >
                         <CalendarIcon className="mr-2 h-4 w-4" />
@@ -64,7 +64,7 @@ export default function FormComponent({
                 <p
                     className={cn(
                         'text-muted-foreground text-[0.8rem]',
-                        isInvalid && 'text-red-500'
+                        isInvalid && 'text-red-500',
                     )}
                 >
                     {helperText}

@@ -5,7 +5,7 @@ import {
     CardDescription,
     CardFooter,
     CardHeader,
-    CardTitle
+    CardTitle,
 } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { formatDistance } from 'date-fns';
@@ -22,12 +22,12 @@ function FormCard({ form }: { form: Form }) {
                 <CardTitle className="flex items-center gap-2 justify-between">
                     <span className="truncate font-bold">{form.name}</span>
                     {form.published && <Badge>Published</Badge>}
-                    {!form.published && <Badge variant={'destructive'}>Draft</Badge>}
+                    {!form.published && <Badge variant="destructive">Draft</Badge>}
                 </CardTitle>
 
                 <CardDescription className="flex items-center justify-between text-muted-foreground text-sm">
                     {formatDistance(form.createdAt, new Date(), {
-                        addSuffix: true
+                        addSuffix: true,
                     })}
                     {form.published && (
                         <span className="flex items-center gap-2">
@@ -54,7 +54,7 @@ function FormCard({ form }: { form: Form }) {
                 )}
 
                 {!form.published && (
-                    <Button asChild variant={'secondary'} className="w-full mt-2 text-md gap-4">
+                    <Button asChild variant="secondary" className="w-full mt-2 text-md gap-4">
                         <Link href={`/builder/${form.id}`}>
                             Edit form <FaEdit />
                         </Link>

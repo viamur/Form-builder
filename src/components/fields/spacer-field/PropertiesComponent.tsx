@@ -1,15 +1,15 @@
 import { FormElement } from '@/components/fields/FormElements';
-import { CustomInstance } from './SpacerField';
 import { z } from 'zod';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { ComponentProps, useEffect } from 'react';
 import useBuilderFormContext from '@/hooks/useBuilderFormContext';
-import * as FormComponents from '../../ui/form';
 import { Slider } from '@/components/ui/slider';
+import * as FormComponents from '../../ui/form';
+import { CustomInstance } from './SpacerField';
 
 export const propertiesSchema = z.object({
-    height: z.number().min(5).max(200)
+    height: z.number().min(5).max(200),
 });
 
 type PropertiesType = z.infer<typeof propertiesSchema>;
@@ -23,7 +23,7 @@ export default function PropertiesComponent({ elementInstance }: Props) {
     const form = useForm<PropertiesType>({
         defaultValues: element.extraAttributes,
         resolver     : zodResolver(propertiesSchema),
-        mode         : 'onBlur'
+        mode         : 'onBlur',
     });
 
     useEffect(() => {
@@ -34,7 +34,7 @@ export default function PropertiesComponent({ elementInstance }: Props) {
         const { height } = data;
         updateElement(element.id, {
             ...element,
-            extraAttributes: { height }
+            extraAttributes: { height },
         });
     }
 

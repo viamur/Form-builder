@@ -36,10 +36,16 @@ export default async function SubmittedFormsTable({ id }: Props) {
             case 'TextAreaField':
             case 'CheckboxField':
                 columns.push({
-                    id      : element.id,
-                    label   : typeof element.extraAttributes?.label === 'string' ? element.extraAttributes?.label : element.type,
-                    required: typeof element.extraAttributes?.required === 'boolean' ? element.extraAttributes?.required : false,
-                    type    : element.type
+                    id: element.id,
+                    label:
+                        typeof element.extraAttributes?.label === 'string'
+                            ? element.extraAttributes?.label
+                            : element.type,
+                    required:
+                        typeof element.extraAttributes?.required === 'boolean'
+                            ? element.extraAttributes?.required
+                            : false,
+                    type: element.type,
                 });
                 break;
             default:
@@ -53,7 +59,7 @@ export default async function SubmittedFormsTable({ id }: Props) {
         const content = JSON.parse(submission.content);
         rows.push({
             ...content,
-            submittedAt: submission.createdAt
+            submittedAt: submission.createdAt,
         });
     });
 
@@ -86,7 +92,7 @@ export default async function SubmittedFormsTable({ id }: Props) {
                                 ))}
                                 <TableComponents.TableCell className="text-muted-foreground text-right">
                                     {formatDistance(row.submittedAt, new Date(), {
-                                        addSuffix: true
+                                        addSuffix: true,
                                     })}
                                 </TableComponents.TableCell>
                             </TableComponents.TableRow>

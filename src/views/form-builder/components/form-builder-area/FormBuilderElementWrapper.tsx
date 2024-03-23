@@ -17,34 +17,37 @@ export default function FormBuilderElementWrapper({ element }: Props) {
 
     const DesignerElement = FormElements[element.type].designerComponent;
     const topHalf = useDroppable({
-        id  : element.id + '-top',
+        id  : `${element.id}-top`,
         data: {
             type                    : element.type,
             elementId               : element.id,
-            isTopHalfDesignerElement: true
-        }
+            isTopHalfDesignerElement: true,
+        },
     });
     const bottomHalf = useDroppable({
-        id  : element.id + '-bottom',
+        id  : `${element.id}-bottom`,
         data: {
             type                       : element.type,
             elementId                  : element.id,
-            isBottomHalfDesignerElement: true
-        }
+            isBottomHalfDesignerElement: true,
+        },
     });
 
     const draggable = useDraggable({
-        id  : element.id + '-drag-handler',
+        id  : `${element.id}-drag-handler`,
         data: {
             type             : element.type,
             elementId        : element.id,
-            isDesignerElement: true
-        }
+            isDesignerElement: true,
+        },
     });
 
     if (draggable.isDragging) {
         return (
-            <div className="w-full h-[120px] rounded-md bg-accent/40 pointer-events-none border-dashed border-2 border-red-500" />
+            <div
+                className="w-full h-[120px] rounded-md bg-accent/40 pointer-events-none border-dashed
+                border-2 border-red-500"
+            />
         );
     }
 
@@ -59,7 +62,8 @@ export default function FormBuilderElementWrapper({ element }: Props) {
                 e.stopPropagation();
                 setSelectedElement(element);
             }}
-            className="relative h-[120px] flex flex-col text-foreground hover:cursor-pointer rounded-md ring-1 ring-accent ring-inset"
+            className="relative h-[120px] flex flex-col text-foreground hover:cursor-pointer
+             rounded-md ring-1 ring-accent ring-inset"
         >
             <div ref={topHalf.setNodeRef} className="absolute top-0 w-full h-1/2 rounded-t-md" />
             <div
@@ -92,8 +96,9 @@ export default function FormBuilderElementWrapper({ element }: Props) {
             )}
             <div
                 className={cn(
-                    'flex w-full h-[120px] items-center rounded-md bg-accent/40 px-4 py-2 pointer-events-none opacity-100',
-                    mouseIsOver && 'opacity-30'
+                    'flex w-full h-[120px] items-center rounded-md bg-accent/40 px-4 py-2 ' +
+                    'pointer-events-none opacity-100',
+                    mouseIsOver && 'opacity-30',
                 )}
             >
                 <DesignerElement elementInstance={element} />

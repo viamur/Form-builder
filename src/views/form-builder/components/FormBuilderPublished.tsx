@@ -38,7 +38,7 @@ export default function FormBuilderPublished({ shareURL, formId }: Props) {
                                 navigator.clipboard.writeText(shareUrl);
                                 toast({
                                     title      : 'Copied!',
-                                    description: 'Link copied to clipboard'
+                                    description: 'Link copied to clipboard',
                                 });
                             }}
                         >
@@ -46,13 +46,13 @@ export default function FormBuilderPublished({ shareURL, formId }: Props) {
                         </Button>
                     </div>
                     <div className="flex justify-between">
-                        <Button variant={'link'} asChild>
-                            <Link href={'/'} className="gap-2">
+                        <Button variant="link" asChild>
+                            <Link href="/" className="gap-2">
                                 <BsArrowLeft />
                                 Go back home
                             </Link>
                         </Button>
-                        <Button variant={'link'} asChild>
+                        <Button variant="link" asChild>
                             <Link href={`/forms/${formId}`} className="gap-2">
                                 Form details
                                 <BsArrowRight />

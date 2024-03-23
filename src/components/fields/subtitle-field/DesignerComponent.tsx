@@ -1,7 +1,7 @@
 import { FormElement } from '@/components/fields/FormElements';
-import { CustomInstance } from './SubTitleField';
 import { Label } from '@/components/ui/label';
 import { ComponentProps } from 'react';
+import { CustomInstance } from './SubTitleField';
 
 type Props = ComponentProps<FormElement['designerComponent']>;
 

@@ -1,20 +1,20 @@
 import { FormElement, FormElementInstance } from '@/components/fields/FormElements';
+import { RxDropdownMenu } from 'react-icons/rx';
 import DesignerComponent from './DesignerComponent';
 import PropertiesComponent from './PropertiesComponent';
 import FormComponent from './FormComponent';
-import { RxDropdownMenu } from 'react-icons/rx';
-
-export type CustomInstance = {
-    extraAttributes: typeof extraAttributes;
-} & FormElementInstance;
 
 export const extraAttributes = {
     label      : 'Select field',
     helperText : 'Helper text',
     placeholder: 'Select an option',
     required   : false,
-    options    : []
+    options    : [],
 };
+
+export type CustomInstance = {
+    extraAttributes: typeof extraAttributes;
+} & FormElementInstance;
 
 function validateExtraAttributes(formElement: FormElementInstance, currentValue: string) {
     const element = formElement as CustomInstance;
@@ -29,14 +29,14 @@ export const SelectFieldFormElement: FormElement = {
     construct: (id: string) => ({
         id,
         type: 'SelectField',
-        extraAttributes
+        extraAttributes,
     }),
     designerBtnElement: {
         icon : RxDropdownMenu,
-        label: 'Select field'
+        label: 'Select field',
     },
     designerComponent  : DesignerComponent,
     formComponent      : FormComponent,
     propertiesComponent: PropertiesComponent,
-    validate           : validateExtraAttributes
+    validate           : validateExtraAttributes,
 };

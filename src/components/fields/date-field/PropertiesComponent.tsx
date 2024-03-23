@@ -1,18 +1,18 @@
 import { FormElement } from '@/components/fields/FormElements';
-import { CustomInstance } from './DateField';
 import { z } from 'zod';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { ComponentProps, useEffect } from 'react';
 import useBuilderFormContext from '@/hooks/useBuilderFormContext';
-import * as FormComponents from '../../ui/form';
 import { Input } from '@/components/ui/input';
 import { Switch } from '@/components/ui/switch';
+import * as FormComponents from '../../ui/form';
+import { CustomInstance } from './DateField';
 
 export const propertiesSchema = z.object({
     label     : z.string().min(2).max(50),
     helperText: z.string().max(200),
-    required  : z.boolean().default(false)
+    required  : z.boolean().default(false),
 });
 
 type PropertiesType = z.infer<typeof propertiesSchema>;
@@ -26,7 +26,7 @@ export default function PropertiesComponent({ elementInstance }: Props) {
     const form = useForm<PropertiesType>({
         defaultValues: element.extraAttributes,
         resolver     : zodResolver(propertiesSchema),
-        mode         : 'onBlur'
+        mode         : 'onBlur',
     });
 
     useEffect(() => {
@@ -37,7 +37,7 @@ export default function PropertiesComponent({ elementInstance }: Props) {
         const { label, required, helperText } = data;
         updateElement(element.id, {
             ...element,
-            extraAttributes: { label, helperText, required }
+            extraAttributes: { label, helperText, required },
         });
     }
 
@@ -67,7 +67,9 @@ export default function PropertiesComponent({ elementInstance }: Props) {
                                 />
                             </FormComponents.FormControl>
                             <FormComponents.FormDescription>
-                                The label of the field. <br /> It will be displayed above the field.
+                                The label of the field. <br />
+                                {' '}
+                                It will be displayed above the field.
                             </FormComponents.FormDescription>
                             <FormComponents.FormMessage />
                         </FormComponents.FormItem>
@@ -91,8 +93,8 @@ export default function PropertiesComponent({ elementInstance }: Props) {
                                 />
                             </FormComponents.FormControl>
                             <FormComponents.FormDescription>
-                                The helper text of the field. <br />
-                                It will be displayed below the field.
+                                  The helper text of the field. <br />
+                                  It will be displayed below the field.
                             </FormComponents.FormDescription>
                             <FormComponents.FormMessage />
                         </FormComponents.FormItem>

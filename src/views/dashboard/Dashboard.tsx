@@ -11,7 +11,7 @@ export default function Dashboard() {
     return (
         <ScrollArea className="w-full" type="auto">
             <div className="container py-4">
-                <Suspense fallback={<StatsCards loading={true} />}>
+                <Suspense fallback={<StatsCards loading />}>
                     <StatsCardsWrapper />
                 </Suspense>
 

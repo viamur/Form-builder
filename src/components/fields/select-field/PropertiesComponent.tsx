@@ -1,24 +1,24 @@
 import { FormElement } from '@/components/fields/FormElements';
-import { CustomInstance } from './SelectField';
 import { z } from 'zod';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { ComponentProps, useEffect } from 'react';
 import useBuilderFormContext from '@/hooks/useBuilderFormContext';
-import * as FormComponents from '../../ui/form';
 import { Input } from '@/components/ui/input';
 import { Switch } from '@/components/ui/switch';
 import { Separator } from '@/components/ui/separator';
 import { Button } from '@/components/ui/button';
 import { AiOutlineClose, AiOutlinePlus } from 'react-icons/ai';
 import { toast } from '@/components/ui/use-toast';
+import * as FormComponents from '../../ui/form';
+import { CustomInstance } from './SelectField';
 
 export const propertiesSchema = z.object({
     label      : z.string().min(2).max(50),
     helperText : z.string().max(200),
     required   : z.boolean().default(false),
     placeholder: z.string().max(50),
-    options    : z.array(z.string()).default([])
+    options    : z.array(z.string()).default([]),
 });
 
 type PropertiesType = z.infer<typeof propertiesSchema>;
@@ -32,7 +32,7 @@ export default function PropertiesComponent({ elementInstance }: Props) {
     const form = useForm<PropertiesType>({
         defaultValues: element.extraAttributes,
         resolver     : zodResolver(propertiesSchema),
-        mode         : 'onSubmit'
+        mode         : 'onSubmit',
     });
 
     useEffect(() => {
@@ -43,12 +43,18 @@ export default function PropertiesComponent({ elementInstance }: Props) {
         const { label, placeholder, required, helperText, options } = data;
         updateElement(element.id, {
             ...element,
-            extraAttributes: { label, helperText, required, placeholder, options }
+            extraAttributes: {
+                label,
+                helperText,
+                required,
+                placeholder,
+                options,
+            },
         });
 
         toast({
             title      : 'Success',
-            description: 'Properties saved successfully'
+            description: 'Properties saved successfully',
         });
 
         setSelectedElement(null);
@@ -74,7 +80,9 @@ export default function PropertiesComponent({ elementInstance }: Props) {
                                 />
                             </FormComponents.FormControl>
                             <FormComponents.FormDescription>
-                                The label of the field. <br /> It will be displayed above the field.
+                                The label of the field. <br />
+                                {' '}
+                                It will be displayed above the field.
                             </FormComponents.FormDescription>
                             <FormComponents.FormMessage />
                         </FormComponents.FormItem>

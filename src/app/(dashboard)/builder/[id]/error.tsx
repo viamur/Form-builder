@@ -13,7 +13,7 @@ function ErrorPage({ error }: { error: Error }) {
         <div className="flex w-full flex-col items-center justify-center gap-4">
             <h2 className="text-destructive text-4xl">Something went wrong!</h2>
             <Button asChild>
-                <Link href={'/'}>Go back to home</Link>
+                <Link href="/">Go back to home</Link>
             </Button>
         </div>
     );

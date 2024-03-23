@@ -26,6 +26,12 @@ export type ElementsType =
 
 export type SubmitFunction = (key: string, value: string) => void;
 
+export type FormElementInstance = {
+    id: string;
+    type: ElementsType;
+    extraAttributes?: Record<string, string | number | boolean | string[]>;
+};
+
 export type FormElement = {
     type: ElementsType;
 
@@ -53,12 +59,6 @@ export type FormElement = {
     validate: (formElement: FormElementInstance, currentValue: string) => boolean;
 };
 
-export type FormElementInstance = {
-    id: string;
-    type: ElementsType;
-    extraAttributes?: Record<string, string | number | boolean | string[]>;
-};
-
 type FormElementsType = {
     [key in ElementsType]: FormElement;
 };
@@ -74,5 +74,5 @@ export const FormElements: FormElementsType = {
     TextAreaField : TextAreaFieldFormElement,
     DateField     : DateFieldFormElement,
     SelectField   : SelectFieldFormElement,
-    CheckboxField : CheckboxFieldFormElement
+    CheckboxField : CheckboxFieldFormElement,
 };

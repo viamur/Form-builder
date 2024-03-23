@@ -20,13 +20,13 @@ function PublishFormBtn({ id }: { id: number }) {
             await PublishForm(id);
             toast({
                 title      : 'Success',
-                description: 'Your form is now available to the public'
+                description: 'Your form is now available to the public',
             });
             router.refresh();
         } catch (error) {
             toast({
                 title      : 'Error',
-                description: 'Something went wrong'
+                description: 'Something went wrong',
             });
         }
     }
@@ -34,7 +34,7 @@ function PublishFormBtn({ id }: { id: number }) {
     return (
         <AlertDialogComponents.AlertDialog>
             <AlertDialogComponents.AlertDialogTrigger asChild>
-                <Button className="gap-2 text-white bg-gradient-to-r from-indigo-400 to-cyan-400">
+                <Button className="gap-2 text-white bg-gradient-to-r from-blue-400 to-blue-800">
                     <MdOutlinePublish className="h-4 w-4" />
                     Publish
                 </Button>
@@ -45,8 +45,7 @@ function PublishFormBtn({ id }: { id: number }) {
                         Are you absolutely sure?
                     </AlertDialogComponents.AlertDialogTitle>
                     <AlertDialogComponents.AlertDialogDescription>
-                        This action cannot be undone. After publishing you will not be able to edit
-                        this form.
+                        This action cannot be undone. After publishing you will not be able to edit this form.
                     </AlertDialogComponents.AlertDialogDescription>
                 </AlertDialogComponents.AlertDialogHeader>
                 <AlertDialogComponents.AlertDialogFooter>

@@ -19,13 +19,13 @@ export function StatsCards({
     submissionRate,
     bounceRate,
     loading,
-    isContainer
+    isContainer,
 }: StatsCardsProps) {
     return (
         <div
             className={cn(
                 'w-full pt-8 gap-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4',
-                isContainer && 'container'
+                isContainer && 'container',
             )}
         >
             <StatsCard
@@ -48,7 +48,7 @@ export function StatsCards({
                 title="Submission rate"
                 icon={<HiCursorClick className="text-green-600" style={{ margin: 0 }} />}
                 helperText="Visits that result in form submission"
-                value={submissionRate?.toLocaleString() + '%' || ''}
+                value={`${submissionRate?.toLocaleString()}%` || ''}
                 loading={loading}
             />
 
@@ -56,7 +56,7 @@ export function StatsCards({
                 title="Bounce rate"
                 icon={<MdCancelScheduleSend className="text-red-600" style={{ margin: 0 }} />}
                 helperText="Visits that leaves without interacting"
-                value={bounceRate?.toLocaleString() + '%' || ''}
+                value={`${bounceRate?.toLocaleString()}%` || ''}
                 loading={loading}
             />
         </div>

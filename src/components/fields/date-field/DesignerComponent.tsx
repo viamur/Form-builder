@@ -1,9 +1,9 @@
 import { FormElement } from '@/components/fields/FormElements';
-import { CustomInstance } from './DateField';
 import { Label } from '@/components/ui/label';
 import { ComponentProps } from 'react';
 import { Button } from '@/components/ui/button';
 import { CalendarIcon } from '@radix-ui/react-icons';
+import { CustomInstance } from './DateField';
 
 type Props = ComponentProps<FormElement['designerComponent']>;
 

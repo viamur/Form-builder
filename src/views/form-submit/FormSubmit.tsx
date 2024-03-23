@@ -21,26 +21,29 @@ export default function FormSubmit({ formUrl, content }: Props) {
     const [submitted, setSubmitted] = useState(false);
 
     const validateForm = () => {
-        const formErrors: Record<string, boolean> = {};
-        for (const field of content) {
+        const formErrors = content.reduce((acc, field) => {
             const actualValue = formValues.current[field.id] || '';
             const valid = FormElements[field.type].validate(field, actualValue);
             if (!valid) {
-                formErrors[field.id] = true;
+                acc[field.id] = true;
             }
-        }
+            return acc;
+        }, {} as Record<string, boolean>);
         setFormErrors(formErrors);
         return Object.keys(formErrors).length === 0;
     };
 
-    const submitValue = (key: string, value: string) => (formValues.current[key] = value);
+    const submitValue = (key: string, value: string) => {
+        formValues.current[key] = value;
+    };
+
     const submitForm = async () => {
         const valid = validateForm();
         if (!valid) {
             toast({
                 title      : 'Form is invalid',
                 description: 'Please check the form for errors',
-                variant    : 'destructive'
+                variant    : 'destructive',
             });
             return;
         }
@@ -49,16 +52,12 @@ export default function FormSubmit({ formUrl, content }: Props) {
             const JSONData = JSON.stringify(formValues.current);
             await SubmitForm(formUrl, JSONData);
 
-            setTimeout(() => {
-                window.close();
-            }, 3000);
-
             setSubmitted(true);
         } catch (error) {
             toast({
                 title      : 'Form submission failed',
                 description: 'Please try again later',
-                variant    : 'destructive'
+                variant    : 'destructive',
             });
         }
     };
@@ -70,7 +69,9 @@ export default function FormSubmit({ formUrl, content }: Props) {
     return (
         <ScrollArea className="w-full h-full flex-grow" type="auto">
             <div className="flex justify-center w-full h-full items-center p-8">
-                <div className="max-w-[620px] flex flex-col gap-4 flex-grow bg-background w-full p-8 overflow-y-auto border shadow-xl shadow-gray-700/20 rounded-xl">
+                <div className="max-w-[620px] flex flex-col gap-4 flex-grow
+                 bg-background w-full p-8 overflow-y-auto border shadow-xl shadow-gray-700/20 rounded-xl"
+                >
                     {content.map((element) => {
                         const FormElement = FormElements[element.type].formComponent;
                         return (
@@ -93,7 +94,7 @@ export default function FormSubmit({ formUrl, content }: Props) {
                         {!pending && (
                             <>
                                 <HiCursorClick className="mr-2" />
-                                Submit
+                              Submit
                             </>
                         )}
                     </Button>

@@ -13,7 +13,7 @@ export const propertiesSchema = z.object({
     label      : z.string().min(2).max(50),
     helperText : z.string().max(200),
     required   : z.boolean().default(false),
-    placeholder: z.string().max(50)
+    placeholder: z.string().max(50),
 });
 
 type PropertiesType = z.infer<typeof propertiesSchema>;
@@ -27,7 +27,7 @@ export default function PropertiesComponent({ elementInstance }: Props) {
     const form = useForm<PropertiesType>({
         defaultValues: element.extraAttributes,
         resolver     : zodResolver(propertiesSchema),
-        mode         : 'onBlur'
+        mode         : 'onBlur',
     });
 
     useEffect(() => {
@@ -38,7 +38,12 @@ export default function PropertiesComponent({ elementInstance }: Props) {
         const { label, placeholder, required, helperText } = data;
         updateElement(element.id, {
             ...element,
-            extraAttributes: { label, helperText, required, placeholder }
+            extraAttributes: {
+                label,
+                helperText,
+                required,
+                placeholder,
+            },
         });
     }
 
@@ -68,7 +73,9 @@ export default function PropertiesComponent({ elementInstance }: Props) {
                                 />
                             </FormComponents.FormControl>
                             <FormComponents.FormDescription>
-                                The label of the field. <br /> It will be displayed above the field.
+                                The label of the field. <br />
+                                {' '}
+                                It will be displayed above the field.
                             </FormComponents.FormDescription>
                             <FormComponents.FormMessage />
                         </FormComponents.FormItem>

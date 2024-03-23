@@ -12,7 +12,7 @@ export default function FormComponent({
     submitValue,
     isInvalid,
     setError,
-    defaultValue
+    defaultValue,
 }: Props) {
     const element = elementInstance as CustomInstance;
     const { label, required, placeholder, helperText } = element.extraAttributes;
@@ -42,7 +42,7 @@ export default function FormComponent({
                 <p
                     className={cn(
                         'text-muted-foreground text-[0.8rem]',
-                        isInvalid && 'text-red-500'
+                        isInvalid && 'text-red-500',
                     )}
                 >
                     {helperText}

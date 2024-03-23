@@ -1,8 +1,8 @@
 import { FormElement } from '@/components/fields/FormElements';
-import { CustomInstance } from './CheckboxField';
 import { Label } from '@/components/ui/label';
 import { ComponentProps } from 'react';
 import { Checkbox } from '@/components/ui/checkbox';
+import { CustomInstance } from './CheckboxField';
 
 type Props = ComponentProps<FormElement['designerComponent']>;
 

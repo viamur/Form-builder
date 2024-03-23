@@ -1,14 +1,72 @@
 {
-    "extends": [
-        "next",
-        "eslint:recommended",
-        "plugin:@typescript-eslint/recommended"
-    ],
-    "parser" : "@typescript-eslint/parser",
+    "env": {
+        "browser": true,
+        "es6": true,
+        "node": true
+    },
+    "extends": ["next", "airbnb", "eslint:recommended", "plugin:@typescript-eslint/recommended"],
+    "parser": "@typescript-eslint/parser",
     "plugins": [
+        "import",
+        "jsx-a11y",
+        "prettier",
         "@typescript-eslint"
     ],
     "rules": {
+        "linebreak-style": "off", // Неправильно работает в Windows.
+
+        "arrow-parens": "off", // Несовместимо с prettier
+        "object-curly-newline": "off", // Несовместимо с prettier
+        "no-mixed-operators": "off", // Несовместимо с prettier
+        "arrow-body-style": "off", // Это - не наш стиль?
+        "function-paren-newline": "off", // Несовместимо с prettier
+        "no-plusplus": "off",
+        "space-before-function-paren": 0, // Несовместимо с prettier
+
+        "max-len": ["error", 120, 2, { "ignoreUrls": true }], // airbnb позволяет некоторые пограничные случаи
+        "no-console": "warn", // airbnb использует предупреждение
+        "no-alert": "error", // airbnb использует предупреждение
+        "no-underscore-dangle": "warn",
+        "no-new": "warn",
+        "consistent-return": "warn",
+        "operator-linebreak": "off",
+
+        "no-param-reassign": "off", // Это - не наш стиль?
+        "radix": "off", // parseInt, parseFloat и radix выключены. Мне это не нравится.
+
+        "react/require-default-props": "off", // airbnb использует уведомление об ошибке
+        "react/forbid-prop-types": "off", // airbnb использует уведомление об ошибке
+        "react/jsx-filename-extension": [1,
+            {
+                "extensions": [
+                    ".tsx"
+                ]
+            }
+        ], // airbnb использует .jsx
+        "react/jsx-uses-react": "off",
+        "react/react-in-jsx-scope": "off",
+        "react/jsx-indent": "off",
+        "prefer-destructuring": "off",
+        "react/jsx-indent-props": "off",
+        "import/extensions": "off",
+        "react/jsx-props-no-spreading": "off",
+        "import/no-cycle": "off",
+        "no-trailing-spaces": "off",
+        "no-shadow": "off",
+
+        "react/no-find-dom-node": "off", // Я этого не знаю
+        "react/no-did-mount-set-state": "off",
+        "react/no-unused-prop-types": "off", // Это всё ещё работает нестабильно
+        "react/jsx-one-expression-per-line": "off",
+
+        "jsx-a11y/anchor-is-valid": ["error", { "components": ["Link"], "specialLink": ["to"] }],
+        "jsx-a11y/label-has-for": [2, {
+            "required": {
+                "every": ["id"]
+            }
+        }], // для ошибки вложенных свойств htmlFor элементов label
+
+        "indent": ["error", 4, { "SwitchCase": 1 }],
         "no-var": "error",
         "no-undef": "error",
         "prefer-const": "error",
@@ -18,16 +76,17 @@
             {
                 "singleLine": {
                     "beforeColon": false,
-                    "afterColon" : true
+                    "afterColon": true
                 },
                 "align": {
                     "beforeColon": false,
-                    "afterColon" : true,
-                    "on"         : "colon"
+                    "afterColon": true,
+                    "on": "colon"
                 }
             }
         ],
         "quote-props": ["error", "as-needed"],
         "import/newline-after-import": ["error", { "count": 1 }]
+//        "prettier/prettier": "warn"
     }
 }

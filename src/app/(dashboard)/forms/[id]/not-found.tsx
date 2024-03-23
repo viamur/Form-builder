@@ -7,7 +7,7 @@ export default function NotFound() {
         <div className="flex w-full h-full flex-col items-center justify-center gap-4">
             <h2 className="text-4xl">Form not found!</h2>
             <Button asChild>
-                <Link href={'/'}>Go back to home</Link>
+                <Link href="/">Go back to home</Link>
             </Button>
         </div>
     );

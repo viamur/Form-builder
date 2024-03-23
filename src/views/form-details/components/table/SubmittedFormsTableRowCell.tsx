@@ -23,6 +23,9 @@ function SubmittedFormsTableRowCell({ type, value }: Props) {
             break;
         case 'SelectField':
             node = <Badge variant="outline">{value}</Badge>;
+            break;
+        default:
+            break;
     }
     return <TableComponents.TableCell>{node}</TableComponents.TableCell>;
 }

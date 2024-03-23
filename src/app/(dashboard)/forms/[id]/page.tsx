@@ -5,7 +5,7 @@ import type { Metadata } from 'next';
 import FormDetails from '@/views/form-details/FormDetails';
 
 export const metadata: Metadata = {
-    title: 'Details'
+    title: 'Details',
 };
 
 type BuilderPageProps = {

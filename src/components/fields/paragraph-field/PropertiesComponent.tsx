@@ -1,15 +1,15 @@
 import { FormElement } from '@/components/fields/FormElements';
-import { CustomInstance } from './ParagraphField';
 import { z } from 'zod';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { ComponentProps, useEffect } from 'react';
 import useBuilderFormContext from '@/hooks/useBuilderFormContext';
-import * as FormComponents from '../../ui/form';
 import { Textarea } from '@/components/ui/textarea';
+import * as FormComponents from '../../ui/form';
+import { CustomInstance } from './ParagraphField';
 
 export const propertiesSchema = z.object({
-    text: z.string().min(2).max(500)
+    text: z.string().min(2).max(500),
 });
 
 type PropertiesType = z.infer<typeof propertiesSchema>;
@@ -23,7 +23,7 @@ export default function PropertiesComponent({ elementInstance }: Props) {
     const form = useForm<PropertiesType>({
         defaultValues: element.extraAttributes,
         resolver     : zodResolver(propertiesSchema),
-        mode         : 'onBlur'
+        mode         : 'onBlur',
     });
 
     useEffect(() => {
@@ -33,7 +33,7 @@ export default function PropertiesComponent({ elementInstance }: Props) {
     function submit(data: PropertiesType) {
         updateElement(element.id, {
             ...element,
-            extraAttributes: { text: data.text }
+            extraAttributes: { text: data.text },
         });
     }
 

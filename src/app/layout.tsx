@@ -13,13 +13,13 @@ const inter = Inter({ subsets: ['latin'] });
 export const metadata: Metadata = {
     title: {
         template: '%s | Form Builder',
-        default : 'Form Builder'
+        default : 'Form Builder',
     },
-    description: 'Form Builder by viamur'
+    description: 'Form Builder by viamur',
 };
 
 export default function RootLayout({
-    children
+    children,
 }: Readonly<{
     children: React.ReactNode;
 }>) {

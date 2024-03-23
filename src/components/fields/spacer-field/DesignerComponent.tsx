@@ -1,8 +1,8 @@
 import { FormElement } from '@/components/fields/FormElements';
-import { CustomInstance } from './SpacerField';
 import { Label } from '@/components/ui/label';
 import { ComponentProps } from 'react';
 import { LuSeparatorHorizontal } from 'react-icons/lu';
+import { CustomInstance } from './SpacerField';
 
 type Props = ComponentProps<FormElement['designerComponent']>;
 

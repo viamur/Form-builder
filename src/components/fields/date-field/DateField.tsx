@@ -1,18 +1,18 @@
+import { BsFillCalendarDateFill } from 'react-icons/bs';
 import { FormElement, FormElementInstance } from '../FormElements';
 import DesignerComponent from './DesignerComponent';
 import PropertiesComponent from './PropertiesComponent';
 import FormComponent from './FormComponent';
-import { BsFillCalendarDateFill } from 'react-icons/bs';
-
-export type CustomInstance = {
-    extraAttributes: typeof extraAttributes;
-} & FormElementInstance;
 
 export const extraAttributes = {
     label     : 'Date field',
     helperText: 'Pick a date',
-    required  : false
+    required  : false,
 };
+
+export type CustomInstance = {
+    extraAttributes: typeof extraAttributes;
+} & FormElementInstance;
 
 function validateExtraAttributes(formElement: FormElementInstance, currentValue: string) {
     const element = formElement as CustomInstance;
@@ -27,14 +27,14 @@ export const DateFieldFormElement: FormElement = {
     construct: (id: string) => ({
         id,
         type: 'DateField',
-        extraAttributes
+        extraAttributes,
     }),
     designerBtnElement: {
         icon : BsFillCalendarDateFill,
-        label: 'Date field'
+        label: 'Date field',
     },
     designerComponent  : DesignerComponent,
     formComponent      : FormComponent,
     propertiesComponent: PropertiesComponent,
-    validate           : validateExtraAttributes
+    validate           : validateExtraAttributes,
 };

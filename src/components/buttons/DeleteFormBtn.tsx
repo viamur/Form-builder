@@ -20,13 +20,13 @@ function DeleteFormBtn({ formId }: Props) {
             await DeleteForm(formId);
             toast({
                 title      : 'Success',
-                description: 'Form has been deleted'
+                description: 'Form has been deleted',
             });
         } catch (error) {
             toast({
                 title      : 'Error',
                 description: 'Something went wrong',
-                variant    : 'destructive'
+                variant    : 'destructive',
             });
         }
     }

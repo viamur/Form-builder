@@ -8,7 +8,7 @@ import {
     createContext,
     useCallback,
     useMemo,
-    useState
+    useState,
 } from 'react';
 
 type BuilderFormContextType = {
@@ -36,14 +36,14 @@ export default function BuilderContextProvider({ children }: PropsWithChildren) 
                 return newElements;
             });
         },
-        [setElements]
+        [setElements],
     );
 
     const removeElement = useCallback(
         (id: string) => {
             setElements((prevElements) => prevElements.filter((element) => element.id !== id));
         },
-        [setElements]
+        [setElements],
     );
 
     const updateElement = useCallback(
@@ -55,7 +55,7 @@ export default function BuilderContextProvider({ children }: PropsWithChildren) 
                 return newElements;
             });
         },
-        [setElements]
+        [setElements],
     );
 
     const value = useMemo(
@@ -67,7 +67,7 @@ export default function BuilderContextProvider({ children }: PropsWithChildren) 
 
             selectedElement,
             setSelectedElement,
-            updateElement
+            updateElement,
         }),
         [
             elements,
@@ -76,8 +76,8 @@ export default function BuilderContextProvider({ children }: PropsWithChildren) 
             setElements,
             selectedElement,
             setSelectedElement,
-            updateElement
-        ]
+            updateElement,
+        ],
     );
 
     return <BuilderProvider.Provider value={value}>{children}</BuilderProvider.Provider>;
