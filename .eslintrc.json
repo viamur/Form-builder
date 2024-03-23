@@ -33,6 +33,9 @@
 
         "no-param-reassign": "off",
         "radix": "off",
+        "import/prefer-default-export": "warn",
+        "react/prop-types": "off",
+        "no-use-before-define": ["error", { "functions": false }],
 
         "react/require-default-props": "off",
         "react/forbid-prop-types": "off",

@@ -1,5 +1,6 @@
 import * as React from 'react';
 import * as LabelPrimitive from '@radix-ui/react-label';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { Slot } from '@radix-ui/react-slot';
 import {
     Controller,
@@ -29,11 +30,18 @@ function FormField<
     TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
 >({ ...props }: ControllerProps<TFieldValues, TName>) {
     return (
+        // eslint-disable-next-line react/jsx-no-constructed-context-values
         <FormFieldContext.Provider value={{ name: props.name }}>
             <Controller {...props} />
         </FormFieldContext.Provider>
     );
 }
+
+type FormItemContextValue = {
+    id: string;
+};
+
+const FormItemContext = React.createContext<FormItemContextValue>({} as FormItemContextValue);
 
 const useFormField = () => {
     const fieldContext = React.useContext(FormFieldContext);
@@ -58,17 +66,12 @@ const useFormField = () => {
     };
 };
 
-type FormItemContextValue = {
-    id: string;
-};
-
-const FormItemContext = React.createContext<FormItemContextValue>({} as FormItemContextValue);
-
 const FormItem = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
     ({ className, ...props }, ref) => {
         const id = React.useId();
 
         return (
+            // eslint-disable-next-line react/jsx-no-constructed-context-values
             <FormItemContext.Provider value={{ id }}>
                 <div ref={ref} className={cn('space-y-2', className)} {...props} />
             </FormItemContext.Provider>
