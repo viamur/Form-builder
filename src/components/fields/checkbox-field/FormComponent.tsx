@@ -7,10 +7,6 @@ import { CheckboxFieldFormElement, CustomInstance } from './CheckboxField';
 
 type Props = ComponentProps<FormElement['formComponent']>;
 
-a();
-
-const a = () => console.debug('a');
-
 export default function FormComponent({
     elementInstance,
     submitValue,
