@@ -11,18 +11,15 @@
         "lint": "next lint",
         "prettier": "prettier -w .",
         "postinstall": "prisma generate",
-        "lint:write": "eslint --debug src/ --fix"
-    },
-    "husky": {
-        "hooks": {
-            "pre-commit": "lint-staged"
-        }
+        "lint:write": "eslint --debug src/ --fix",
+        "prepare": "husky install"
     },
     "lint-staged": {
         "*.(ts|tsx)": [
             "npm run lint:write",
             "git add"
-        ]
+        ],
+        "*.js": "eslint --cache --fix"
     },
     "dependencies": {
         "@clerk/nextjs": "^4.29.7",
