@@ -109,7 +109,7 @@ function FormBuilderArea() {
                 }
             }}
             className="flex p-4 w-full h-full flex-grow items-center justify-center relative
-             bg-accent bg-[url(/paper.svg)] dark:bg-[url(/paper-dark.svg)]"
+              bg-[url(/paper.svg)] dark:bg-[url(/paper-dark.svg)]"
         >
             <div
                 ref={droppable.setNodeRef}
