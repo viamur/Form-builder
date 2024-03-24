@@ -6,8 +6,6 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { CheckboxFieldFormElement, CustomInstance } from './CheckboxField';
 
 type Props = ComponentProps<FormElement['formComponent']>;
-const a = 'dfsdfsdfsdfsdfdfsdf' +
-    sdfsdfsdfdfsdfsdfsdfsdfdfsdfsdfsdfsdfdfsdfsdfsdfsdfdfsdfsdfsdfsdfdfsdfsdfsdfsdfdfsdfsdfsdfsdfdfsdfsdfsdfsdfdfsdfsdfsdfsdfdfsdfsdfsdfsdfdfsdfsdfsdfsdfdfsdfsdfsdfsdf';
 
 export default function FormComponent({
     elementInstance,
