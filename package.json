@@ -12,7 +12,7 @@
         "prettier": "prettier -w .",
         "postinstall": "prisma generate",
         "lint:write": "eslint --debug src/ --fix",
-        "prepare": "husky install && chmod ug+x .husky/*"
+        "prepare": "husky install"
     },
     "dependencies": {
         "@clerk/nextjs": "^4.29.7",
