@@ -16,8 +16,7 @@
     },
     "lint-staged": {
         "*.tsx": [
-            "npm run lint:write",
-            "git add"
+            "npm run lint:write"
         ],
         "*.js": "eslint --cache --fix"
     },
