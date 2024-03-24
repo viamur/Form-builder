@@ -13,11 +13,6 @@
         "postinstall": "prisma generate",
         "lint:write": "eslint --debug src/ --fix"
     },
-    "husky": {
-        "hooks": {
-            "pre-commit": "lint-staged"
-        }
-    },
     "lint-staged": {
         "*.(ts|tsx)": [
             "npm run lint:write",
