@@ -11,14 +11,13 @@
         "lint": "next lint",
         "prettier": "prettier -w .",
         "postinstall": "prisma generate",
-        "lint:write": "eslint --debug src/ --fix --max-warnings=0",
+        "lint:write": "eslint --debug src/ --fix",
         "prepare": "husky install"
     },
     "lint-staged": {
-        "*.tsx": [
-            "npm run lint:write"
-        ],
-        "*.js": "eslint --cache --fix"
+        "**/*.{ts,tsx,js,jsx}": [
+            "npx eslint --fix"
+        ]
     },
     "dependencies": {
         "@clerk/nextjs": "^4.29.7",
