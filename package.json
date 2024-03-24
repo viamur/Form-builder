@@ -11,11 +11,11 @@
         "lint": "next lint",
         "prettier": "prettier -w .",
         "postinstall": "prisma generate",
-        "lint:write": "eslint --debug src/ --fix",
+        "lint:write": "eslint --debug src/ --fix --max-warnings=0",
         "prepare": "husky install"
     },
     "lint-staged": {
-        "*.(ts|tsx)": [
+        "*.tsx": [
             "npm run lint:write",
             "git add"
         ],
