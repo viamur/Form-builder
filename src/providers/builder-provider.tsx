@@ -30,7 +30,6 @@ export default function BuilderContextProvider({ children }: PropsWithChildren) 
 
     const addElement = useCallback(
         (index: number, element: FormElementInstance) => {
-            console.log('test, github.dev')
             setElements((prevElements) => {
                 const newElements = [...prevElements];
                 newElements.splice(index, 0, element);
